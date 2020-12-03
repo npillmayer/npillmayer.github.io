@@ -1,0 +1,14 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>A Parsing Toolbox</title>
+    <link>http://npillmayer.github.io/GoRKO/</link>
+    <description>Recent content on A Parsing Toolbox</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Norbert Pillmayer</copyright>
+    
+        <atom:link href="http://npillmayer.github.io/GoRKO/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+  </channel>
+</rss> 
