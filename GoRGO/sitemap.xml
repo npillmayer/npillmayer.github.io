@@ -4,14 +4,41 @@
   
   <url>
     <loc>http://npillmayer.github.io/GoRGO/</loc>
+    <lastmod>2020-12-03T13:54:30+01:00</lastmod>
   </url>
   
   <url>
-    <loc>http://npillmayer.github.io/GoRGO/categories/</loc>
+    <loc>http://npillmayer.github.io/GoRGO/tags/dinosaur/</loc>
+    <lastmod>2020-12-03T13:54:30+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://npillmayer.github.io/GoRGO/tags/gorgo/</loc>
+    <lastmod>2020-12-03T13:54:30+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://npillmayer.github.io/GoRGO/tags/lr-parsing/</loc>
+    <lastmod>2020-12-03T13:54:30+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://npillmayer.github.io/GoRGO/posts/</loc>
+    <lastmod>2020-12-03T13:54:30+01:00</lastmod>
   </url>
   
   <url>
     <loc>http://npillmayer.github.io/GoRGO/tags/</loc>
+    <lastmod>2020-12-03T13:54:30+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://npillmayer.github.io/GoRGO/posts/why-gorgo/</loc>
+    <lastmod>2020-12-03T13:54:30+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://npillmayer.github.io/GoRGO/categories/</loc>
   </url>
   
 </urlset>

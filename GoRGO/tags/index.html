@@ -30,6 +30,7 @@
 <script src="/GoRGO/vendor/js/smooth-scroll.polyfills.min.js" ></script>
 <link type="text/css" rel="stylesheet" href="/GoRGO/vendor/css/bootstrap.min.css">
 <script src="/GoRGO/vendor/js/vue.min.js" ></script>
+<link type="text/css" rel="stylesheet" href="/GoRGO/css/gorgo.css">
 
 
 
@@ -67,9 +68,9 @@
     <a class="a-block nav-head false" href="http://npillmayer.github.io/GoRGO/">
     
         <div class="nav-title">
-		  <div><img src="http://npillmayer.github.io/GoRGO//images/GoRGO-Logo.svg" alt="GoRKO Logo" style="max-width:210px">
+		  <div><img src="/GoRGO/images/GoRGO-Logo.svg" alt="GoRGO Logo" style="max-width:210px">
 		  </div>
-            A Parsing Toolbox
+            A Parsing Toolbox in Go
         </div>
         
         <div class="nav-subtitle">
@@ -211,7 +212,7 @@ Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopene
             </i>
         </button>
         <a ref="navTitle" class="navbar-brand" href="http://npillmayer.github.io/GoRGO/">
-            A Parsing Toolbox
+            A Parsing Toolbox in Go
         </a>
         
         <button type="button" class="nav-darkmode-toggle" v-on:click="toggleDarkMode">
@@ -228,7 +229,7 @@ Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopene
 <div class="single-column-header-container" ref="pageHead"
      v-bind:style="{ transform: 'translateZ(0px) translateY('+.3*scrollY+'px)', opacity: 1-navOpacity }">
     <a href="http://npillmayer.github.io/GoRGO/">
-        <div class="single-column-header-title">A Parsing Toolbox</div>
+        <div class="single-column-header-title">A Parsing Toolbox in Go</div>
         
         <div class="single-column-header-subtitle">Notes on GoRGO Development</div>
         
@@ -251,6 +252,42 @@ Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopene
             </div>
         </a>
         
+        
+                <a href="http://npillmayer.github.io/GoRGO/tags/dinosaur/" class="a-block">
+                    <div class="post-item-wrapper">
+                        <div class="post-item post-item-no-gaps">
+                            <div class="post-item-info-wrapper"> 
+                                <div class="post-item-title">
+                                    Dinosaur
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+        
+                <a href="http://npillmayer.github.io/GoRGO/tags/gorgo/" class="a-block">
+                    <div class="post-item-wrapper">
+                        <div class="post-item post-item-no-gaps">
+                            <div class="post-item-info-wrapper"> 
+                                <div class="post-item-title">
+                                    GoRGO
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+        
+                <a href="http://npillmayer.github.io/GoRGO/tags/lr-parsing/" class="a-block">
+                    <div class="post-item-wrapper">
+                        <div class="post-item post-item-no-gaps">
+                            <div class="post-item-info-wrapper"> 
+                                <div class="post-item-title">
+                                    LR-Parsing
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
         
     </div>
 </div>

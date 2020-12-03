@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html><head>
-	<meta name="generator" content="Hugo 0.66.0" />
-<title>A Parsing Toolbox in Go</title>
+<title>Why GoRGO?</title>
 
 
-
-  
 
 
 <meta charset="utf-8">
@@ -13,7 +10,7 @@
 <meta name="google-site-verification" content="">
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
 <meta content="telephone=no" name="format-detection">
-<meta name="description" content="">
+<meta name="description" content="What is GoRGO and how did it come to be, in a nutshell">
 <meta name="renderer" content="webkit">
 <meta name="theme-color" content="#ffffff">
 
@@ -55,6 +52,10 @@
 
 
 
+  
+    <script src="http://npillmayer.github.io/GoRGO//js/toc-collapse.js"></script>
+  
+
 
 
 
@@ -68,7 +69,7 @@
 <body>
     	<div id="app"><div ref="sideContainer" class="side-container">
     
-    <a class="a-block nav-head active" href="http://npillmayer.github.io/GoRGO/">
+    <a class="a-block nav-head false" href="http://npillmayer.github.io/GoRGO/">
     
         <div class="nav-title">
 		  <div><img src="/GoRGO/images/GoRGO-Logo.svg" alt="GoRGO Logo" style="max-width:210px">
@@ -108,9 +109,11 @@
             
             
             
+                
             
             
-            <a class="a-block nav-link-item false" href="/GoRGO/posts">
+            
+            <a class="a-block nav-link-item active" href="/GoRGO/posts">
                 Archive
             </a>
             
@@ -137,6 +140,100 @@ Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopene
 <div ref="extraContainer" class="extra-container">
     
     
+    <div class="toc animated-visibility" :class="{ invisible: scrollY <= 140 }">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- CATALOG -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#what-is-it-about" onclick="onNavClick(`#what-is-it-about-nav`)" id="what-is-it-about-nav">
+									What is it about?
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								<ul class="collapse" data-toggle="collapse">
+							
+						
+						
+							<li>
+								<a href="#the-name" onclick="onNavClick(`#the-name-nav`)" id="the-name-nav">
+									The Name
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#no-code-generation" onclick="onNavClick(`#no-code-generation-nav`)" id="no-code-generation-nav">
+									No Code Generation
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#ambiguous-grammars" onclick="onNavClick(`#ambiguous-grammars-nav`)" id="ambiguous-grammars-nav">
+									Ambiguous Grammars
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+    
     <div class="pagination">
         <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top" :class="{ invisible: scrollY == 0 }">
             <i class="material-icons pagination-action-icon">
@@ -152,8 +249,6 @@ Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopene
                 brightness_7
             </i>
         </a>
-        
-        
         
         
     </div>
@@ -188,13 +283,109 @@ Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopene
                 
                 
                 
+                    
                 
                 
-                <a class="a-block drawer-menu-item false" href="/GoRGO/posts">
+                
+                <a class="a-block drawer-menu-item active" href="/GoRGO/posts">
                     Archive
                 </a>
                 
             
+            
+            <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- CATALOG -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#what-is-it-about" onclick="onNavClick(`#what-is-it-about-nav`)" id="what-is-it-about-nav">
+									What is it about?
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								<ul class="collapse" data-toggle="collapse">
+							
+						
+						
+							<li>
+								<a href="#the-name" onclick="onNavClick(`#the-name-nav`)" id="the-name-nav">
+									The Name
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#no-code-generation" onclick="onNavClick(`#no-code-generation-nav`)" id="no-code-generation-nav">
+									No Code Generation
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#ambiguous-grammars" onclick="onNavClick(`#ambiguous-grammars-nav`)" id="ambiguous-grammars-nav">
+									Ambiguous Grammars
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
             
         </div>
     </div>
@@ -237,46 +428,148 @@ Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopene
 </div>
 
             <div id="content">
-
 <div ref="streamContainer" class="stream-container">
-    <div class="post-list-container post-list-container-no-background">
-        
+    <div class="post-list-container post-list-container-shadow">
+        <div class="post">
             
-            <a href="http://npillmayer.github.io/GoRGO/posts/why-gorgo/" class="a-block">
-                <div class="post-item-wrapper">
-                    <div class="post-item post-item-no-divider">
-                        <div class="post-item-info-wrapper">
-                            <div class="post-item-title">
-                                Why GoRGO?
-                            </div>
-                            <div class="post-item-summary">
-                                What is GoRGO and how did it come to be, in a nutshell
-                            </div>
-                            <div class="post-item-meta">
-    2020-12-03
-    &emsp;
-    
-    
-    
-    &emsp;
-    
-</div>
+            
+            
 
-                        </div>
+            <div class="post-head-wrapper-text-only"
+                
+            >
+                <div class="post-title">
+                    Why GoRGO?
+                    
+                    <div class="post-subtitle">
+                        What is GoRGO and how did it come to be, in a nutshell
+                    </div>
+                    
+                    <div class="post-meta">
+                        
+                        <time itemprop="datePublished">
+                            2020-12-03 13:54
+                        </time>
+                        
+
+                        
+
+                        
+                            <i class="material-icons" style="">label</i>
+                            
+                                <a href="/GoRGO/tags/gorgo">GoRGO</a>
+                                &nbsp;
+                            
+                                <a href="/GoRGO/tags/dinosaur">Dinosaur</a>
+                                &nbsp;
+                            
+                                <a href="/GoRGO/tags/lr-parsing">LR-Parsing</a>
+                                &nbsp;
+                            
                         
                         
                     </div>
                 </div>
+            </div>
             
-        
-        </a>
+            <div class="post-body-wrapper">
+                
+                <div class="post-body" v-pre>
+                
+                    <h1 id="what-is-it-about">What is it about?</h1>
+<p>Every software developer I know hates repetitive tasks. What&rsquo;s the point of being a programmer if
+you can&rsquo;t delegate your chores to a machine? And as a backend developer you are most likely open to
+the idea to employ some kind of domain specific language (DSL).
+That&rsquo;s where a compiler generator may come into play. There is no shortage of them, ranging from good
+old <em>bison</em> to <em>ANTLR</em> and various Go variants like <em>gocc</em>. Why develop another one?</p>
+<p>I have used many of the aforementioned tools extensively in my life, plus a handful of situations where I&rsquo;ve
+written recursive descent parsers by hand. All these tools have their value and I appreciate the availability of
+compiler-compilers with a lot of horse power. But on the other hand, sometimes I want something more compact,
+a smart and lightweight tool to generate an interpreter for a custom language. And I want it in native Go,
+as this is what I currently use for Open Source. That&rsquo;s what GoRGO strives to be.</p>
+<h2 id="the-name">The Name</h2>
+<p>The &ldquo;RGO&rdquo; in GoRGO stands for <strong>R</strong>ight-derivated <strong>G</strong>rammar <strong>O</strong>perations, which may sound all gibberish to you
+(and I wouldn&rsquo;t blame you). But there&rsquo;s a hint in this name that we will focus on LR-parsing, i.e., we will
+construct bottom-up parsers which produce right-derivations. That&rsquo;s exactly what <em>yacc</em> et al do (unlike
+<em>ANTRL</em>, which produces LL-parsers), so no surprise there—or is it? In fact it should be, as DSL parsers
+these days are implemented with PEGs most of the time. But PEGs (parser expression grammars) are top-down,
+so why clinge to LR-parsing?</p>
+
+<div class="panel panel-default" style="float:right; max-width:280px">
+  <div class="panel-heading"><h5>Gorgosaurus</h5></div>
+  <p style="line-height:1.1rem;margin-top:4px">
+Gorgosaurus (<em>fierce lizard</em>&#x2009;)
+was not quite as big or famous as Tyrannosaurus Rex, but dangerous nevertheless.
+It lived some 75 million years ago in Northern America, <b>eating anything</b> it came across.
+We will meet its cousin T-Rex again when we'll talk about TeREx.
+</p>
+</div>
+
+
+<p>PEG parsers have a number of disadvantages for the careless user. Although I love their simplicity,
+they lack a certain foolproofness
+which I expect for ad-hoc DSLs. Most ad-hoc grammars people write contain <em>ambiguous rules</em>, and PEGs
+hide ambiguity rather than resolving it. On the other hand, we do not want programmers to fix
+shift|reduce-conflicts and the like. The tool should <em>just eat</em> my grammar! Therefore we revert to
+LR-parsers, acknowledging the fact that we have to convince the parser to not be so tough on its users.</p>
+<p>GoRGO follows a few design paradigm which in some aspects differ from your garden-variety parser
+generator.</p>
+<h2 id="no-code-generation">No Code Generation</h2>
+<p>Parser generators (compiler compilers) usually generate source code. That&rsquo;s often a good idea, as
+many of these tools can handle a multitude of host languages. Moreover, Go has a mechanism for preprocessing and
+code-generation (<code>go-generate</code>) which is well suited for parser generators. However, for small
+DSLs I prefer to skip a code-generation step and rather create the parser in code and immediately run it.</p>
+<p>Digesting the grammar always comes first, and results in a bunch of <em>LR parse tables</em>. Instead of saving these
+tables as source code into a file, we keep them in memory and provide them to a parser. Table generation is
+quick for small languages and we can afford to go through this step once per program execution.</p>
+<h2 id="ambiguous-grammars">Ambiguous Grammars</h2>
+<p>Conventional parser generator do not handle ambiguous grammars well. Especially for ad-hoc DSL, however,
+grammar ambiguity is quite common. Parser which can handle these kinds of grammars have been known for
+some time, but rarely gained popularity (<em>bison</em> is an exception to this rule and <em>ANTRL</em> mitigates many
+of these problems, too). GoRGO implementes two flavors of bottom-up parsers, which can cope with
+ambiguty: Earley parsing and GLR-parsing.</p>
+<p>During tests for various DSL tasks I came to love Earley-parsing. Sketching out a grammar, attaching it into
+an Earley parser and feeding it some sample input, all with a couple lines of code,
+is a satisfying experience. In theory Earley parsing can
+severly degrade in performance, but I have yet to come across such a case in practice.</p>
+<p>GoRGO is an ongoing experiment. Stay tuned for some real-world application stories.</p>
+                    
+                    <HR width="100%" id="EOF">
+		    <p style="color:#777;">Last modified on 2020-12-03</p>
+                    
+                </div>
+            </div>
+            
+            
+            <nav class="post-pagination">
+
+                
+                <a class="newer-posts">
+			Next<br>No newer posts.
+                </a>
+                
+                
+                
+                <a class="older-posts">
+			Previous<br>No older posts.
+                </a>
+                
+            </nav>
+            <div class="post-comment-wrapper">
+                
+
+
+
+
+
+
+
+            </div>
+        </div>
     </div>
 </div>
 
-            </div>
-
-
-<div id="single-column-footer">
+            </div><div id="single-column-footer">
 Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://amazingrise.net">Rise</a>
 <br>
 Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
