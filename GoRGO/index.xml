@@ -18,12 +18,13 @@
         <pubDate>Thu, 03 Dec 2020 13:54:30 +0100</pubDate>
         
         <guid>http://npillmayer.github.io/GoRGO/posts/why-gorgo/</guid>
-        <description>A Parsing Toolbox in Go http://npillmayer.github.io/GoRGO/posts/why-gorgo/ -&lt;h1 id=&#34;what-is-it-about&#34;&gt;What is it about?&lt;/h1&gt;
-&lt;p&gt;Every software developer I know hates repetitive tasks. What&amp;rsquo;s the point of being a programmer if
+        <description>A Parsing Toolbox in Go http://npillmayer.github.io/GoRGO/posts/why-gorgo/ -&lt;p&gt;Every software developer I know hates repetitive tasks. What&amp;rsquo;s the point of being a programmer if
 you can&amp;rsquo;t delegate your chores to a machine? And as a backend developer you are most likely open to
 the idea to employ some kind of domain specific language (DSL).
 That&amp;rsquo;s where a compiler generator may come into play. There is no shortage of them, ranging from good
-old &lt;em&gt;bison&lt;/em&gt; to &lt;em&gt;ANTLR&lt;/em&gt; and various Go variants like &lt;em&gt;gocc&lt;/em&gt;. Why develop another one?&lt;/p&gt;
+old &lt;em&gt;bison&lt;/em&gt; to &lt;em&gt;ANTLR&lt;/em&gt; and various Go variants like &lt;em&gt;gocc&lt;/em&gt;. Why develop another one?
+GoRGO is a little different.&lt;/p&gt;
+&lt;h1 id=&#34;what-is-it-about&#34;&gt;What is it about?&lt;/h1&gt;
 &lt;p&gt;I have used many of the aforementioned tools extensively in my life, plus a handful of situations where I&amp;rsquo;ve
 written recursive descent parsers by hand. All these tools have their value and I appreciate the availability of
 compiler-compilers with a lot of horse power. But on the other hand, sometimes I want something more compact,
@@ -40,10 +41,10 @@ so why clinge to LR-parsing?&lt;/p&gt;
 &lt;div class=&#34;panel panel-default&#34; style=&#34;float:right; max-width:280px&#34;&gt;
   &lt;div class=&#34;panel-heading&#34;&gt;&lt;h5&gt;Gorgosaurus&lt;/h5&gt;&lt;/div&gt;
   &lt;p style=&#34;line-height:1.1rem;margin-top:4px&#34;&gt;
-Gorgosaurus (&lt;em&gt;fierce lizard&lt;/em&gt;&amp;#x2009;)
+Gorgo⋅saurus (&lt;em&gt;fierce lizard&lt;/em&gt;&amp;#x2009;)
 was not quite as big or famous as Tyrannosaurus Rex, but dangerous nevertheless.
 It lived some 75 million years ago in Northern America, &lt;b&gt;eating anything&lt;/b&gt; it came across.
-We will meet its cousin T-Rex again when we&#39;ll talk about TeREx.
+We will meet its cousin T-Rex again when we&#39;ll talk about TeREx, a term rewriter.
 &lt;/p&gt;
 &lt;/div&gt;
 
@@ -68,7 +69,7 @@ quick for small languages and we can afford to go through this step once per pro
 &lt;p&gt;Conventional parser generator do not handle ambiguous grammars well. Especially for ad-hoc DSL, however,
 grammar ambiguity is quite common. Parser which can handle these kinds of grammars have been known for
 some time, but rarely gained popularity (&lt;em&gt;bison&lt;/em&gt; is an exception to this rule and &lt;em&gt;ANTRL&lt;/em&gt; mitigates many
-of these problems, too). GoRGO implementes two flavors of bottom-up parsers, which can cope with
+of these problems, too). GoRGO implementes two flavors of bottom-up parsers, which are able to cope with
 ambiguty: Earley parsing and GLR-parsing.&lt;/p&gt;
 &lt;p&gt;During tests for various DSL tasks I came to love Earley-parsing. Sketching out a grammar, attaching it into
 an Earley parser and feeding it some sample input, all with a couple lines of code,

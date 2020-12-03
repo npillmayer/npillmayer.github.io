@@ -19,3 +19,13 @@
   padding-bottom: 0px;
   margin-bottom: 0px;
 }
+.post-item-subtitle {
+  font-size: 0.9rem;
+  color: #666;
+}
+.post-item-more p {
+  font-size: 0.9rem;
+}
+strong {
+  color: #1776d2;
+}
