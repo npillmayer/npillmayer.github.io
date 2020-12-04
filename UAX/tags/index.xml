@@ -1,13 +1,33 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on ⋮Seg⋮men⋮ting⋮ ⋮Uni⋮code⋮</title>
+    <title>Tags on ⋮Seg⋮ment⋮ing⋮ ⋮Uni⋮code⋮</title>
     <link>http://npillmayer.github.io/UAX/tags/</link>
-    <description>Recent content in Tags on ⋮Seg⋮men⋮ting⋮ ⋮Uni⋮code⋮</description>
+    <description>Recent content in Tags on ⋮Seg⋮ment⋮ing⋮ ⋮Uni⋮code⋮</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <copyright>Norbert Pillmayer</copyright>
+    <lastBuildDate>Fri, 04 Dec 2020 11:54:16 +0100</lastBuildDate>
     
         <atom:link href="http://npillmayer.github.io/UAX/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Segmentation</title>
+      <link>http://npillmayer.github.io/UAX/tags/segmentation/</link>
+      <pubDate>Fri, 04 Dec 2020 11:54:16 +0100</pubDate>
+      
+      <guid>http://npillmayer.github.io/UAX/tags/segmentation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Unicode</title>
+      <link>http://npillmayer.github.io/UAX/tags/unicode/</link>
+      <pubDate>Fri, 04 Dec 2020 11:54:16 +0100</pubDate>
+      
+      <guid>http://npillmayer.github.io/UAX/tags/unicode/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

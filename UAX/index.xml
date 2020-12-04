@@ -1,13 +1,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>⋮Seg⋮men⋮ting⋮ ⋮Uni⋮code⋮</title>
+    <title>⋮Seg⋮ment⋮ing⋮ ⋮Uni⋮code⋮</title>
     <link>http://npillmayer.github.io/UAX/</link>
-    <description>Recent content on ⋮Seg⋮men⋮ting⋮ ⋮Uni⋮code⋮</description>
+    <description>Recent content on ⋮Seg⋮ment⋮ing⋮ ⋮Uni⋮code⋮</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <copyright>Norbert Pillmayer</copyright>
+    <lastBuildDate>Fri, 04 Dec 2020 11:54:16 +0100</lastBuildDate>
     
         <atom:link href="http://npillmayer.github.io/UAX/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Posts</title>
+      <link>http://npillmayer.github.io/UAX/post/</link>
+      <pubDate>Fri, 04 Dec 2020 11:54:16 +0100</pubDate>
+      
+      <guid>http://npillmayer.github.io/UAX/post/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

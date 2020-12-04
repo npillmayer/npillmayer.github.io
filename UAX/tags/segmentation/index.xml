@@ -1,0 +1,25 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Segmentation on ⋮Seg⋮ment⋮ing⋮ ⋮Uni⋮code⋮</title>
+    <link>http://npillmayer.github.io/UAX/tags/segmentation/</link>
+    <description>Recent content in Segmentation on ⋮Seg⋮ment⋮ing⋮ ⋮Uni⋮code⋮</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Norbert Pillmayer</copyright>
+    <lastBuildDate>Fri, 04 Dec 2020 11:54:16 +0100</lastBuildDate>
+    
+        <atom:link href="http://npillmayer.github.io/UAX/tags/segmentation/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>⋮The⋮ ⋮Per⋮ils⋮ ⋮of⋮ ⋮Seg⋮ment⋮ing⋮ ⋮Text⋮</title>
+      <link>http://npillmayer.github.io/UAX/2020/problem-statement/</link>
+      <pubDate>Fri, 04 Dec 2020 11:54:16 +0100</pubDate>
+      
+      <guid>http://npillmayer.github.io/UAX/2020/problem-statement/</guid>
+      <description>Breaking Unicode Text into Segments Text processing applications need to segment text into pieces. Segments may be
+ words, sentences, paragraphs  and so on. For western languages this is not too hard of a problem, but it may become an involved endeavor if you consider Arabic or Asian languages. From a typographic viewpoint some of these languages present serious challenges for correct segmenting. The Unicode consortium publishes recommendations and algorithms for various aspects of text segmentation in their Unicode Annexes (UAX).</description>
+    </item>
+    
+  </channel>
+</rss>

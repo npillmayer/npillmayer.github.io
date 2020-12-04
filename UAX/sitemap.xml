@@ -3,15 +3,43 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://npillmayer.github.io/UAX/archives/2020/</loc>
+    <lastmod>2020-12-04T11:54:16+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://npillmayer.github.io/UAX/archives/</loc>
+    <lastmod>2020-12-04T11:54:16+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://npillmayer.github.io/UAX/post/</loc>
+    <lastmod>2020-12-04T11:54:16+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://npillmayer.github.io/UAX/tags/segmentation/</loc>
+    <lastmod>2020-12-04T11:54:16+01:00</lastmod>
   </url>
   
   <url>
     <loc>http://npillmayer.github.io/UAX/tags/</loc>
+    <lastmod>2020-12-04T11:54:16+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://npillmayer.github.io/UAX/tags/unicode/</loc>
+    <lastmod>2020-12-04T11:54:16+01:00</lastmod>
   </url>
   
   <url>
     <loc>http://npillmayer.github.io/UAX/</loc>
+    <lastmod>2020-12-04T11:54:16+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://npillmayer.github.io/UAX/2020/problem-statement/</loc>
+    <lastmod>2020-12-04T11:54:16+01:00</lastmod>
   </url>
   
 </urlset>
