@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on A Parsing Toolbox in Go</title>
-    <link>http://npillmayer.github.io/GoRGO/posts/</link>
-    <description>Recent content in Posts on A Parsing Toolbox in Go</description>
+    <title>MetaPost on A Parsing Toolbox in Go</title>
+    <link>http://npillmayer.github.io/GoRGO/tags/metapost/</link>
+    <description>Recent content in MetaPost on A Parsing Toolbox in Go</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Norbert Pillmayer</copyright>
     <lastBuildDate>Thu, 10 Dec 2020 14:33:27 +0100</lastBuildDate>
     
-	<atom:link href="http://npillmayer.github.io/GoRGO/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://npillmayer.github.io/GoRGO/tags/metapost/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -20,20 +20,6 @@
       <guid>http://npillmayer.github.io/GoRGO/posts/parsing-metafont/</guid>
       <description>Parsing the MetaFont Language These days I spend my evenings programming a variant of MetaPost, a DSL for diagrams and illustrations. MetaPost inherits much of its syntax from MetaFont, which has been designed by D. E. Knuth. Mr Knuth is the &amp;ldquo;father of LR-parsing,&amp;rdquo; so one would expect some interesting language features in MetaPost—and we are not disappointed!
 MetaPost&amp;rsquo;s unique selling point is its ability to solve linear equations. In some situations, you&amp;rsquo;d rather not specifiy a point position, but let the computer figure out its location.</description>
-    </item>
-    
-    <item>
-      <title>Why GoRGO?</title>
-      <link>http://npillmayer.github.io/GoRGO/posts/why-gorgo/</link>
-      <pubDate>Thu, 03 Dec 2020 13:54:30 +0100</pubDate>
-      
-      <guid>http://npillmayer.github.io/GoRGO/posts/why-gorgo/</guid>
-      <description>&lt;p&gt;Every software developer I know hates repetitive tasks. What&amp;rsquo;s the point of being a programmer if
-you can&amp;rsquo;t delegate your chores to a machine? And as a backend developer you are most likely open to
-the idea to employ some kind of domain specific language (DSL).
-That&amp;rsquo;s where a compiler generator may come into play. There is no shortage of them, ranging from good
-old &lt;em&gt;bison&lt;/em&gt; to &lt;em&gt;ANTLR&lt;/em&gt; and various Go variants like &lt;em&gt;gocc&lt;/em&gt;. Why develop another one?
-GoRGO is a little different.&lt;/p&gt;</description>
     </item>
     
   </channel>

@@ -37,6 +37,8 @@
 
 
 
+
+
 <link rel="stylesheet" href="http://npillmayer.github.io/GoRGO/scss/journal.min.c116bc90d171283f099f173854157ec8f183f9073b93443b2c8ad82899ee9025.css" integrity="sha256-wRa8kNFxKD8Jnxc4VBV&#43;yPGD&#43;Qc7k0Q7LIrYKJnukCU=" media="screen">
 
 
@@ -490,11 +492,11 @@ a smart and lightweight tool to generate an interpreter for a custom language. A
 as this is what I currently use for Open Source. That&rsquo;s what GoRGO strives to be.</p>
 <h2 id="the-name">The Name</h2>
 <p>The &ldquo;RGO&rdquo; in GoRGO stands for <strong>R</strong>ight-derivated <strong>G</strong>rammar <strong>O</strong>perations, which may sound all gibberish to you
-(and I wouldn&rsquo;t blame you). But there&rsquo;s a hint in this name that we will focus on LR-parsing, i.e., we will
+(and I wouldn&rsquo;t blame you). But there&rsquo;s a hint in this name: we will focus on LR-parsing, i.e., we will
 construct bottom-up parsers which produce right-derivations. That&rsquo;s exactly what <em>yacc</em> et al do (unlike
-<em>ANTRL</em>, which produces LL-parsers), so no surprise there—or is it? In fact it should be, as DSL parsers
+<em>ANTLR</em>, which produces LL-parsers), so no surprise there—or is it? In fact it should be, as DSL parsers
 these days are implemented with PEGs most of the time. But PEGs (parser expression grammars) are top-down,
-so why clinge to LR-parsing?</p>
+so why clinge to bottom-up parsing?</p>
 
 <div class="panel panel-default" style="float:right; max-width:280px">
   <div class="panel-heading"><h5>Gorgosaurus</h5></div>
@@ -510,7 +512,7 @@ We will meet its cousin T-Rex again when we'll talk about TeREx, a term rewriter
 <p>PEG parsers have a number of disadvantages for the careless user. Although I love their simplicity,
 they lack a certain foolproofness
 which I expect for ad-hoc DSLs. Most ad-hoc grammars people write contain <em>ambiguous rules</em>, and PEGs
-hide ambiguity rather than resolving it. On the other hand, we do not want programmers to fix
+hide ambiguity rather than resolving it. On the other hand, we do not want programmers to have to fix
 shift|reduce-conflicts and the like. The tool should <em>just eat</em> my grammar! Therefore we revert to
 LR-parsers, acknowledging the fact that we have to convince the parser to not be so tough on its users.</p>
 <p>GoRGO follows a few design paradigm which in some aspects differ from your garden-variety parser
@@ -524,9 +526,9 @@ DSLs I prefer to skip a code-generation step and rather create the parser in cod
 tables as source code into a file, we keep them in memory and provide them to a parser. Table generation is
 quick for small languages and we can afford to go through this step once per program execution.</p>
 <h2 id="ambiguous-grammars">Ambiguous Grammars</h2>
-<p>Conventional parser generator do not handle ambiguous grammars well. Especially for ad-hoc DSL, however,
+<p>Conventional parser generator do not handle ambiguous grammars well. Especially for ad-hoc DSLs, however,
 grammar ambiguity is quite common. Parser which can handle these kinds of grammars have been known for
-some time, but rarely gained popularity (<em>bison</em> is an exception to this rule and <em>ANTRL</em> mitigates many
+some time, but rarely gained popularity (<em>bison</em>&lsquo;s GLR-feature is an exception to this rule and <em>ANTLR</em> mitigates many
 of these problems, too). GoRGO implementes two flavors of bottom-up parsers, which are able to cope with
 ambiguty: Earley parsing and GLR-parsing.</p>
 <p>During tests for various DSL tasks I came to love Earley-parsing. Sketching out a grammar, attaching it into
@@ -545,8 +547,8 @@ severly degrade in performance, but I have yet to come across such a case in pra
             <nav class="post-pagination">
 
                 
-                <a class="newer-posts">
-			Next<br>No newer posts.
+                <a class="newer-posts" href="http://npillmayer.github.io/GoRGO/posts/parsing-metafont/">
+			Next<br>Parsing MetaFont
                 </a>
                 
                 

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html><head>
-<title>GoRGO</title>
+<title>Parsing MetaFont</title>
 
 
 
@@ -33,6 +33,12 @@
 <link type="text/css" rel="stylesheet" href="/GoRGO/css/gorgo.css">
 
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+
+
 
 
 
@@ -53,6 +59,10 @@
 
 
 
+
+  
+    <script src="http://npillmayer.github.io/GoRGO//js/toc-collapse.js"></script>
+  
 
 
 
@@ -87,11 +97,9 @@
             
             
             
-                
             
             
-            
-            <a class="a-block nav-link-item active" href="/GoRGO/tags">
+            <a class="a-block nav-link-item false" href="/GoRGO/tags">
                 Tags
             </a>
             
@@ -109,9 +117,11 @@
             
             
             
+                
             
             
-            <a class="a-block nav-link-item false" href="/GoRGO/posts">
+            
+            <a class="a-block nav-link-item active" href="/GoRGO/posts">
                 Archive
             </a>
             
@@ -138,6 +148,42 @@ Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopene
 <div ref="extraContainer" class="extra-container">
     
     
+    <div class="toc animated-visibility" :class="{ invisible: scrollY <= 140 }">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- CATALOG -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#parsing-the-metafont-language" onclick="onNavClick(`#parsing-the-metafont-language-nav`)" id="parsing-the-metafont-language-nav">
+									Parsing the MetaFont Language
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+    
     <div class="pagination">
         <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top" :class="{ invisible: scrollY == 0 }">
             <i class="material-icons pagination-action-icon">
@@ -155,8 +201,6 @@ Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopene
         </a>
         
         
-        
-        
     </div>
 </div>
 <div class="single-column-drawer-container" ref="drawer"
@@ -169,11 +213,9 @@ Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopene
                 
                 
                 
-                    
                 
                 
-                
-                <a class="a-block drawer-menu-item active" href="/GoRGO/tags">
+                <a class="a-block drawer-menu-item false" href="/GoRGO/tags">
                     Tags
                 </a>
                 
@@ -191,13 +233,51 @@ Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopene
                 
                 
                 
+                    
                 
                 
-                <a class="a-block drawer-menu-item false" href="/GoRGO/posts">
+                
+                <a class="a-block drawer-menu-item active" href="/GoRGO/posts">
                     Archive
                 </a>
                 
             
+            
+            <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- CATALOG -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#parsing-the-metafont-language" onclick="onNavClick(`#parsing-the-metafont-language-nav`)" id="parsing-the-metafont-language-nav">
+									Parsing the MetaFont Language
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
             
         </div>
     </div>
@@ -242,41 +322,143 @@ Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopene
             <div id="content">
 <div ref="streamContainer" class="stream-container">
     <div class="post-list-container post-list-container-shadow">
-        <div class="post-item-wrapper post-item-wrapper-no-hover">
-            <div class="post-item post-item-no-gaps">
-                <div class="post-item-info-wrapper">
-                    <div class="post-item-title  post-item-title-small">
-                        <a href="http://npillmayer.github.io/GoRGO/">A Parsing Toolbox in Go</a> / GoRGO
+        <div class="post">
+            
+            
+            
+
+            <div class="post-head-wrapper-text-only"
+                
+            >
+                <div class="post-title">
+                    Parsing MetaFont
+                    
+                    <div class="post-meta">
+                        
+                        <time itemprop="datePublished">
+                            2020-12-10 14:33
+                        </time>
+                        
+
+                        
+
+                        
+                            <i class="material-icons" style="">label</i>
+                            
+                                <a href="/GoRGO/tags/metafont">MetaFont</a>
+                                &nbsp;
+                            
+                                <a href="/GoRGO/tags/metapost">MetaPost</a>
+                                &nbsp;
+                            
+                                <a href="/GoRGO/tags/earley">Earley</a>
+                                &nbsp;
+                            
+                        
+                        
                     </div>
                 </div>
             </div>
-        </div><a href="/GoRGO/posts/why-gorgo/" class="a-block">
-            <div class="post-item-wrapper">
-                <div class="post-item post-item-no-gaps">
-                    <div class="post-item-info-wrapper">
-                        <div class="post-item-title">
-                            Why GoRGO?
-                        </div>
-                        <div class="post-item-meta">
-    2020-12-03
-    &emsp;
-    
-    
-    
-    &emsp;
-    
-</div>
+            
+            <div class="post-body-wrapper">
+                
+                <div class="post-body" v-pre>
+                
+                    <h1 id="parsing-the-metafont-language">Parsing the MetaFont Language</h1>
+<p>These days I spend my evenings programming a variant of
+<a href="https://www.texfaq.org/FAQ-MP">MetaPost</a>,
+a DSL for diagrams and illustrations. MetaPost inherits much of its syntax from
+<a href="https://www.texfaq.org/FAQ-MF">MetaFont</a>,
+which has been designed by D. E. Knuth. Mr Knuth is the &ldquo;father of LR-parsing,&rdquo; so one would expect
+some interesting language features in MetaPost—and we are not disappointed!</p>
+<p>MetaPost&rsquo;s unique selling point is its ability to solve linear equations. In some situations, you&rsquo;d rather not
+specifiy a point position, but let the computer figure out its location. Let&rsquo;s take a look at an example:</p>
+<p><img src="/GoRGO/img/MP-Example.png" alt="Star drawn by MetaPost"></p>
+<p>Don&rsquo;t worry if this looks a bit like your last mathematics exam. The unique part are the lines like
+<code>A'=whatever[A,C];</code>. This is MetaPost&rsquo;s way of requesting a point <em>A</em>&rsquo; to lie <em>somewhere</em> on the
+line between points <em>A</em> and <em>C</em>. Given that <em>A</em>&rsquo; should lie on [<em>A</em>,<em>C</em> ] as well as on [<em>B</em>,<em>D</em> ], MetaPost
+will find the intersection point by solving a set of linear equations. That&rsquo;s a pretty cool feature!
+However, that&rsquo;s not what I want to talk about in this post.</p>
+<p>The MetaPost language is designed to be somehow reminiscent of mathematical writing. This is especially
+noticeable with its convenctions for variable names. You already caught a glimps of that with those
+point primed point variables (<em>A</em>'), but that&rsquo;s not the end of it. MetaPost will happily digest
+identifiers like \(z&rsquo;_r\) (denoted as <code>z'.r</code>) and \(x_1\) (<code>x1</code>). Add to this the ability to handle
+fractions as numeric input, you are free to instruct MetaPost to calculate</p>
+<p>$$-{1\over3}x_{n-1}$$</p>
+<p>by typing <code>-1/3x[n-1]</code>. That might not appeal to everyone, but it sure is easy to type and MetaPost
+will usually understand what you had in mind.</p>
+<p>Those variable names look innocent enough, but from a parser&rsquo;s point of view they are quite challenging.
+Let&rsquo;s consider the input <code>7 - -a1r</code>. By now you propably could guess that this means &ldquo;\(7- -a_{1r}\).&rdquo;
+Setting aside that you should enclose the second term in parens anyway, put yourself in the shoes of
+the parser: it will see a sequence of tokens like <code>7 - - a 1 r</code>. And just when you successfully told
+your parser-generator to parse it, someone types in <code>7 - - 1 / 3 x [ n - 1 ]</code>, expecting to get</p>
+<p>$$7 - -{1\over3}x_{n-1}$$</p>
+<p>Of course part of the complications arise from the usual unary plus/minus problem. But the notation of
+scalar prefixes for variables makes it a bit more difficult to implement. John Hobby, the author of
+MetaPost, has been kind enough to publish a
+<a href="https://www.tug.org/docs/metapost/mpman.pdf">BNF grammar for MetaPost</a>
+(pp. 92–97). Remarkably, it contains the rule</p>
+<pre><code>⟨scalar multiplication op⟩ → + | −
+      | ⟨‘⟨number or fraction⟩’ not followed by ‘⟨add op⟩⟨number⟩’
+</code></pre>
+<p>a strong hint that a dose of scanner hack has been required to implement scalar prefixes (a.k.a. <em>scalar
+multiplication op</em> ).</p>
+<p>GoRGO&rsquo;s Earley-parser has (yet) no feature for operator precedence, so I was unsure of how difficult it
+would be to implement scalar prefixes. Turned out, not difficult at all—it worked first go! (Well,
+technically that&rsquo;s a lie, because I first ran into a subtle bug of the Earley parser code, but that&rsquo;s
+a different story.) One especially pretty feature of Earley parsers is that you can watch them think.
+Doing so, I found the parser&rsquo;s default behaviour for certain kinds of ambiguity spot on for the
+problem. The relevant rules of the MetaPost grammar had to be slightly adapted to get rid of the
+scanner hack and actually resulted in an easier to read version.</p>
+<pre><code>⟨tertiary⟩ → ⟨secondary⟩ 
+    | ⟨tertiary⟩ PlusOrMinus ⟨secondary⟩ 
 
-                    </div>
+⟨primary⟩ → ⟨atom⟩ 
+    | PlusOrMinus ⟨primary⟩ 
+
+⟨atom⟩ → ⟨variable⟩ 
+    | Signed ⟨variable⟩ 
+</code></pre>
+<p>(<code>Signed</code> is a number with an optional unary sign).</p>
+<p>Up to now it works just fine. Let&rsquo;s see what other curious language features await.</p>
+
+                    
+                    <HR width="100%" id="EOF">
+		    <p style="color:#777;">Last modified on 2020-12-10</p>
+                    
                 </div>
             </div>
-        </a></div>
-</div>
+            
+            
+            <nav class="post-pagination">
+
+                
+                <a class="newer-posts">
+			Next<br>No newer posts.
+                </a>
+                
+                
+                
+                <a class="older-posts" href="http://npillmayer.github.io/GoRGO/posts/why-gorgo/">
+			Previous<br>Why GoRGO?
+                </a>
+                
+            </nav>
+            <div class="post-comment-wrapper">
+                
+
+
+
+
+
+
 
             </div>
+        </div>
+    </div>
+</div>
 
-
-<div id="single-column-footer">
+            </div><div id="single-column-footer">
 Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://amazingrise.net">Rise</a>
 <br>
 Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>

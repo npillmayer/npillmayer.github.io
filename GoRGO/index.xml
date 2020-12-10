@@ -6,9 +6,77 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Norbert Pillmayer</copyright>
-    <lastBuildDate>Thu, 03 Dec 2020 13:54:30 +0100</lastBuildDate>
+    <lastBuildDate>Thu, 10 Dec 2020 14:33:27 +0100</lastBuildDate>
     
         <atom:link href="http://npillmayer.github.io/GoRGO/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+        <item>
+        <title>Parsing MetaFont</title>
+        <link>http://npillmayer.github.io/GoRGO/posts/parsing-metafont/</link>
+        <pubDate>Thu, 10 Dec 2020 14:33:27 +0100</pubDate>
+        
+        <guid>http://npillmayer.github.io/GoRGO/posts/parsing-metafont/</guid>
+        <description>A Parsing Toolbox in Go http://npillmayer.github.io/GoRGO/posts/parsing-metafont/ -&lt;h1 id=&#34;parsing-the-metafont-language&#34;&gt;Parsing the MetaFont Language&lt;/h1&gt;
+&lt;p&gt;These days I spend my evenings programming a variant of
+&lt;a href=&#34;https://www.texfaq.org/FAQ-MP&#34;&gt;MetaPost&lt;/a&gt;,
+a DSL for diagrams and illustrations. MetaPost inherits much of its syntax from
+&lt;a href=&#34;https://www.texfaq.org/FAQ-MF&#34;&gt;MetaFont&lt;/a&gt;,
+which has been designed by D. E. Knuth. Mr Knuth is the &amp;ldquo;father of LR-parsing,&amp;rdquo; so one would expect
+some interesting language features in MetaPost—and we are not disappointed!&lt;/p&gt;
+&lt;p&gt;MetaPost&amp;rsquo;s unique selling point is its ability to solve linear equations. In some situations, you&amp;rsquo;d rather not
+specifiy a point position, but let the computer figure out its location. Let&amp;rsquo;s take a look at an example:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://npillmayer.github.io/GoRGO/GoRGO/img/MP-Example.png&#34; alt=&#34;Star drawn by MetaPost&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Don&amp;rsquo;t worry if this looks a bit like your last mathematics exam. The unique part are the lines like
+&lt;code&gt;A&#39;=whatever[A,C];&lt;/code&gt;. This is MetaPost&amp;rsquo;s way of requesting a point &lt;em&gt;A&lt;/em&gt;&amp;rsquo; to lie &lt;em&gt;somewhere&lt;/em&gt; on the
+line between points &lt;em&gt;A&lt;/em&gt; and &lt;em&gt;C&lt;/em&gt;. Given that &lt;em&gt;A&lt;/em&gt;&amp;rsquo; should lie on [&lt;em&gt;A&lt;/em&gt;,&lt;em&gt;C&lt;/em&gt; ] as well as on [&lt;em&gt;B&lt;/em&gt;,&lt;em&gt;D&lt;/em&gt; ], MetaPost
+will find the intersection point by solving a set of linear equations. That&amp;rsquo;s a pretty cool feature!
+However, that&amp;rsquo;s not what I want to talk about in this post.&lt;/p&gt;
+&lt;p&gt;The MetaPost language is designed to be somehow reminiscent of mathematical writing. This is especially
+noticeable with its convenctions for variable names. You already caught a glimps of that with those
+point primed point variables (&lt;em&gt;A&lt;/em&gt;&#39;), but that&amp;rsquo;s not the end of it. MetaPost will happily digest
+identifiers like \(z&amp;rsquo;_r\) (denoted as &lt;code&gt;z&#39;.r&lt;/code&gt;) and \(x_1\) (&lt;code&gt;x1&lt;/code&gt;). Add to this the ability to handle
+fractions as numeric input, you are free to instruct MetaPost to calculate&lt;/p&gt;
+&lt;p&gt;$$-{1\over3}x_{n-1}$$&lt;/p&gt;
+&lt;p&gt;by typing &lt;code&gt;-1/3x[n-1]&lt;/code&gt;. That might not appeal to everyone, but it sure is easy to type and MetaPost
+will usually understand what you had in mind.&lt;/p&gt;
+&lt;p&gt;Those variable names look innocent enough, but from a parser&amp;rsquo;s point of view they are quite challenging.
+Let&amp;rsquo;s consider the input &lt;code&gt;7 - -a1r&lt;/code&gt;. By now you propably could guess that this means &amp;ldquo;\(7- -a_{1r}\).&amp;rdquo;
+Setting aside that you should enclose the second term in parens anyway, put yourself in the shoes of
+the parser: it will see a sequence of tokens like &lt;code&gt;7 - - a 1 r&lt;/code&gt;. And just when you successfully told
+your parser-generator to parse it, someone types in &lt;code&gt;7 - - 1 / 3 x [ n - 1 ]&lt;/code&gt;, expecting to get&lt;/p&gt;
+&lt;p&gt;$$7 - -{1\over3}x_{n-1}$$&lt;/p&gt;
+&lt;p&gt;Of course part of the complications arise from the usual unary plus/minus problem. But the notation of
+scalar prefixes for variables makes it a bit more difficult to implement. John Hobby, the author of
+MetaPost, has been kind enough to publish a
+&lt;a href=&#34;https://www.tug.org/docs/metapost/mpman.pdf&#34;&gt;BNF grammar for MetaPost&lt;/a&gt;
+(pp. 92–97). Remarkably, it contains the rule&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;⟨scalar multiplication op⟩ → + | −
+      | ⟨‘⟨number or fraction⟩’ not followed by ‘⟨add op⟩⟨number⟩’
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;a strong hint that a dose of scanner hack has been required to implement scalar prefixes (a.k.a. &lt;em&gt;scalar
+multiplication op&lt;/em&gt; ).&lt;/p&gt;
+&lt;p&gt;GoRGO&amp;rsquo;s Earley-parser has (yet) no feature for operator precedence, so I was unsure of how difficult it
+would be to implement scalar prefixes. Turned out, not difficult at all—it worked first go! (Well,
+technically that&amp;rsquo;s a lie, because I first ran into a subtle bug of the Earley parser code, but that&amp;rsquo;s
+a different story.) One especially pretty feature of Earley parsers is that you can watch them think.
+Doing so, I found the parser&amp;rsquo;s default behaviour for certain kinds of ambiguity spot on for the
+problem. The relevant rules of the MetaPost grammar had to be slightly adapted to get rid of the
+scanner hack and actually resulted in an easier to read version.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;⟨tertiary⟩ → ⟨secondary⟩ 
+    | ⟨tertiary⟩ PlusOrMinus ⟨secondary⟩ 
+
+⟨primary⟩ → ⟨atom⟩ 
+    | PlusOrMinus ⟨primary⟩ 
+
+⟨atom⟩ → ⟨variable⟩ 
+    | Signed ⟨variable⟩ 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;(&lt;code&gt;Signed&lt;/code&gt; is a number with an optional unary sign).&lt;/p&gt;
+&lt;p&gt;Up to now it works just fine. Let&amp;rsquo;s see what other curious language features await.&lt;/p&gt;
+- http://npillmayer.github.io/GoRGO/posts/parsing-metafont/ - Norbert Pillmayer</description>
+        </item>
     
     
     
@@ -32,11 +100,11 @@ a smart and lightweight tool to generate an interpreter for a custom language. A
 as this is what I currently use for Open Source. That&amp;rsquo;s what GoRGO strives to be.&lt;/p&gt;
 &lt;h2 id=&#34;the-name&#34;&gt;The Name&lt;/h2&gt;
 &lt;p&gt;The &amp;ldquo;RGO&amp;rdquo; in GoRGO stands for &lt;strong&gt;R&lt;/strong&gt;ight-derivated &lt;strong&gt;G&lt;/strong&gt;rammar &lt;strong&gt;O&lt;/strong&gt;perations, which may sound all gibberish to you
-(and I wouldn&amp;rsquo;t blame you). But there&amp;rsquo;s a hint in this name that we will focus on LR-parsing, i.e., we will
+(and I wouldn&amp;rsquo;t blame you). But there&amp;rsquo;s a hint in this name: we will focus on LR-parsing, i.e., we will
 construct bottom-up parsers which produce right-derivations. That&amp;rsquo;s exactly what &lt;em&gt;yacc&lt;/em&gt; et al do (unlike
-&lt;em&gt;ANTRL&lt;/em&gt;, which produces LL-parsers), so no surprise there—or is it? In fact it should be, as DSL parsers
+&lt;em&gt;ANTLR&lt;/em&gt;, which produces LL-parsers), so no surprise there—or is it? In fact it should be, as DSL parsers
 these days are implemented with PEGs most of the time. But PEGs (parser expression grammars) are top-down,
-so why clinge to LR-parsing?&lt;/p&gt;
+so why clinge to bottom-up parsing?&lt;/p&gt;
 
 &lt;div class=&#34;panel panel-default&#34; style=&#34;float:right; max-width:280px&#34;&gt;
   &lt;div class=&#34;panel-heading&#34;&gt;&lt;h5&gt;Gorgosaurus&lt;/h5&gt;&lt;/div&gt;
@@ -52,7 +120,7 @@ We will meet its cousin T-Rex again when we&#39;ll talk about TeREx, a term rewr
 &lt;p&gt;PEG parsers have a number of disadvantages for the careless user. Although I love their simplicity,
 they lack a certain foolproofness
 which I expect for ad-hoc DSLs. Most ad-hoc grammars people write contain &lt;em&gt;ambiguous rules&lt;/em&gt;, and PEGs
-hide ambiguity rather than resolving it. On the other hand, we do not want programmers to fix
+hide ambiguity rather than resolving it. On the other hand, we do not want programmers to have to fix
 shift|reduce-conflicts and the like. The tool should &lt;em&gt;just eat&lt;/em&gt; my grammar! Therefore we revert to
 LR-parsers, acknowledging the fact that we have to convince the parser to not be so tough on its users.&lt;/p&gt;
 &lt;p&gt;GoRGO follows a few design paradigm which in some aspects differ from your garden-variety parser
@@ -66,9 +134,9 @@ DSLs I prefer to skip a code-generation step and rather create the parser in cod
 tables as source code into a file, we keep them in memory and provide them to a parser. Table generation is
 quick for small languages and we can afford to go through this step once per program execution.&lt;/p&gt;
 &lt;h2 id=&#34;ambiguous-grammars&#34;&gt;Ambiguous Grammars&lt;/h2&gt;
-&lt;p&gt;Conventional parser generator do not handle ambiguous grammars well. Especially for ad-hoc DSL, however,
+&lt;p&gt;Conventional parser generator do not handle ambiguous grammars well. Especially for ad-hoc DSLs, however,
 grammar ambiguity is quite common. Parser which can handle these kinds of grammars have been known for
-some time, but rarely gained popularity (&lt;em&gt;bison&lt;/em&gt; is an exception to this rule and &lt;em&gt;ANTRL&lt;/em&gt; mitigates many
+some time, but rarely gained popularity (&lt;em&gt;bison&lt;/em&gt;&amp;lsquo;s GLR-feature is an exception to this rule and &lt;em&gt;ANTLR&lt;/em&gt; mitigates many
 of these problems, too). GoRGO implementes two flavors of bottom-up parsers, which are able to cope with
 ambiguty: Earley parsing and GLR-parsing.&lt;/p&gt;
 &lt;p&gt;During tests for various DSL tasks I came to love Earley-parsing. Sketching out a grammar, attaching it into
