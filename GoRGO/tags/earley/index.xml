@@ -18,8 +18,13 @@
       <pubDate>Thu, 10 Dec 2020 14:33:27 +0100</pubDate>
       
       <guid>http://npillmayer.github.io/GoRGO/posts/parsing-metafont/</guid>
-      <description>Parsing the MetaFont Language These days I spend my evenings programming a variant of MetaPost, a DSL for diagrams and illustrations. MetaPost inherits much of its syntax from MetaFont, which has been designed by D. E. Knuth. Mr Knuth is the &amp;ldquo;father of LR-parsing,&amp;rdquo; so one would expect some interesting language features in MetaPost—and we are not disappointed!
-MetaPost&amp;rsquo;s unique selling point is its ability to solve linear equations. In some situations, you&amp;rsquo;d rather not specifiy a point position, but let the computer figure out its location.</description>
+      <description>&lt;h1 id=&#34;parsing-the-metafont-language&#34;&gt;Parsing the MetaFont Language&lt;/h1&gt;
+&lt;p&gt;These days I spend my evenings programming a variant of
+&lt;a href=&#34;https://www.texfaq.org/FAQ-MP&#34;&gt;MetaPost&lt;/a&gt;,
+a DSL for diagrams and illustrations. MetaPost inherits much of its syntax from
+&lt;a href=&#34;https://www.texfaq.org/FAQ-MF&#34;&gt;MetaFont&lt;/a&gt;,
+which has been designed by D. E. Knuth. Mr Knuth is the &amp;ldquo;father of LR-parsing,&amp;rdquo; so one would expect
+some interesting language features in MetaPost—and we are not disappointed!&lt;/p&gt;</description>
     </item>
     
   </channel>

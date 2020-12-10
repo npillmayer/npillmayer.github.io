@@ -74,8 +74,7 @@ scanner hack and actually resulted in an easier to read version.&lt;/p&gt;
     | Signed ⟨variable⟩ 
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;(&lt;code&gt;Signed&lt;/code&gt; is a number with an optional unary sign).&lt;/p&gt;
-&lt;p&gt;Up to now it works just fine. Let&amp;rsquo;s see what other curious language features await.&lt;/p&gt;
-- http://npillmayer.github.io/GoRGO/posts/parsing-metafont/ - Norbert Pillmayer</description>
+&lt;p&gt;Up to now it works just fine. Let&amp;rsquo;s see what other curious language features await.&lt;/p&gt;- http://npillmayer.github.io/GoRGO/posts/parsing-metafont/ - Norbert Pillmayer</description>
         </item>
     
     
