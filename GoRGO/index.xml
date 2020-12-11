@@ -39,25 +39,55 @@ noticeable with its convenctions for variable names. You already caught a glimps
 primed point variables (&lt;em&gt;A&lt;/em&gt;&#39;), but that&amp;rsquo;s not the end of it. MetaPost will happily digest
 identifiers like \(z&amp;rsquo;_r\) (denoted as &lt;code&gt;z&#39;.r&lt;/code&gt;) and \(x_1\) (&lt;code&gt;x1&lt;/code&gt;). Add to this the ability to handle
 fractions as numeric input, you are free to instruct MetaPost to calculate&lt;/p&gt;
-&lt;p&gt;$$-{1\over3}x_{n-1}$$&lt;/p&gt;
-&lt;p&gt;by typing &lt;code&gt;-1/3x[n-1]&lt;/code&gt;. That might not appeal to everyone, but it sure is easy to type and MetaPost
+&lt;p&gt;$$-{1\over3}x_1$$&lt;/p&gt;
+&lt;p&gt;by typing &lt;code&gt;-1/3x1&lt;/code&gt;. That might not appeal to everyone, but it sure is easy to type and MetaPost
 will usually understand what you had in mind.&lt;/p&gt;
-&lt;p&gt;Those variable names look innocent enough, but from a parser&amp;rsquo;s point of view they are quite challenging.
+&lt;p&gt;Those variable names look innocent enough, but from a parser&amp;rsquo;s point they carry slightly different semantics
+than with other programming languages.
 Let&amp;rsquo;s consider the input &lt;code&gt;7 - -a1r&lt;/code&gt;. By now you propably could guess that this means &amp;ldquo;\(7- -a_{1r}\).&amp;rdquo;
-Setting aside that you should enclose the second term in parens anyway, put yourself in the shoes of
-the parser: it will see a sequence of tokens like &lt;code&gt;7 - - a 1 r&lt;/code&gt;. And just when you successfully told
-your parser-generator to parse it, someone types in &lt;code&gt;7 - - 1 / 3 x [ n - 1 ]&lt;/code&gt;, expecting to get&lt;/p&gt;
-&lt;p&gt;$$7 - -{1\over3}x_{n-1}$$&lt;/p&gt;
+Setting aside that you should enclose the second term in parenthesis anyway, put yourself in the shoes of
+the parser: it will see a sequence of tokens like &lt;code&gt;7 - - a 1 r&lt;/code&gt;. And just when you successfully taught
+your parser to accept it, someone types in &lt;code&gt;y = 7 - - 1 / 3 x [ n - 1 ]&lt;/code&gt;, expecting to get&lt;/p&gt;
+&lt;p&gt;$$y = 7 - -{1\over3}x_{n-1}$$&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s try with Python:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; n = 2    # pre-set subscript variable n
+&amp;gt;&amp;gt;&amp;gt; y = 7 - - 1 / 3 x [ n - 1 ]
+  File &amp;quot;&amp;lt;stdin&amp;gt;&amp;quot;, line 1
+    y = 7 - - 1 / 3 x [ n - 1 ]
+                    ^
+SyntaxError: invalid syntax
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We expected that, didn&amp;rsquo;t we? The error doesn&amp;rsquo;t result from the fact that &lt;em&gt;x&lt;/em&gt; is an unknown quantity;
+it&amp;rsquo;s just that Python cannot handle the syntax: it misses a &amp;lsquo;&lt;strong&gt;*&lt;/strong&gt;&amp;rsquo; before the &lt;em&gt;x&lt;/em&gt; 
+(you may try with pre-setting a value for &lt;em&gt;x&lt;/em&gt; ).
+Now let&amp;rsquo;s have MetaPost a go:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;This is MetaPost, version 1.999
+**\relax
+*n:=2;  % pre-set subscript variable n
+*y = 7 - - 1 / 3 x [ n - 1 ];
+*show y;
+&amp;gt;&amp;gt; 0.33333x1+7
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The last line is MetaPost&amp;rsquo;s way of telling us that variable &lt;em&gt;y&lt;/em&gt; is dependent on \(x_1\), which is of
+unknown value yet.
+It is worth noting that &lt;code&gt;[n-1]&lt;/code&gt; is not your usual array indexing, but rather the &amp;ldquo;generation&amp;rdquo; of a
+mathematical subscript. Just for fun, create an irrational subscript:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;*y=x[sqrt 2];
+*showvariable x
+  x[]=numeric
+  x1.41422=y
+&lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;earleys-attempt&#34;&gt;Earley&amp;rsquo;s Attempt&lt;/h2&gt;
 &lt;p&gt;Of course part of the complications arise from the usual unary plus/minus problem. But the notation of
 scalar prefixes for variables makes it a bit more difficult to implement. John Hobby, the author of
 MetaPost, has been kind enough to publish a
 &lt;a href=&#34;https://www.tug.org/docs/metapost/mpman.pdf&#34;&gt;BNF grammar for MetaPost&lt;/a&gt;
 (pp. 92–97). Remarkably, it contains the rule&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;⟨scalar multiplication op⟩ → + | −
-      | ⟨‘⟨number or fraction⟩’ not followed by ‘⟨add op⟩⟨number⟩’
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;a strong hint that a dose of scanner hack has been required to implement scalar prefixes (a.k.a. &lt;em&gt;scalar
+&lt;hr&gt;
+&lt;p&gt;⟨&lt;em&gt;scalar multiplication op&lt;/em&gt; ⟩ → &lt;strong&gt;+&lt;/strong&gt; | &lt;strong&gt;−&lt;/strong&gt; &lt;br&gt;
+   | ⟨ ‘⟨&lt;em&gt;number or fraction&lt;/em&gt; ⟩’ not followed by ‘⟨&lt;em&gt;add op&lt;/em&gt; ⟩ ⟨&lt;em&gt;number&lt;/em&gt; ⟩’ ⟩&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;a strong hint that a dose of lookahead has been required to implement scalar prefixes (a.k.a. &lt;em&gt;scalar
 multiplication op&lt;/em&gt; ).&lt;/p&gt;
 &lt;p&gt;GoRGO&amp;rsquo;s Earley-parser has (yet) no feature for operator precedence, so I was unsure of how difficult it
 would be to implement scalar prefixes. Turned out, not difficult at all—it worked first go! (Well,
@@ -66,16 +96,15 @@ a different story.) One especially pretty feature of Earley parsers is that you 
 Doing so, I found the parser&amp;rsquo;s default behaviour for certain kinds of ambiguity spot on for the
 problem. The relevant rules of the MetaPost grammar had to be slightly adapted to get rid of the
 scanner hack and actually resulted in an easier to read version.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;⟨tertiary⟩ → ⟨secondary⟩ 
-    | ⟨tertiary⟩ PlusOrMinus ⟨secondary⟩ 
-
-⟨primary⟩ → ⟨atom⟩ 
-    | PlusOrMinus ⟨primary⟩ 
-
-⟨atom⟩ → ⟨variable⟩ 
-    | Signed ⟨variable⟩ 
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;(&lt;code&gt;Signed&lt;/code&gt; is a number with an optional unary sign).&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;⟨&lt;em&gt;tertiary&lt;/em&gt; ⟩ → ⟨&lt;em&gt;secondary&lt;/em&gt; ⟩ &lt;br&gt;
+   | ⟨&lt;em&gt;tertiary&lt;/em&gt; ⟩ &lt;strong&gt;PlusOrMinus&lt;/strong&gt; ⟨&lt;em&gt;secondary&lt;/em&gt; ⟩&lt;/p&gt;
+&lt;p&gt;⟨&lt;em&gt;primary&lt;/em&gt; ⟩ → ⟨&lt;em&gt;atom&lt;/em&gt; ⟩&lt;br&gt;
+   | &lt;strong&gt;PlusOrMinus&lt;/strong&gt; ⟨&lt;em&gt;primary&lt;/em&gt; ⟩&lt;/p&gt;
+&lt;p&gt;⟨&lt;em&gt;atom&lt;/em&gt; ⟩ → ⟨&lt;em&gt;variable&lt;/em&gt; ⟩&lt;br&gt;
+   | &lt;strong&gt;Signed&lt;/strong&gt; ⟨&lt;em&gt;variable&lt;/em&gt; ⟩&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;(&amp;lsquo;Signed&amp;rsquo; is a number or fraction with an optional unary sign).&lt;/p&gt;
 &lt;p&gt;Up to now it works just fine. Let&amp;rsquo;s see what other curious language features await.&lt;/p&gt;- http://npillmayer.github.io/GoRGO/posts/parsing-metafont/ - Norbert Pillmayer</description>
         </item>
     

@@ -466,25 +466,55 @@ noticeable with its convenctions for variable names. You already caught a glimps
 primed point variables (<em>A</em>'), but that&rsquo;s not the end of it. MetaPost will happily digest
 identifiers like \(z&rsquo;_r\) (denoted as <code>z'.r</code>) and \(x_1\) (<code>x1</code>). Add to this the ability to handle
 fractions as numeric input, you are free to instruct MetaPost to calculate</p>
-<p>$$-{1\over3}x_{n-1}$$</p>
-<p>by typing <code>-1/3x[n-1]</code>. That might not appeal to everyone, but it sure is easy to type and MetaPost
+<p>$$-{1\over3}x_1$$</p>
+<p>by typing <code>-1/3x1</code>. That might not appeal to everyone, but it sure is easy to type and MetaPost
 will usually understand what you had in mind.</p>
-<p>Those variable names look innocent enough, but from a parser&rsquo;s point of view they are quite challenging.
+<p>Those variable names look innocent enough, but from a parser&rsquo;s point they carry slightly different semantics
+than with other programming languages.
 Let&rsquo;s consider the input <code>7 - -a1r</code>. By now you propably could guess that this means &ldquo;\(7- -a_{1r}\).&rdquo;
-Setting aside that you should enclose the second term in parens anyway, put yourself in the shoes of
-the parser: it will see a sequence of tokens like <code>7 - - a 1 r</code>. And just when you successfully told
-your parser-generator to parse it, someone types in <code>7 - - 1 / 3 x [ n - 1 ]</code>, expecting to get</p>
-<p>$$7 - -{1\over3}x_{n-1}$$</p>
+Setting aside that you should enclose the second term in parenthesis anyway, put yourself in the shoes of
+the parser: it will see a sequence of tokens like <code>7 - - a 1 r</code>. And just when you successfully taught
+your parser to accept it, someone types in <code>y = 7 - - 1 / 3 x [ n - 1 ]</code>, expecting to get</p>
+<p>$$y = 7 - -{1\over3}x_{n-1}$$</p>
+<p>Let&rsquo;s try with Python:</p>
+<pre><code>&gt;&gt;&gt; n = 2    # pre-set subscript variable n
+&gt;&gt;&gt; y = 7 - - 1 / 3 x [ n - 1 ]
+  File &quot;&lt;stdin&gt;&quot;, line 1
+    y = 7 - - 1 / 3 x [ n - 1 ]
+                    ^
+SyntaxError: invalid syntax
+</code></pre>
+<p>We expected that, didn&rsquo;t we? The error doesn&rsquo;t result from the fact that <em>x</em> is an unknown quantity;
+it&rsquo;s just that Python cannot handle the syntax: it misses a &lsquo;<strong>*</strong>&rsquo; before the <em>x</em> 
+(you may try with pre-setting a value for <em>x</em> ).
+Now let&rsquo;s have MetaPost a go:</p>
+<pre><code>This is MetaPost, version 1.999
+**\relax
+*n:=2;  % pre-set subscript variable n
+*y = 7 - - 1 / 3 x [ n - 1 ];
+*show y;
+&gt;&gt; 0.33333x1+7
+</code></pre>
+<p>The last line is MetaPost&rsquo;s way of telling us that variable <em>y</em> is dependent on \(x_1\), which is of
+unknown value yet.
+It is worth noting that <code>[n-1]</code> is not your usual array indexing, but rather the &ldquo;generation&rdquo; of a
+mathematical subscript. Just for fun, create an irrational subscript:</p>
+<pre><code>*y=x[sqrt 2];
+*showvariable x
+  x[]=numeric
+  x1.41422=y
+</code></pre>
 <h2 id="earleys-attempt">Earley&rsquo;s Attempt</h2>
 <p>Of course part of the complications arise from the usual unary plus/minus problem. But the notation of
 scalar prefixes for variables makes it a bit more difficult to implement. John Hobby, the author of
 MetaPost, has been kind enough to publish a
 <a href="https://www.tug.org/docs/metapost/mpman.pdf">BNF grammar for MetaPost</a>
 (pp. 92–97). Remarkably, it contains the rule</p>
-<pre><code>⟨scalar multiplication op⟩ → + | −
-      | ⟨‘⟨number or fraction⟩’ not followed by ‘⟨add op⟩⟨number⟩’
-</code></pre>
-<p>a strong hint that a dose of scanner hack has been required to implement scalar prefixes (a.k.a. <em>scalar
+<hr>
+<p>⟨<em>scalar multiplication op</em> ⟩ → <strong>+</strong> | <strong>−</strong> <br>
+   | ⟨ ‘⟨<em>number or fraction</em> ⟩’ not followed by ‘⟨<em>add op</em> ⟩ ⟨<em>number</em> ⟩’ ⟩</p>
+<hr>
+<p>a strong hint that a dose of lookahead has been required to implement scalar prefixes (a.k.a. <em>scalar
 multiplication op</em> ).</p>
 <p>GoRGO&rsquo;s Earley-parser has (yet) no feature for operator precedence, so I was unsure of how difficult it
 would be to implement scalar prefixes. Turned out, not difficult at all—it worked first go! (Well,
@@ -493,16 +523,15 @@ a different story.) One especially pretty feature of Earley parsers is that you 
 Doing so, I found the parser&rsquo;s default behaviour for certain kinds of ambiguity spot on for the
 problem. The relevant rules of the MetaPost grammar had to be slightly adapted to get rid of the
 scanner hack and actually resulted in an easier to read version.</p>
-<pre><code>⟨tertiary⟩ → ⟨secondary⟩ 
-    | ⟨tertiary⟩ PlusOrMinus ⟨secondary⟩ 
-
-⟨primary⟩ → ⟨atom⟩ 
-    | PlusOrMinus ⟨primary⟩ 
-
-⟨atom⟩ → ⟨variable⟩ 
-    | Signed ⟨variable⟩ 
-</code></pre>
-<p>(<code>Signed</code> is a number with an optional unary sign).</p>
+<hr>
+<p>⟨<em>tertiary</em> ⟩ → ⟨<em>secondary</em> ⟩ <br>
+   | ⟨<em>tertiary</em> ⟩ <strong>PlusOrMinus</strong> ⟨<em>secondary</em> ⟩</p>
+<p>⟨<em>primary</em> ⟩ → ⟨<em>atom</em> ⟩<br>
+   | <strong>PlusOrMinus</strong> ⟨<em>primary</em> ⟩</p>
+<p>⟨<em>atom</em> ⟩ → ⟨<em>variable</em> ⟩<br>
+   | <strong>Signed</strong> ⟨<em>variable</em> ⟩</p>
+<hr>
+<p>(&lsquo;Signed&rsquo; is a number or fraction with an optional unary sign).</p>
 <p>Up to now it works just fine. Let&rsquo;s see what other curious language features await.</p>
                     
                     <HR width="100%" id="EOF">
