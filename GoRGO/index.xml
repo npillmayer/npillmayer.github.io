@@ -18,13 +18,13 @@
         <pubDate>Thu, 10 Dec 2020 14:33:27 +0100</pubDate>
         
         <guid>http://npillmayer.github.io/GoRGO/posts/parsing-metafont/</guid>
-        <description>A Parsing Toolbox in Go http://npillmayer.github.io/GoRGO/posts/parsing-metafont/ -&lt;h1 id=&#34;parsing-the-metapost-language&#34;&gt;Parsing the MetaPost Language&lt;/h1&gt;
-&lt;p&gt;These days I spend my evenings programming a variant of
+        <description>A Parsing Toolbox in Go http://npillmayer.github.io/GoRGO/posts/parsing-metafont/ -&lt;p&gt;These days I spend some evenings programming a variant of
 &lt;a href=&#34;https://www.texfaq.org/FAQ-MP&#34;&gt;MetaPost&lt;/a&gt;,
 a DSL for diagrams and illustrations. MetaPost inherits much of its syntax from
 &lt;a href=&#34;https://www.texfaq.org/FAQ-MF&#34;&gt;MetaFont&lt;/a&gt;,
 which has been designed by D. E. Knuth. Mr Knuth is the &amp;ldquo;father of LR-parsing,&amp;rdquo; so one would expect
 some interesting language features in MetaPost—and we are not disappointed!&lt;/p&gt;
+&lt;h2 id=&#34;what-metapost-does&#34;&gt;What MetaPost does&lt;/h2&gt;
 &lt;p&gt;MetaPost&amp;rsquo;s unique selling point is its ability to solve linear equations. In some situations, you&amp;rsquo;d rather not
 specifiy a point position, but let the computer figure out its location. Let&amp;rsquo;s take a look at an example:&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;http://npillmayer.github.io/GoRGO/GoRGO/img/MP-Example.png&#34; alt=&#34;Star drawn by MetaPost&#34;&gt;&lt;/p&gt;
@@ -33,6 +33,7 @@ specifiy a point position, but let the computer figure out its location. Let&amp
 line between points &lt;em&gt;A&lt;/em&gt; and &lt;em&gt;C&lt;/em&gt;. Given that &lt;em&gt;A&lt;/em&gt;&amp;rsquo; should lie on [&lt;em&gt;A&lt;/em&gt;,&lt;em&gt;C&lt;/em&gt; ] as well as on [&lt;em&gt;B&lt;/em&gt;,&lt;em&gt;D&lt;/em&gt; ], MetaPost
 will find the intersection point by solving a set of linear equations. That&amp;rsquo;s a pretty cool feature!
 However, that&amp;rsquo;s not what I want to talk about in this post.&lt;/p&gt;
+&lt;h2 id=&#34;variables-its-complicated&#34;&gt;Variables: It&amp;rsquo;s complicated…&lt;/h2&gt;
 &lt;p&gt;The MetaPost language is designed to be somehow reminiscent of mathematical writing. This is especially
 noticeable with its convenctions for variable names. You already caught a glimps of that with those
 point primed point variables (&lt;em&gt;A&lt;/em&gt;&#39;), but that&amp;rsquo;s not the end of it. MetaPost will happily digest
@@ -47,6 +48,7 @@ Setting aside that you should enclose the second term in parens anyway, put your
 the parser: it will see a sequence of tokens like &lt;code&gt;7 - - a 1 r&lt;/code&gt;. And just when you successfully told
 your parser-generator to parse it, someone types in &lt;code&gt;7 - - 1 / 3 x [ n - 1 ]&lt;/code&gt;, expecting to get&lt;/p&gt;
 &lt;p&gt;$$7 - -{1\over3}x_{n-1}$$&lt;/p&gt;
+&lt;h2 id=&#34;earleys-attempt&#34;&gt;Earley&amp;rsquo;s Attempt&lt;/h2&gt;
 &lt;p&gt;Of course part of the complications arise from the usual unary plus/minus problem. But the notation of
 scalar prefixes for variables makes it a bit more difficult to implement. John Hobby, the author of
 MetaPost, has been kind enough to publish a

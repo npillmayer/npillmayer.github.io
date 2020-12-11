@@ -168,10 +168,50 @@ Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopene
 						
 						
 						
+							
+								<ul class="collapse" data-toggle="collapse">
+							
+						
 						
 							<li>
-								<a href="#parsing-the-metapost-language" onclick="onNavClick(`#parsing-the-metapost-language-nav`)" id="parsing-the-metapost-language-nav">
-									Parsing the MetaPost Language
+								<a href="#what-metapost-does" onclick="onNavClick(`#what-metapost-does-nav`)" id="what-metapost-does-nav">
+									What MetaPost does
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#variables-its-complicated" onclick="onNavClick(`#variables-its-complicated-nav`)" id="variables-its-complicated-nav">
+									Variables: It’s complicated…
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#earleys-attempt" onclick="onNavClick(`#earleys-attempt-nav`)" id="earleys-attempt-nav">
+									Earley’s Attempt
 								</a>
 							</li>
 						
@@ -263,10 +303,50 @@ Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopene
 						
 						
 						
+							
+								<ul class="collapse" data-toggle="collapse">
+							
+						
 						
 							<li>
-								<a href="#parsing-the-metapost-language" onclick="onNavClick(`#parsing-the-metapost-language-nav`)" id="parsing-the-metapost-language-nav">
-									Parsing the MetaPost Language
+								<a href="#what-metapost-does" onclick="onNavClick(`#what-metapost-does-nav`)" id="what-metapost-does-nav">
+									What MetaPost does
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#variables-its-complicated" onclick="onNavClick(`#variables-its-complicated-nav`)" id="variables-its-complicated-nav">
+									Variables: It’s complicated…
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#earleys-attempt" onclick="onNavClick(`#earleys-attempt-nav`)" id="earleys-attempt-nav">
+									Earley’s Attempt
 								</a>
 							</li>
 						
@@ -365,13 +445,13 @@ Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopene
                 
                 <div class="post-body" v-pre>
                 
-                    <h1 id="parsing-the-metapost-language">Parsing the MetaPost Language</h1>
-<p>These days I spend my evenings programming a variant of
+                    <p>These days I spend some evenings programming a variant of
 <a href="https://www.texfaq.org/FAQ-MP">MetaPost</a>,
 a DSL for diagrams and illustrations. MetaPost inherits much of its syntax from
 <a href="https://www.texfaq.org/FAQ-MF">MetaFont</a>,
 which has been designed by D. E. Knuth. Mr Knuth is the &ldquo;father of LR-parsing,&rdquo; so one would expect
 some interesting language features in MetaPost—and we are not disappointed!</p>
+<h2 id="what-metapost-does">What MetaPost does</h2>
 <p>MetaPost&rsquo;s unique selling point is its ability to solve linear equations. In some situations, you&rsquo;d rather not
 specifiy a point position, but let the computer figure out its location. Let&rsquo;s take a look at an example:</p>
 <p><img src="/GoRGO/img/MP-Example.png" alt="Star drawn by MetaPost"></p>
@@ -380,6 +460,7 @@ specifiy a point position, but let the computer figure out its location. Let&rsq
 line between points <em>A</em> and <em>C</em>. Given that <em>A</em>&rsquo; should lie on [<em>A</em>,<em>C</em> ] as well as on [<em>B</em>,<em>D</em> ], MetaPost
 will find the intersection point by solving a set of linear equations. That&rsquo;s a pretty cool feature!
 However, that&rsquo;s not what I want to talk about in this post.</p>
+<h2 id="variables-its-complicated">Variables: It&rsquo;s complicated…</h2>
 <p>The MetaPost language is designed to be somehow reminiscent of mathematical writing. This is especially
 noticeable with its convenctions for variable names. You already caught a glimps of that with those
 point primed point variables (<em>A</em>'), but that&rsquo;s not the end of it. MetaPost will happily digest
@@ -394,6 +475,7 @@ Setting aside that you should enclose the second term in parens anyway, put your
 the parser: it will see a sequence of tokens like <code>7 - - a 1 r</code>. And just when you successfully told
 your parser-generator to parse it, someone types in <code>7 - - 1 / 3 x [ n - 1 ]</code>, expecting to get</p>
 <p>$$7 - -{1\over3}x_{n-1}$$</p>
+<h2 id="earleys-attempt">Earley&rsquo;s Attempt</h2>
 <p>Of course part of the complications arise from the usual unary plus/minus problem. But the notation of
 scalar prefixes for variables makes it a bit more difficult to implement. John Hobby, the author of
 MetaPost, has been kind enough to publish a

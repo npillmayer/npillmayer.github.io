@@ -18,8 +18,7 @@
       <pubDate>Thu, 10 Dec 2020 14:33:27 +0100</pubDate>
       
       <guid>http://npillmayer.github.io/GoRGO/posts/parsing-metafont/</guid>
-      <description>&lt;h1 id=&#34;parsing-the-metapost-language&#34;&gt;Parsing the MetaPost Language&lt;/h1&gt;
-&lt;p&gt;These days I spend my evenings programming a variant of
+      <description>&lt;p&gt;These days I spend some evenings programming a variant of
 &lt;a href=&#34;https://www.texfaq.org/FAQ-MP&#34;&gt;MetaPost&lt;/a&gt;,
 a DSL for diagrams and illustrations. MetaPost inherits much of its syntax from
 &lt;a href=&#34;https://www.texfaq.org/FAQ-MF&#34;&gt;MetaFont&lt;/a&gt;,
