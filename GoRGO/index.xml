@@ -35,7 +35,7 @@ will find the intersection point by solving a set of linear equations. That&amp;
 However, that&amp;rsquo;s not what I want to talk about in this post.&lt;/p&gt;
 &lt;h2 id=&#34;variables-its-complicated&#34;&gt;Variables: It&amp;rsquo;s complicated…&lt;/h2&gt;
 &lt;p&gt;The MetaPost language is designed to be somewhat reminiscent of mathematical writing. This is especially
-noticeable with its conventions for variable names. You already caught a glimps of that with those
+noticeable with its conventions for variable names. You already caught a glimpse of that with those
 primed point variables (&lt;em&gt;A&lt;/em&gt;&#39;), but that&amp;rsquo;s not the end of it. MetaPost will happily digest
 identifiers like \(z&amp;rsquo;_r\) (denoted as &lt;code&gt;z&#39;.r&lt;/code&gt;) and \(x_1\) (&lt;code&gt;x1&lt;/code&gt;). Add to this the ability to handle
 fractions as numeric input, you are free to instruct MetaPost to calculate&lt;/p&gt;
