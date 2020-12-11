@@ -91,7 +91,7 @@ MetaPost, has been kind enough to publish a
 multiplication op&lt;/em&gt; ).&lt;/p&gt;
 &lt;p&gt;GoRGO&amp;rsquo;s Earley-parser has (yet) no feature for operator precedence, so I was unsure of how difficult it
 would be to implement scalar prefixes. Turned out, not difficult at all—it worked first go! (Well,
-technically that&amp;rsquo;s a lie, because I first ran into a subtle bug of the Earley parser code, but that&amp;rsquo;s
+technically that&amp;rsquo;s a lie, because I ran into a subtle bug of the Earley parser code, but that&amp;rsquo;s
 a different story.) One especially pretty feature of Earley parsers is that you can watch them think.
 Doing so, I found the parser&amp;rsquo;s default behaviour for certain kinds of ambiguity spot on for the
 problem. The relevant rules of the MetaPost grammar had to be slightly adapted to get rid of the
