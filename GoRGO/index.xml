@@ -158,20 +158,21 @@ generator.&lt;/p&gt;
 &lt;p&gt;Parser generators (compiler compilers) usually generate source code. That&amp;rsquo;s often a good idea, as
 many of these tools can handle a multitude of host languages. Moreover, Go has a mechanism for preprocessing and
 code-generation (&lt;code&gt;go-generate&lt;/code&gt;) which is well suited for parser generators. However, for small
-DSLs I prefer to skip a code-generation step and rather create the parser in code and immediately run it.&lt;/p&gt;
-&lt;p&gt;Digesting the grammar always comes first, and results in a bunch of &lt;em&gt;LR parse tables&lt;/em&gt;. Instead of saving these
+DSLs I prefer to skip a code-generation step and rather create the parser in place and immediately run it.&lt;/p&gt;
+&lt;p&gt;Digesting the grammar always comes first and results in a bunch of &lt;em&gt;LR parse tables&lt;/em&gt;. Instead of saving these
 tables as source code into a file, we keep them in memory and provide them to a parser. Table generation is
 quick for small languages and we can afford to go through this step once per program execution.&lt;/p&gt;
 &lt;h2 id=&#34;ambiguous-grammars&#34;&gt;Ambiguous Grammars&lt;/h2&gt;
 &lt;p&gt;Conventional parser generator do not handle ambiguous grammars well. Especially for ad-hoc DSLs, however,
 grammar ambiguity is quite common. Parser which can handle these kinds of grammars have been known for
 some time, but rarely gained popularity (&lt;em&gt;bison&lt;/em&gt;&amp;lsquo;s GLR-feature is an exception to this rule and &lt;em&gt;ANTLR&lt;/em&gt; mitigates many
-of these problems, too). GoRGO implementes two flavors of bottom-up parsers, which are able to cope with
+of these problems, too). GoRGO implementes two flavors of bottom-up parsers which are able to cope with
 ambiguty: Earley parsing and GLR-parsing.&lt;/p&gt;
 &lt;p&gt;During tests for various DSL tasks I came to love Earley-parsing. Sketching out a grammar, attaching it into
 an Earley parser and feeding it some sample input, all with a couple lines of code,
 is a satisfying experience. In theory Earley parsing can
-severly degrade in performance, but I have yet to come across such a case in practice.&lt;/p&gt;
+severly degrade in performance, but I have yet to come across such a case in practice.
+I will talk more on Earley-parsing in a different post.&lt;/p&gt;
 &lt;p&gt;GoRGO is an ongoing experiment. Stay tuned for some real-world application stories.&lt;/p&gt;- http://npillmayer.github.io/GoRGO/posts/why-gorgo/ - Norbert Pillmayer</description>
         </item>
     
