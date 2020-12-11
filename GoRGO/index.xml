@@ -47,7 +47,7 @@ than with other programming languages.
 Let&amp;rsquo;s consider the input &lt;code&gt;7 - -a1r&lt;/code&gt;. By now you propably could guess that this means &amp;ldquo;\(7- -a_{1r}\).&amp;rdquo;
 Setting aside that you should enclose the second term in parenthesis anyway, put yourself in the shoes of
 the parser: it will see a sequence of tokens like &lt;code&gt;7 - - a 1 r&lt;/code&gt;. And just when you successfully taught
-your parser to accept it, someone types in &lt;code&gt;y = 7 - - 1 / 3 x [ n - 1 ]&lt;/code&gt;, expecting to get&lt;/p&gt;
+your parser to accept it, someone types in &lt;code&gt;y = 7 - - 1 / 3 x [ n - 1 ]&lt;/code&gt;, intending to express the equation&lt;/p&gt;
 &lt;p&gt;$$y = 7 - -{1\over3}x_{n-1}$$&lt;/p&gt;
 &lt;p&gt;Let&amp;rsquo;s try with Python:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; n = 2    # pre-set subscript variable n
