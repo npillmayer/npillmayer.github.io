@@ -69,8 +69,14 @@ implementations in Go are sparse. Marcel van Lohuizen from the Go Core Team seem
 but with low priority. In the long run, it will be best to wait for the standard library to include
 functions for text segmentation. However, for now I will implement my own.</p>
 <h2 id="tradeoffs">Tradeoffs</h2>
-<p>Handling character data is often part of the inner loop of applications, requiring fast implementations. The flip side are tiring implementations, with lots and lots of <strong>boring</strong> code. This is something I learned from working on text processing: I am even more susceptible to boredom than I suspected. In the Unicode committee world there are lots of brave people involved who spend a lot of energy on getting the details right. Progress in international language processing wouldn&rsquo;t be possible without them–my thanks to ever single one of them.</p>
-<p>I need a different approach, however. If your concern is all about efficiency and performance, you will probably shy away from U⋮A⋮X.
+<p>Handling character data is often part of the inner loop of applications, requiring fast implementations.
+The flip side are tiring implementations, with lots and lots of <strong>boring</strong> code. This is something I learned
+from working on text processing: I am even more susceptible to boredom than I suspected. In the Unicode
+committee world there are lots of brave people involved who spend a lot of energy on getting the details right.
+Progress in international language processing wouldn&rsquo;t be possible without them–my thanks to every single one
+of them.</p>
+<p>I need a different approach, however. If your concern is all about efficiency and performance, you will
+probably shy away from U⋮A⋮X.
 I try to find a balance between performance and readability.
 Unicode algorithms are often stated as formal rules. Implementations in the wild usually follow these descriptions in a procedural manner, resulting in hard-to-read code for travelling back and forth in byte buffers. I won&rsquo;t do that. Instead I prefer to design a programming environment which allows me to <strong>put in the problem description</strong> (i.e., the UAX-rules) and get a working algorithm out. Oftentimes that&rsquo;s tougher and more time-consuming than a straightforward implementation–but hey!, Open Source development is about fun, at least for me.</p>
 
