@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>⋮Seg⋮ment⋮ing⋮ ⋮Uni⋮code⋮  | ⋮Text⋮ ⋮vs⋮ ⋮Strings⋮</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
+    <link rel="stylesheet" href="http://npillmayer.github.io/UAX/css/blog.css" />
+    <style>
+	.shadowed {
+	  color: black;
+	  text-shadow: 0px 2px 4px black;
+	}
+  </style>
+</head>
+<body>
+
+    
+    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="http://npillmayer.github.io/UAX/">Home</a>
+        </div>
+    </nav>
+    
+
+    
+    <section class="hero is-info is-small">
+        <div class="hero-body" style="background-image: url(/UAX/img/bg-blog.jpg);">
+            <div class="container has-text-centered">
+                <br>
+				<img alt="UAX Logo" src="/UAX/img/UAX-Logo-shadow.svg" style="max-width:230px" />
+				<h1 class="title is-size-1 shadowed" style="color:white">
+		   
+                    
+                        ⋮Text⋮ ⋮vs⋮ ⋮Strings⋮
+                    
+                </h1>
+                
+            </div>
+        </div>
+    </section>
+
+
+<div class="container">
+    <div class="section">
+    
+
+<div class="columns">
+    <div class="column is-9">
+        <div class="tile is-child box">
+            <div class="content">
+                <p>In the unlikely event of a software developer and a typographer attending the same party
+and—even more unlikely—enganging in some small talk, they certainly are prone to a fundamental disagreement:
+What is the nature of text? As an IT guy with a heavy interest in typography, I even find me in disagreement
+with myself, clearly an unhealthy state of mind. As a typographer I may think about beautiful books,
+fine typecases or craftsmanship in layout, as a bibliophile I may think about inspired literature or
+enlightened non-fiction, but as a programmer I mainly think of the hassle with UTF-8, emojis, limitations
+of string libaries and so on.</p>
+<h2 id="texts-are-not-strings">Texts are not Strings</h2>
+<p>I&rsquo;m convinced programmers should stop talking about text as if it were just a
+<a href="https://www.c-sharpcorner.com/UploadFile/87b416/difference-between-text-stream-string-and-binary-data/">long string</a>,
+and vice
+versa. In my opinion, text and strings are different animals, and the first step to having better
+library support for texts is to recognize the difference.</p>
+<figure>
+    <img src="/UAX/img/text-vs-string.png"
+         alt="non-fiction text vs computer error message" width="400px"/> <figcaption>
+            <h4>A single data type to rule them all?</h4>
+        </figcaption>
+</figure>
+
+<p>Text consists of letters and words, and so do strings. In real life we&rsquo;re accustomed to define things
+by their components or their attributes. But in mathematics (and software development) we are
+comfortable to define things by sets of operations on them.
+Taking this perspective, smart people have
+<a href="https://mortoray.com/2014/03/17/strings-and-text-are-not-the-same/">tried to work out the difference</a>
+between text and strings or even
+<a href="https://www.elastic.co/de/blog/strings-are-dead-long-live-strings">encode it in their application</a>,
+but that won&rsquo;t stop me from pursuing my own attempt.</p>
+<h3 id="similarities">Similarities</h3>
+<p>Clearly strings are supposed to convey pieces of information. Presumably so do texts, but in a somewhat
+broader sense. Software applications typically don&rsquo;t want to tell a story, but rather send me some
+kind of concise message. There is obviously a grey area, and I do not intend to argue from this point of view.</p>
+<p>Both texts and strings are composed from characters, and often from words. But already slight differences
+start to creep in: <strong>What is a character?</strong> For texts, we think of a visual thing, more what&rsquo;s technically a
+glyph, while with a string we&rsquo;re tempted to think <em>byte</em> or <em>uft16</em>. Unicode introduces programmers to
+the term <em>grapheme</em> to mean a “perceived character”. This dilemma continues with the precise meaning of
+what a “word” is: in computer science the term is heavily overloaded, and in the real world… it&rsquo;s
+<a href="http://www.thai-language.com/ref/breaking-words">complicated</a>.
+Higher-level building blocks of texts do not have sensible meaning for strings at all: sentences,
+paragraphs, pages, etc. My impression is that many programmers insist on strings having <em>directly
+addressable</em> characters, something along the lines of</p>
+<pre><code>dest_string[i] = source_string[j]
+</code></pre>
+<p>but these times are gone forever. Accessing graphemes in text is an inherently sequential operation,
+which is perfectly expressed by
+<a href="https://docs.rs/unicode-segmentation/1.6.0/unicode_segmentation/index.html">Rust&rsquo;s unicode_segmentation crate</a>,
+but other languages may
+prefer to mask this, <a href="https://developer.apple.com/documentation/swift/string#overview">as Swift does</a>.
+For international text, fixed sized string cells are an illusion.</p>
+<h3 id="different-operations">Different Operations</h3>
+<p>In search for operations on text we could take a look at software applications dealing with text:
+web browsers and word processors.</p>
+<figure>
+    <img src="/UAX/img/office-and-browser.png"
+         alt="Web browser window and Libre-Office window" width="400px"/> <figcaption>
+            <h4>Taking text seriously</h4>
+        </figcaption>
+</figure>
+
+<p>One of the reasons there are so few text-centric software libraries around may be that there is not much
+demand for it. If you do not find yourself in a spot to program a web browser or are a contributor to
+LibreOffice, you would probably be hard pressed to remember the last time you had to manipulate
+large amounts of sentences and paragraphs in your software (with one exception, which I will talk
+about in a minute). But perhaps the reverse is also true: there is a huge gap between the “professional
+text machines” and everyday applications because there are so few tools for text around.</p>
+<p>The following (mental) exercise helps me to address this: <strong>Why are you not programming a web browser?</strong>
+Of course there are these minor complications with a cumbersome protocol, all kinds of security concerns,
+an API and virtual machine for a weird scripting language, platform-dependent issues with a host of
+media types, insanely complicated standards (which your peers prefer to interpret to their liking),
+restrictions of hand-held devices, and a lot more. But apart from these, what makes it
+hard to come up at least with a
+<a href="https://www.brow.sh/">non-graphical browser</a>?*</p>
+<p>Image you are handed a library for your preferred programming language which addresses the following
+tasks linked to your brand-new browser project:</p>
+<ul>
+<li>Allow entities of text to be split, merged, extracted, reordered, etc. with ease,</li>
+<li>those entities being (at least) code-points, graphemes, syllables, words, sentences, lines, paragraphs, etc.</li>
+<li>Arbitrary runs of characters within these entities may be attributed (a.k.a. <em>styled</em>),
+with synchronization of raw text and styles being transparent.</li>
+<li>International text attributes (e.g., bidrectional text) are identified with easy and functions for
+correct visual ordering are available</li>
+<li>and are transparently intertwined with sophisticated line-breaking for a multitude of languages and scripts.</li>
+<li>At least Unicode recommendations UAX#9 (bidi), UAX#11 (grapheme width), UAX#14 (line breaking), UAX#29 (entities
+of text), UAX#51 (emojis) are available as actionable library functions.</li>
+<li>Runs of text may be filled into containers, i.e. boxes on a page.</li>
+<li>And performance won&rsquo;t degenerate in the face of large amounts of text.</li>
+</ul>
+<p>For a real web browser that would still leave you with
+<a href="https://gankra.github.io/blah/text-hates-you/">tough problems</a>
+of online-typography, but that&rsquo;s been the reason we will stick to a text-based browser in the first place.
+But armed with this super-duper library you now are free to focus on implementing
+<a href="http://book.mixu.net/css/index.html">a billion layout rules</a> and
+<a href="https://www.w3.org/Style/CSS/all-properties.en.html">a zillion properties</a>, which—you keep repeating
+to yourself—is the
+<a href="https://hacks.mozilla.org/2017/08/inside-a-super-fast-css-engine-quantum-css-aka-stylo/">fun part of writing a browser</a>.</p>
+<h3 id="just-for-the-pros">Just for the Pros?</h3>
+<p>The list above may be daunting. Who would take it on her to implement all this? Actually the community
+already did! In fact, some modules at the heart of browser
+<a href="https://harfbuzz.github.io/">styling engines are community projects</a>.
+Every now and then some brave person tackles one of these challenges and with some luck the code ends up
+in a library, instead of a monolitic application.</p>
+<p>Unfortunately all this code (and knowledge) is distributed in different applications and libraries,
+implemented in different programming languages. Attempts to integrate these into a
+<a href="https://sile-typesetter.org/">text processing engine</a>
+are heroic, but may be of limited benefit to the software development community.</p>
+<h3 id="text-is-not-a-sequence-of-bytes">Text is not a Sequence of Bytes</h3>
+<p>Strings are sequences of bytes. We may overlay these bytes with semantics by using an encoding, but
+the sequential nature of byte sequences persists. But is this the appropriate tool for managing text?
+RAM is cheap and copying blocks of data is very fast these days, but I am unsure if byte sequences are
+the best data structure for text. Real world text engines do not represent text as byte sequences, but
+more often than not as trees. XML underlies the engines of web browsers (HTML) as well as word
+processors (ODF, DOCX), and is inherently a tree-like format.</p>
+<p>Perhaps tree-structure and byte-sequence should meet at the paragraph level: Although modern literature
+has produced some really looong paragraphs, usually they provide a good synchronisation point for
+sequenctial operations like iterating graphemes, breaking lines, bidi-ordering etc. If we are
+able to quickly access paragraphs in large texts (possibly employing concurrency), we could then
+treat paragraphs as sequential work packages.</p>
+<p>Trees are also easily implemented as persistent data structures, a bonus with multithreading.
+Some editors use <a href="https://en.wikipedia.org/wiki/Rope_%28data_structure%29">ropes</a> as their underlying
+data structure, which may be a good basis for other text manipulation purposes.</p>
+<h2 id="what-text-is-not">What Text is not</h2>
+<p>It&rsquo;s a telltale that text tenaciously escapes exact definitions: We humans utilize it for
+all kinds of activities and often it&rsquo;s easier to tell what a text library should <em>not</em> include.</p>
+<h3 id="text-vs-typography">Text vs Typography</h3>
+<p>While on one end of the spectrum a data type for text has to have distinct semantics different from strings,
+on the other end we should be careful with where typography starts. Obviously there is a grey area, too,
+but we may at least
+<a href="https://raphlinus.github.io/text/2020/10/26/text-layout.html">try to categorize</a>.</p>
+<p>It is not a matter of macroscopic vs microscopic view, as typography ranges from pixels on a output device
+to the layout of a book, but rather with having completely different logical entities. Typography is
+concerned with the <strong>visual representation</strong> of text. That&rsquo;s it. This includes fonts, hyphenation,
+page layout, international scripts etc.</p>
+<p>But just a second ago this guy talked about styled text, you ask? And you&rsquo;re right.
+A word in italics is about visual representation, but it is also about semantics.
+In HTML lingo this is called <code>&lt;em&gt;</code> (emphasize). The line is blurry—welcome to the world of human communication!</p>
+<h3 id="text-as-data">Text as Data</h3>
+<p>The one instance above where I alluded to a frequent text use case is with text primarily treated as data.
+Of course, that sounds strange in a blog post about text processing on a computer, but I&rsquo;ll put
+machine learning, full text search etc. in this camp.
+For now I will not think about inverted indexes, PoS-tagging or n-grams as part of a text-API.
+But who knows what a web browser in 2030 will be capable of?</p>
+<h2 id="references">References</h2>
+<p>Edaqa Mortoray:
+<a href="https://mortoray.com/2014/03/17/strings-and-text-are-not-the-same/">Strings and Text are not the same</a></p>
+<p>Computer Hope:
+<a href="https://www.computerhope.com/unix/pylibtx.htm">Python Text Processing Modules</a></p>
+<p>Wyrd Smythe:
+<a href="https://thehardcorecoder.com/2014/04/15/data-text-and-strings-oh-my/">Data, Text and Strings (oh, my!)</a></p>
+<hr>
+<p>*) Browsh provides a good example, as it is backed by a headless Firefox, delegating the heavy lifting
+to it while focussing on the user interface.</p>
+<p>Strings encode information</p>
+<p>directly addressable by index</p>
+<p>Entities of strings are bytes, code-points, lines, etc.</p>
+<p>Not strictly disjunct, but we expect different semantics from text than from strings.</p>
+<p>building strings vs shuffling around and editing text</p>
+<p>Text may be large.</p>
+<p>Text may be styled.</p>
+<p>Text should be safe for interaction with the user; none of this:
+<a href="https://medium.com/@umpox/be-careful-what-you-copy-invisibly-inserting-usernames-into-text-with-zero-width-characters-18b4e6f17b66">Be careful what you copy</a></p>
+<p>Text may be typeset (fonts, areas on pages, pagination, …)</p>
+<p>Text may subject to interpretation of semantics by machines (ML, Deep Learning, sentiment analysis).</p>
+
+            </div>
+        </div>
+    </div>
+    <div class="column is-3">
+        <div class="card">
+    <div class="card-content">
+        <h1 class="title is-5">Tags</h1>
+        <div class="tags">
+        
+            <span class="tag"><a href="http://npillmayer.github.io/UAX/tags/bidi">bidi</a></span>
+        
+            <span class="tag"><a href="http://npillmayer.github.io/UAX/tags/graphemes">graphemes</a></span>
+        
+            <span class="tag"><a href="http://npillmayer.github.io/UAX/tags/markdown">markdown</a></span>
+        
+            <span class="tag"><a href="http://npillmayer.github.io/UAX/tags/paragraphs">paragraphs</a></span>
+        
+            <span class="tag"><a href="http://npillmayer.github.io/UAX/tags/ropes">ropes</a></span>
+        
+            <span class="tag"><a href="http://npillmayer.github.io/UAX/tags/segmentation">segmentation</a></span>
+        
+            <span class="tag"><a href="http://npillmayer.github.io/UAX/tags/strings">strings</a></span>
+        
+            <span class="tag"><a href="http://npillmayer.github.io/UAX/tags/styles">styles</a></span>
+        
+            <span class="tag"><a href="http://npillmayer.github.io/UAX/tags/terminal">terminal</a></span>
+        
+            <span class="tag"><a href="http://npillmayer.github.io/UAX/tags/text">text</a></span>
+        
+            <span class="tag"><a href="http://npillmayer.github.io/UAX/tags/unicode">unicode</a></span>
+        
+        </div>          
+    </div>
+</div><br>
+        <div class="card">
+    <div class="card-content">
+        <h1 class="title is-5">Recent posts</h1>
+        
+            <h1><a href="/UAX/2021/bidi-console/">
+								Bidi: What You See isn&#39;t What You Get</a></p>
+            <time class="has-text-grey-light is-size-7">24 February 2021</time>
+        
+            <h1><a href="/UAX/2021/text-vs-strings/">
+								Text vs Strings</a></p>
+            <time class="has-text-grey-light is-size-7">16 January 2021</time>
+        
+            <h1><a href="/UAX/2020/problem-statement/">
+								The Perils of Segmenting Text</a></p>
+            <time class="has-text-grey-light is-size-7">4 December 2020</time>
+        
+    </div>
+</div>
+    
+<br>
+                
+
+
+    
+<br>
+        <div class="card">
+    <div class="card-content">
+        <h1 class="title is-5">Archives</h1>
+        
+            <a href="http://npillmayer.github.io/UAX/archives/2021">2021</a> (2)<br>
+        
+            <a href="http://npillmayer.github.io/UAX/archives/2020">2020</a> (1)<br>
+        
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+    </div>
+</div>
+
+<footer class="footer has-background-grey-darker has-text-white">
+    <div class="content has-text-centered">
+        <p>
+            <span class="icon is-large"><a href="https://github.com/npillmayer" class="mysocial" rel="me"><i class="fab fa-github fa-3x"></i></a></span>
+            <br>
+            &copy; Norbert Pillmayer 
+            – <a class="mysocial" href="https://github.com/npillmayer">About</a>
+        </p>
+			<p style="font-size:0.8rem">
+			Header image by <a href="https://freeimages.com/photographer/herrberg-37522" class="mysocial">Rainer Berg</a>/<a href="https://freeimages.com/" class="mysocial">FreeImages</a>
+			 – Website theme by <a href="https://jeffprod.com" class="mysocial">JeffProd.com</a>
+        </p>
+    </div>
+</footer>
+
+<script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
+</body>
+</html>

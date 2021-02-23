@@ -6,10 +6,91 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Norbert Pillmayer</copyright>
-    <lastBuildDate>Fri, 04 Dec 2020 11:54:16 +0100</lastBuildDate>
+    <lastBuildDate>Wed, 24 Feb 2021 10:00:00 +0100</lastBuildDate>
     
         <atom:link href="http://npillmayer.github.io/UAX/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Bidi</title>
+      <link>http://npillmayer.github.io/UAX/tags/bidi/</link>
+      <pubDate>Wed, 24 Feb 2021 10:00:00 +0100</pubDate>
+      
+      <guid>http://npillmayer.github.io/UAX/tags/bidi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>terminal</title>
+      <link>http://npillmayer.github.io/UAX/tags/terminal/</link>
+      <pubDate>Wed, 24 Feb 2021 10:00:00 +0100</pubDate>
+      
+      <guid>http://npillmayer.github.io/UAX/tags/terminal/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Graphemes</title>
+      <link>http://npillmayer.github.io/UAX/tags/graphemes/</link>
+      <pubDate>Sat, 16 Jan 2021 10:00:00 +0100</pubDate>
+      
+      <guid>http://npillmayer.github.io/UAX/tags/graphemes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Markdown</title>
+      <link>http://npillmayer.github.io/UAX/tags/markdown/</link>
+      <pubDate>Sat, 16 Jan 2021 10:00:00 +0100</pubDate>
+      
+      <guid>http://npillmayer.github.io/UAX/tags/markdown/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Paragraphs</title>
+      <link>http://npillmayer.github.io/UAX/tags/paragraphs/</link>
+      <pubDate>Sat, 16 Jan 2021 10:00:00 +0100</pubDate>
+      
+      <guid>http://npillmayer.github.io/UAX/tags/paragraphs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ropes</title>
+      <link>http://npillmayer.github.io/UAX/tags/ropes/</link>
+      <pubDate>Sat, 16 Jan 2021 10:00:00 +0100</pubDate>
+      
+      <guid>http://npillmayer.github.io/UAX/tags/ropes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Strings</title>
+      <link>http://npillmayer.github.io/UAX/tags/strings/</link>
+      <pubDate>Sat, 16 Jan 2021 10:00:00 +0100</pubDate>
+      
+      <guid>http://npillmayer.github.io/UAX/tags/strings/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Styles</title>
+      <link>http://npillmayer.github.io/UAX/tags/styles/</link>
+      <pubDate>Sat, 16 Jan 2021 10:00:00 +0100</pubDate>
+      
+      <guid>http://npillmayer.github.io/UAX/tags/styles/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Text</title>
+      <link>http://npillmayer.github.io/UAX/tags/text/</link>
+      <pubDate>Sat, 16 Jan 2021 10:00:00 +0100</pubDate>
+      
+      <guid>http://npillmayer.github.io/UAX/tags/text/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Segmentation</title>

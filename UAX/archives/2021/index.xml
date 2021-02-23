@@ -1,14 +1,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on ⋮Seg⋮ment⋮ing⋮ ⋮Uni⋮code⋮</title>
-    <link>http://npillmayer.github.io/UAX/post/</link>
-    <description>Recent content in Posts on ⋮Seg⋮ment⋮ing⋮ ⋮Uni⋮code⋮</description>
+    <title>2021 on ⋮Seg⋮ment⋮ing⋮ ⋮Uni⋮code⋮</title>
+    <link>http://npillmayer.github.io/UAX/archives/2021/</link>
+    <description>Recent content in 2021 on ⋮Seg⋮ment⋮ing⋮ ⋮Uni⋮code⋮</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Norbert Pillmayer</copyright>
     <lastBuildDate>Wed, 24 Feb 2021 10:00:00 +0100</lastBuildDate>
     
-        <atom:link href="http://npillmayer.github.io/UAX/post/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="http://npillmayer.github.io/UAX/archives/2021/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -27,16 +27,6 @@
       
       <guid>http://npillmayer.github.io/UAX/2021/text-vs-strings/</guid>
       <description>In the unlikely event of a software developer and a typographer attending the same party and—even more unlikely—enganging in some small talk, they certainly are prone to a fundamental disagreement: What is the nature of text? As an IT guy with a heavy interest in typography, I even find me in disagreement with myself, clearly an unhealthy state of mind. As a typographer I may think about beautiful books, fine typecases or craftsmanship in layout, as a bibliophile I may think about inspired literature or enlightened non-fiction, but as a programmer I mainly think of the hassle with UTF-8, emojis, limitations of string libaries and so on.</description>
-    </item>
-    
-    <item>
-      <title>⋮The⋮ ⋮Per⋮ils⋮ ⋮of⋮ ⋮Seg⋮ment⋮ing⋮ ⋮Text⋮</title>
-      <link>http://npillmayer.github.io/UAX/2020/problem-statement/</link>
-      <pubDate>Fri, 04 Dec 2020 11:54:16 +0100</pubDate>
-      
-      <guid>http://npillmayer.github.io/UAX/2020/problem-statement/</guid>
-      <description>Breaking Unicode Text into Segments Text processing applications need to segment text into pieces. Segments may be
- words, sentences, paragraphs  and so on. For western languages this is not too hard of a problem, but it may become an involved endeavor if you consider Arabic or Asian languages. From a typographic viewpoint some of these languages present serious challenges for correct segmenting. The Unicode consortium publishes recommendations and algorithms for various aspects of text segmentation in their Unicode Annexes (UAX).</description>
     </item>
     
   </channel>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>⋮Seg⋮ment⋮ing⋮ ⋮Uni⋮code⋮  | ⋮Bidi:⋮ ⋮What⋮ ⋮You⋮ ⋮See⋮ ⋮isn&#39;t⋮ ⋮What⋮ ⋮You⋮ ⋮Get⋮</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
+    <link rel="stylesheet" href="http://npillmayer.github.io/UAX/css/blog.css" />
+    <style>
+	.shadowed {
+	  color: black;
+	  text-shadow: 0px 2px 4px black;
+	}
+  </style>
+</head>
+<body>
+
+    
+    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="http://npillmayer.github.io/UAX/">Home</a>
+        </div>
+    </nav>
+    
+
+    
+    <section class="hero is-info is-small">
+        <div class="hero-body" style="background-image: url(/UAX/img/bg-blog.jpg);">
+            <div class="container has-text-centered">
+                <br>
+				<img alt="UAX Logo" src="/UAX/img/UAX-Logo-shadow.svg" style="max-width:230px" />
+				<h1 class="title is-size-1 shadowed" style="color:white">
+		   
+                    
+                        ⋮Bidi:⋮ ⋮What⋮ ⋮You⋮ ⋮See⋮ ⋮isn&#39;t⋮ ⋮What⋮ ⋮You⋮ ⋮Get⋮
+                    
+                </h1>
+                
+            </div>
+        </div>
+    </section>
+
+
+<div class="container">
+    <div class="section">
+    
+
+<div class="columns">
+    <div class="column is-9">
+        <div class="tile is-child box">
+            <div class="content">
+                <p>I stumbled across the problem of <strong>bidirectional text in terminals</strong> while trying to test a variant of the
+<a href="https://www.unicode.org/reports/tr9/">Unicode Bidirectional Algorithm</a>.
+The Unicode consortium publishes a set of bidi test-cases, which suffer from being somewhat
+“<a href="https://www.unicode.org/reports/tr41/tr41-26.html#Tests9">non-visual</a>”.
+At the end of the day you want to deal with real sentences in real languages and scripts.
+Preparing that, you face a peculiar problem: how do you display your test output? After all, UAX#9 is
+about visual ordering of characters. So we just print it to the terminal, do we? But things get confused
+quickly.</p>
+<h2 id="how-hard-can-it-be">How Hard can It Be?</h2>
+<p>Sure, terminal applications have to manage some of the messy parts of type, just as browsers do:
+They need fonts with glyphs for almost any foreseeable script, but restricted to monospace.
+Text shaping is hard, but probably less so for monospaced fonts. And at least there are
+no difficulties with sophisticated line breaking, complicated layout with different font sizes, graphics,
+etc.  And bidirectional text should be a solved problem. Or is it?</p>
+<p>Turns out for terminal emulators this is an
+<a href="https://terminal-wg.pages.freedesktop.org/bidi/bidi-intro/why-terminals-are-special.html">especially tricky</a>
+topic!</p>
+<h2 id="a-conspiracy-to-not-let-you-bidi">A Conspiracy to Not Let You Bidi</h2>
+<p>I started my tests from the
+<a href="https://sw.kovidgoyal.net/kitty/">kitty</a> terminal* I use on MacOS.
+Let&rsquo;s go small first, with just a single phrase in Hebrew:</p>
+<figure>
+    <img src="/UAX/img/welcome-to-wikipedia.png"
+         alt="Terminal output: Welcome to Wikipedia!" width="300px"/> <figcaption>
+            <h4>Welcome to Wikipedia</h4>
+        </figcaption>
+</figure>
+
+<p>This is the output of the original string, prior to any reordering logic from my test. I&rsquo;ve not been
+surprised by the output of MacOS Terminal:  obviously it recognizes Hebrew script as right-to-left (RTL) and
+the errorneous positioning of the &lsquo;<strong>!</strong>&rsquo; is a result of me not specifying overall RTL context. But what about
+kitty? Perhaps I did get the logical (memory) representation of the phrase wrong, so let&rsquo;s check by
+opening it in <em>vim</em>. Surprise: It looks different, depending on the terminal <em>vim</em> runs in. Strange…!</p>
+<p>When working on bidirectional text there is a requirement for text-editors to help developers enter the logical
+(memory) order of characters, instead of the visual order. Unfortunately only Emacs has an option to turn off
+interpreting bidi (these days I program in Go on VSCode, and I&rsquo;m
+<a href="https://github.com/microsoft/vscode/issues/83365">not alone in my struggles</a>).
+But shouldn&rsquo;t an editor like <em>vim</em>, running in a terminal&rsquo;s raw mode, operate independent of what the
+terminal emulator considers clever behaviour for bidi? Obviously no.</p>
+<h2 id="the-brave-gnome">The Brave Gnome</h2>
+<p>Diving deeper, I read up on
+<a href="https://www.ecma-international.org/publications-and-standards/technical-reports/ecma-tr-53/">attempts to standardize bidi handling</a>,
+including in terminal emulators. After all,
+the majority of the world&rsquo;s population use non-Latin scripts, many of them with non-LTR writing direction.
+But obviously, as of today the behavious of Mac OS Terminal is the best the industry could come up with.
+And for good reasons: A terminal is not primarily concerned with paragraphs of text, but rather with
+(from a typesetting perspective) funny combinations of characters, where application of Unicode recommendations
+simply falls flat.</p>
+<p>A smart guy named Egmont Koblinger, contributor to a lot of stuff around Linux terminals (<em>joe</em>  editor,
+<em>mc</em>  file manager, etc.), came up with a proposal for an
+<a href="https://terminal-wg.pages.freedesktop.org/bidi/">updated standard</a>
+for bidi handling in terminals. It recommends letting applications decide whether they want
+<strong>implicit</strong> or <strong>explicit</strong> bidi handling, the former more or less meaning the <em>Unicode Bidi
+Algorithm</em> applied by the terminal. When writing tests for bidi yourself, you most certainly prefer
+explicit mode, i.e., short-curcuiting the terminal&rsquo;s cleverness.</p>
+<p>What&rsquo;s best: these ideas have already been implemented in
+<a href="https://developer.gnome.org/vte/unstable/VteTerminal.html">VTE</a>,
+which underlies the Gnome Terminal window. I installed VTE3 on my Mac, included some lines of code
+in my test to force VTE in explicit mode, and it gave me this:</p>
+<figure>
+    <img src="/UAX/img/vte-wikipedia.png"
+         alt="VTE output: Welcome to Wikipedia!" width="300px"/> <figcaption>
+            <h4>VTE Output</h4>
+        </figcaption>
+</figure>
+
+<p>Now this made me happy 😄! VTE shows me the real thing, the characters in logical (memory) order.
+While this is of no use to an end-user of terminals, I consider it very valuable for application
+developers, at least those who have to work on the fine points of international text handling.
+(VTE even has you covered if your intuition about logical order is from right to left.)</p>
+<h2 id="wrap-up">Wrap Up</h2>
+<p>Terminals, text-editors, IDEs and web browsers all conspire to make it hard to develop and test algorithms
+for handling of international text. But a brave Gnome offers the best of two worlds: a level-headed
+implicit mode for day-to-day usage, and an explicit mode for bidi-nerds. Thank you!</p>
+<p>I will try to wrap my learnings into a
+<a href="https://github.com/npillmayer/cords/tree/main/styled/formatter">Go package</a>,
+but at the same time I am aware that this is a tiny niche in a programming universe dominated by
+web applications, where the browser is expected to do all the heavy lifting.
+But that&rsquo;s a different story.</p>
+<hr>
+<p>*) <!-- raw HTML omitted -->Despite the peculiarities described here, switching to
+<a href="https://sw.kovidgoyal.net/kitty/">kitty</a> is a choice I never came to regret
+and I recommend kitty without reserve.<!-- raw HTML omitted --></p>
+
+            </div>
+        </div>
+    </div>
+    <div class="column is-3">
+        <div class="card">
+    <div class="card-content">
+        <h1 class="title is-5">Tags</h1>
+        <div class="tags">
+        
+            <span class="tag"><a href="http://npillmayer.github.io/UAX/tags/bidi">bidi</a></span>
+        
+            <span class="tag"><a href="http://npillmayer.github.io/UAX/tags/graphemes">graphemes</a></span>
+        
+            <span class="tag"><a href="http://npillmayer.github.io/UAX/tags/markdown">markdown</a></span>
+        
+            <span class="tag"><a href="http://npillmayer.github.io/UAX/tags/paragraphs">paragraphs</a></span>
+        
+            <span class="tag"><a href="http://npillmayer.github.io/UAX/tags/ropes">ropes</a></span>
+        
+            <span class="tag"><a href="http://npillmayer.github.io/UAX/tags/segmentation">segmentation</a></span>
+        
+            <span class="tag"><a href="http://npillmayer.github.io/UAX/tags/strings">strings</a></span>
+        
+            <span class="tag"><a href="http://npillmayer.github.io/UAX/tags/styles">styles</a></span>
+        
+            <span class="tag"><a href="http://npillmayer.github.io/UAX/tags/terminal">terminal</a></span>
+        
+            <span class="tag"><a href="http://npillmayer.github.io/UAX/tags/text">text</a></span>
+        
+            <span class="tag"><a href="http://npillmayer.github.io/UAX/tags/unicode">unicode</a></span>
+        
+        </div>          
+    </div>
+</div><br>
+        <div class="card">
+    <div class="card-content">
+        <h1 class="title is-5">Recent posts</h1>
+        
+            <h1><a href="/UAX/2021/bidi-console/">
+								Bidi: What You See isn&#39;t What You Get</a></p>
+            <time class="has-text-grey-light is-size-7">24 February 2021</time>
+        
+            <h1><a href="/UAX/2021/text-vs-strings/">
+								Text vs Strings</a></p>
+            <time class="has-text-grey-light is-size-7">16 January 2021</time>
+        
+            <h1><a href="/UAX/2020/problem-statement/">
+								The Perils of Segmenting Text</a></p>
+            <time class="has-text-grey-light is-size-7">4 December 2020</time>
+        
+    </div>
+</div>
+    
+<br>
+                
+
+
+    
+<br>
+        <div class="card">
+    <div class="card-content">
+        <h1 class="title is-5">Archives</h1>
+        
+            <a href="http://npillmayer.github.io/UAX/archives/2021">2021</a> (2)<br>
+        
+            <a href="http://npillmayer.github.io/UAX/archives/2020">2020</a> (1)<br>
+        
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+    </div>
+</div>
+
+<footer class="footer has-background-grey-darker has-text-white">
+    <div class="content has-text-centered">
+        <p>
+            <span class="icon is-large"><a href="https://github.com/npillmayer" class="mysocial" rel="me"><i class="fab fa-github fa-3x"></i></a></span>
+            <br>
+            &copy; Norbert Pillmayer 
+            – <a class="mysocial" href="https://github.com/npillmayer">About</a>
+        </p>
+			<p style="font-size:0.8rem">
+			Header image by <a href="https://freeimages.com/photographer/herrberg-37522" class="mysocial">Rainer Berg</a>/<a href="https://freeimages.com/" class="mysocial">FreeImages</a>
+			 – Website theme by <a href="https://jeffprod.com" class="mysocial">JeffProd.com</a>
+        </p>
+    </div>
+</footer>
+
+<script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
+</body>
+</html>
