@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1"><meta name="generator" content="Hugo 0.66.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1"><meta name="generator" content="Hugo 0.82.0" />
 <link rel="apple-touch-icon" sizes="180x180" href='http://npillmayer.github.io/favicons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='http://npillmayer.github.io/favicons/favicon-32x32.png'>
 <link rel="icon" type="image/png" sizes="16x16" href='http://npillmayer.github.io/favicons/favicon-16x16.png'>
@@ -13,16 +13,15 @@
 <meta property="og:description" content="Images Image figure captions You have the option of adding captions to images in blog posts and automatically prepending a desired string such as &quot;Figure N&quot; to the alt text. This is controlled via two global settings.
 figurePositionLabel is a string which will be prepended to any alt text of an article image. By default, this is set to &quot;Figure.&quot; And figurePositionShow controls, globally, whether to show this label. It does not affect whether to show the image alt text, only the prefix figure caption." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://npillmayer.github.io/TySE/docs/clarity/images/" />
+<meta property="og:url" content="http://npillmayer.github.io/TySE/docs/clarity/images/" /><meta property="article:section" content="docs" />
+
+
 
 <meta itemprop="name" content="Manipulating Images">
 <meta itemprop="description" content="Images Image figure captions You have the option of adding captions to images in blog posts and automatically prepending a desired string such as &quot;Figure N&quot; to the alt text. This is controlled via two global settings.
 figurePositionLabel is a string which will be prepended to any alt text of an article image. By default, this is set to &quot;Figure.&quot; And figurePositionShow controls, globally, whether to show this label. It does not affect whether to show the image alt text, only the prefix figure caption.">
 
-<meta itemprop="wordCount" content="543">
-
-
-
+<meta itemprop="wordCount" content="547">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Manipulating Images"/>
 <meta name="twitter:description" content="Images Image figure captions You have the option of adding captions to images in blog posts and automatically prepending a desired string such as &quot;Figure N&quot; to the alt text. This is controlled via two global settings.
@@ -30,6 +29,7 @@ figurePositionLabel is a string which will be prepended to any alt text of an ar
 
 
 <link rel="stylesheet" href="http://npillmayer.github.io/TySE/css/styles.eeb86b0346a7bd5be7b023099c550a52ea005443ea0bad95147c640892ef3eb5973e5261d02aa37149440770159ba7fecbf2442f2f6fd28175773faaf5449d33.css" integrity="sha512-7rhrA0anvVvnsCMJnFUKUuoAVEPqC62VFHxkCJLvPrWXPlJh0CqjcUlEB3AVm6f&#43;y/JELy9v0oF1dz&#43;q9USdMw==">
+<link rel="stylesheet" href='http://npillmayer.github.io/TySE/css/tyse.css' >
 
 </head>
   
@@ -324,53 +324,53 @@ figurePositionLabel is a string which will be prepended to any alt text of an ar
 <h3 id="inline-images">Inline images</h3>
 <p>To make a blog image inline, append <code>:inline</code> to its alt text. Typically, inline images will have no alt text associated with them.</p>
 <h3 id="inline-images-example">Inline images example</h3>
-<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown"><span class="ln">1</span>&lt;!-- some image without alt text --&gt;
+<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown"><span class="ln">1</span><span class="c">&lt;!-- some image without alt text --&gt;</span>
 <span class="ln">2</span>![<span class="nt">:inline</span>](<span class="na">someImageUrl</span>)
 <span class="ln">3</span>
-<span class="ln">4</span>&lt;!-- some image with alt text --&gt;
+<span class="ln">4</span><span class="c">&lt;!-- some image with alt text --&gt;</span>
 <span class="ln">5</span>
 <span class="ln">6</span>![<span class="nt">some alt text:inline</span>](<span class="na">someOtherImageUrl</span>)
 </code></pre></div><p><img src="https://github.com/chipzoller/hugo-clarity/blob/master/images/image-inline.png" alt="Inline image example"></p>
 <h3 id="float-images-to-the-left">Float images to the left</h3>
 <p>To align a blog image to the left, append <code>:left</code> to its alt text. Article text will then flow to the right of the image.</p>
 <h3 id="float-images-left-example">Float images left example</h3>
-<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown"><span class="ln">1</span>&lt;!-- some image without alt text --&gt;
+<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown"><span class="ln">1</span><span class="c">&lt;!-- some image without alt text --&gt;</span>
 <span class="ln">2</span>![<span class="nt">:left</span>](<span class="na">someImageUrl</span>)
 <span class="ln">3</span>
-<span class="ln">4</span>&lt;!-- some image with alt text --&gt;
+<span class="ln">4</span><span class="c">&lt;!-- some image with alt text --&gt;</span>
 <span class="ln">5</span>
 <span class="ln">6</span>![<span class="nt">some alt text:left</span>](<span class="na">someOtherImageUrl</span>)
 </code></pre></div><h3 id="add-classes-to-images">Add classes to images</h3>
 <p>To add a class image to the left, append <code>::&lt;classname&gt;</code> to its alt text. You can also add multiple classes to an image separated by space. <code>::&lt;classname1&gt; &lt;classname2&gt;</code>.</p>
 <h3 id="image-class-example">Image class example</h3>
-<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown"><span class="ln">1</span>&lt;!-- some image without alt text --&gt;
+<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown"><span class="ln">1</span><span class="c">&lt;!-- some image without alt text --&gt;</span>
 <span class="ln">2</span>![<span class="nt">::img-medium</span>](<span class="na">someImageUrl</span>)
 <span class="ln">3</span>
-<span class="ln">4</span>&lt;!-- some image with alt text --&gt;
+<span class="ln">4</span><span class="c">&lt;!-- some image with alt text --&gt;</span>
 <span class="ln">5</span>
 <span class="ln">6</span>![<span class="nt">some alt text::img-large img-shadow</span>](<span class="na">someOtherImageUrl</span>)
 </code></pre></div><h3 id="article-thumbnail-image">Article thumbnail image</h3>
 <p>Blog articles can specify a thumbnail image which will be displayed to the left of the card on the home page. Thumbnails should be square (height:width ratio of <code>1:1</code>) and a suggested dimension of 150 x 150 pixels. They will be specified using a frontmatter variable as follows:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="ln">1</span>...<span class="w">
-</span><span class="ln">2</span><span class="w"></span><span class="k">thumbnail</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;images/2020-04/capv-overview/thumbnail.jpg&#34;</span><span class="w">
-</span><span class="ln">3</span><span class="w"></span>...<span class="w">
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="ln">1</span><span class="nn">...</span><span class="w">
+</span><span class="ln">2</span><span class="w"></span><span class="nt">thumbnail</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;images/2020-04/capv-overview/thumbnail.jpg&#34;</span><span class="w">
+</span><span class="ln">3</span><span class="w"></span><span class="nn">...</span><span class="w">
 </span></code></pre></div><p>The thumbnail image will take precedence on opengraph share tags if the <a href="#share-image">shareImage</a> parameter is not specified.</p>
 <h3 id="article-featured-image">Article featured image</h3>
 <p>Each article can specify an image that appears at the top of the content. When sharing the blog article on social media, if a thumnail is not specified, the featured image will be used as a fallback on opengraph share tags.</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="ln">1</span>...<span class="w">
-</span><span class="ln">2</span><span class="w"></span><span class="k">featureImage</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;images/2020-04/capv-overview/featured.jpg&#34;</span><span class="w">
-</span><span class="ln">3</span><span class="w"></span>...<span class="w">
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="ln">1</span><span class="nn">...</span><span class="w">
+</span><span class="ln">2</span><span class="w"></span><span class="nt">featureImage</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;images/2020-04/capv-overview/featured.jpg&#34;</span><span class="w">
+</span><span class="ln">3</span><span class="w"></span><span class="nn">...</span><span class="w">
 </span></code></pre></div><h3 id="share-image">Share Image</h3>
 <p>Sometimes, you want to explicitly set the image that will be used in the preview when you share an article on social media. You can do so in the front matter.</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="ln">1</span>...<span class="w">
-</span><span class="ln">2</span><span class="w"></span>shareImage<span class="w"> </span>=<span class="w"> </span><span class="s2">&#34;images/theImageToBeUsedOnShare.png&#34;</span><span class="w">
-</span><span class="ln">3</span><span class="w"></span>...<span class="w">
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="ln">1</span><span class="nn">...</span><span class="w">
+</span><span class="ln">2</span><span class="w"></span><span class="l">shareImage = &#34;images/theImageToBeUsedOnShare.png&#34;</span><span class="w">
+</span><span class="ln">3</span><span class="w"></span><span class="nn">...</span><span class="w">
 </span></code></pre></div><p>Note that if a share image is not specified, the order of precedence that will be used to determine which image applies is <code>thumbnail</code> =&gt; <code>featureImage</code> =&gt; <code>fallbackOgImage</code>. When sharing a link to the home page address of the site (as opposed to a specific article), the <code>fallbackOgImage</code> will be used.</p>
 <h3 id="align-logo">Align logo</h3>
 <p>You can left align or center your site's logo.</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="ln">1</span>...<span class="w">
-</span><span class="ln">2</span><span class="w"></span>centerLogo<span class="w"> </span>=<span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="c"># Change to false to align left</span><span class="w">
-</span><span class="ln">3</span><span class="w"></span>...<span class="w">
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="ln">1</span><span class="nn">...</span><span class="w">
+</span><span class="ln">2</span><span class="w"></span><span class="l">centerLogo = true</span><span class="w"> </span><span class="c"># Change to false to align left</span><span class="w">
+</span><span class="ln">3</span><span class="w"></span><span class="nn">...</span><span class="w">
 </span></code></pre></div><p>If no logo is specified, the title of the site will appear in its place.</p>
 
     <div class="pager">
@@ -540,7 +540,7 @@ figurePositionLabel is a string which will be prepended to any alt text of an ar
 </svg>
 
 <script src="http://npillmayer.github.io/TySE/js/bundle.60c52dc6f895e4f88d4fff9301ef3f80a8065a8e9da35f7ab3503094d1e94a145cc74c5716e62c1de734a50506c96a5386a2b1e300ce9a14325bc695bfdb01ea.js"></script>
-<script src="http://npillmayer.github.io/TySE/js/search.a97a6045cb8be7c935d463fed6cb65217aa807c93bc725a360b793d88aeffcd505d8e447f618e7a8a4770830f27da4c3e344ba98f79e9ba7829dbf2181cec6b3.js" async defer></script>
+<script src="http://npillmayer.github.io/TySE/js/search.c3c9971f161ebad6e2017273d56d8df1dd0a5ca11d183b7d5ac848da386fd153a2b4bdaddc01e19d531dbc973247aba1b1846c00eac0dd40417b6a609d5b2555.js" async defer></script>
 
 
 </body>

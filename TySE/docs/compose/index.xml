@@ -6,11 +6,7 @@
     <description>Recent content in Compose Docs on TySE – Typesetting with Fun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>Norbert Pillmayer</copyright>
-    
-	<atom:link href="http://npillmayer.github.io/TySE/docs/compose/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <copyright>Norbert Pillmayer</copyright><atom:link href="http://npillmayer.github.io/TySE/docs/compose/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Install theme</title>
       <link>http://npillmayer.github.io/TySE/docs/compose/install-theme/</link>
@@ -64,7 +60,7 @@ Sometimes, the shortcode will wrap content, sometimes it won&#39;t. When content
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://npillmayer.github.io/TySE/docs/compose/shortcodes-example/</guid>
-      <description>Blocks, columns &amp;amp; buttons 1{{&amp;lt; block &amp;#34;grid-2&amp;#34; &amp;gt;}} 2{{&amp;lt; column &amp;gt;}} 3#### Coumn 1 4 5Lorem ipsum dolor sit amet, 6... 7 8{{&amp;lt; button &amp;#34;https://github.com/onweru/compose&amp;#34; &amp;#34;Download Theme&amp;#34; &amp;gt;}} 9 10{{&amp;lt; /column &amp;gt;}} 11{{&amp;lt; column &amp;gt;}} 12 13&amp;lt;!-- generates 👇 --&amp;gt; Coumn 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+      <description>Blocks, columns &amp;amp; buttons 1{{&amp;lt; block &amp;#34;grid-2&amp;#34; &amp;gt;}} 2{{&amp;lt; column &amp;gt;}} 3#### Coumn 1  4 5Lorem ipsum dolor sit amet, 6... 7 8{{&amp;lt; button &amp;#34;https://github.com/onweru/compose&amp;#34; &amp;#34;Download Theme&amp;#34; &amp;gt;}} 9 10{{&amp;lt; /column &amp;gt;}} 11{{&amp;lt; column &amp;gt;}} 12 13&amp;lt;!-- generates 👇 --&amp;gt; Coumn 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
 dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</description>
     </item>
     

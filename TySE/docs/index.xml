@@ -6,10 +6,6 @@
     <description>Recent content in Themes&#39; Docs on TySE – Typesetting with Fun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>Norbert Pillmayer</copyright>
-    
-	<atom:link href="http://npillmayer.github.io/TySE/docs/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <copyright>Norbert Pillmayer</copyright><atom:link href="http://npillmayer.github.io/TySE/docs/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

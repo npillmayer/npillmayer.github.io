@@ -6,11 +6,7 @@
     <description>Recent content in Clarity Docs on TySE – Typesetting with Fun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>Norbert Pillmayer</copyright>
-    
-	<atom:link href="http://npillmayer.github.io/TySE/docs/clarity/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <copyright>Norbert Pillmayer</copyright><atom:link href="http://npillmayer.github.io/TySE/docs/clarity/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Getting started</title>
       <link>http://npillmayer.github.io/TySE/docs/clarity/getting-started/</link>
@@ -71,9 +67,9 @@ figurePositionLabel is a string which will be prepended to any alt text of an ar
       
       <guid>http://npillmayer.github.io/TySE/docs/clarity/blogging/</guid>
       <description>Blog directory Edit the config.toml file and change the mainSections key. Values will be directories where the blogs reside.
-1[params]2...3mainSections=[&amp;#34;posts&amp;#34;,&amp;#34;docs&amp;#34;,&amp;#34;blogs&amp;#34;]4...For more info, see the Hugo docs.
+1[params]2...3mainSections = [&amp;#34;posts&amp;#34;, &amp;#34;docs&amp;#34;, &amp;#34;blogs&amp;#34;]4...For more info, see the Hugo docs.
 Mobile menu positioning The navigation menu when mobile browsing can be configured in config.toml to open right or left depending on preference. The &amp;quot;hamburger&amp;quot; menu icon will always display in the upper right hand corner regardless.
-1[params]2...3mobileNavigation=&amp;#34;left&amp;#34;# Mobile nav menu will open to the left of the screen.</description>
+1[params]2...3mobileNavigation = &amp;#34;left&amp;#34;# Mobile nav menu will open to the left of the screen.</description>
     </item>
     
     <item>
@@ -83,7 +79,7 @@ Mobile menu positioning The navigation menu when mobile browsing can be configur
       
       <guid>http://npillmayer.github.io/TySE/docs/clarity/syntax-highlighting/</guid>
       <description>Code Display line numbers Choose whether to display line numbers within a code block globally with the parameter codeLineNumbers setting to true or false.
-1[params]2...3codeLineNumbers=true# Shows line numbers for all code blocks globally.4...Limit code block height You can globally control the number of lines which are displayed by default for your code blocks. Code which has the number of lines exceed this value will dynamically cause two code block expansion buttons to appear, allowing the user to expand to full length and contract.</description>
+1[params]2...3codeLineNumbers = true# Shows line numbers for all code blocks globally.4...Limit code block height You can globally control the number of lines which are displayed by default for your code blocks. Code which has the number of lines exceed this value will dynamically cause two code block expansion buttons to appear, allowing the user to expand to full length and contract.</description>
     </item>
     
     <item>
