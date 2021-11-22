@@ -1,95 +1,65 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
-  <url>
-    <loc>http://npillmayer.github.io/UAX/archives/2021/</loc>
-    <lastmod>2021-02-24T10:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://npillmayer.github.io/UAX/archives/</loc>
-    <lastmod>2021-02-24T10:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://npillmayer.github.io/UAX/tags/bidi/</loc>
-    <lastmod>2021-02-24T10:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://npillmayer.github.io/UAX/post/</loc>
-    <lastmod>2021-02-24T10:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://npillmayer.github.io/UAX/tags/</loc>
-    <lastmod>2021-02-24T10:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://npillmayer.github.io/UAX/tags/terminal/</loc>
-    <lastmod>2021-02-24T10:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://npillmayer.github.io/UAX/2021/bidi-console/</loc>
-    <lastmod>2021-02-24T10:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://npillmayer.github.io/UAX/</loc>
-    <lastmod>2021-02-24T10:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://npillmayer.github.io/UAX/tags/graphemes/</loc>
-    <lastmod>2021-01-16T10:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://npillmayer.github.io/UAX/tags/paragraphs/</loc>
-    <lastmod>2021-01-16T10:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://npillmayer.github.io/UAX/tags/strings/</loc>
-    <lastmod>2021-01-16T10:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://npillmayer.github.io/UAX/tags/styles/</loc>
-    <lastmod>2021-01-16T10:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://npillmayer.github.io/UAX/tags/text/</loc>
-    <lastmod>2021-01-16T10:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://npillmayer.github.io/UAX/2021/text-vs-strings/</loc>
-    <lastmod>2021-01-16T10:00:00+01:00</lastmod>
-  </url>
-  
   <url>
     <loc>http://npillmayer.github.io/UAX/archives/2020/</loc>
-    <lastmod>2020-12-04T11:54:16+01:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2021-11-20T20:18:00+01:00</lastmod>
+  </url><url>
+    <loc>http://npillmayer.github.io/UAX/archives/</loc>
+    <lastmod>2021-11-20T20:18:00+01:00</lastmod>
+  </url><url>
+    <loc>http://npillmayer.github.io/UAX/tags/bidi/</loc>
+    <lastmod>2021-11-20T20:18:00+01:00</lastmod>
+  </url><url>
+    <loc>http://npillmayer.github.io/UAX/tags/paragraphs/</loc>
+    <lastmod>2021-11-20T20:18:00+01:00</lastmod>
+  </url><url>
+    <loc>http://npillmayer.github.io/UAX/post/</loc>
+    <lastmod>2021-11-20T20:18:00+01:00</lastmod>
+  </url><url>
     <loc>http://npillmayer.github.io/UAX/tags/segmentation/</loc>
-    <lastmod>2020-12-04T11:54:16+01:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2021-11-20T20:18:00+01:00</lastmod>
+  </url><url>
+    <loc>http://npillmayer.github.io/UAX/tags/</loc>
+    <lastmod>2021-11-20T20:18:00+01:00</lastmod>
+  </url><url>
+    <loc>http://npillmayer.github.io/UAX/tags/typesetting/</loc>
+    <lastmod>2021-11-20T20:18:00+01:00</lastmod>
+  </url><url>
+    <loc>http://npillmayer.github.io/UAX/</loc>
+    <lastmod>2021-11-20T20:18:00+01:00</lastmod>
+  </url><url>
+    <loc>http://npillmayer.github.io/UAX/2021/typesetting-stack/</loc>
+    <lastmod>2021-11-20T20:18:00+01:00</lastmod>
+  </url><url>
+    <loc>http://npillmayer.github.io/UAX/archives/2021/</loc>
+    <lastmod>2021-02-24T10:00:00+01:00</lastmod>
+  </url><url>
+    <loc>http://npillmayer.github.io/UAX/tags/terminal/</loc>
+    <lastmod>2021-02-24T10:00:00+01:00</lastmod>
+  </url><url>
+    <loc>http://npillmayer.github.io/UAX/2021/bidi-console/</loc>
+    <lastmod>2021-02-24T10:00:00+01:00</lastmod>
+  </url><url>
+    <loc>http://npillmayer.github.io/UAX/tags/graphemes/</loc>
+    <lastmod>2021-01-16T10:00:00+01:00</lastmod>
+  </url><url>
+    <loc>http://npillmayer.github.io/UAX/tags/strings/</loc>
+    <lastmod>2021-01-16T10:00:00+01:00</lastmod>
+  </url><url>
+    <loc>http://npillmayer.github.io/UAX/tags/styles/</loc>
+    <lastmod>2021-01-16T10:00:00+01:00</lastmod>
+  </url><url>
+    <loc>http://npillmayer.github.io/UAX/tags/text/</loc>
+    <lastmod>2021-01-16T10:00:00+01:00</lastmod>
+  </url><url>
+    <loc>http://npillmayer.github.io/UAX/2021/text-vs-strings/</loc>
+    <lastmod>2021-01-16T10:00:00+01:00</lastmod>
+  </url><url>
     <loc>http://npillmayer.github.io/UAX/tags/unicode/</loc>
     <lastmod>2020-12-04T11:54:16+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://npillmayer.github.io/UAX/2020/problem-statement/</loc>
     <lastmod>2020-12-04T11:54:16+01:00</lastmod>
   </url>
-  
 </urlset>

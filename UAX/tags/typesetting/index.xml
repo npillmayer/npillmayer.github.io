@@ -1,14 +1,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Bidi on ⋮Seg⋮ment⋮ing⋮ ⋮Uni⋮code⋮</title>
-    <link>http://npillmayer.github.io/UAX/tags/bidi/</link>
-    <description>Recent content in Bidi on ⋮Seg⋮ment⋮ing⋮ ⋮Uni⋮code⋮</description>
+    <title>Typesetting on ⋮Seg⋮ment⋮ing⋮ ⋮Uni⋮code⋮</title>
+    <link>http://npillmayer.github.io/UAX/tags/typesetting/</link>
+    <description>Recent content in Typesetting on ⋮Seg⋮ment⋮ing⋮ ⋮Uni⋮code⋮</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Norbert Pillmayer</copyright>
     <lastBuildDate>Sat, 20 Nov 2021 20:18:00 +0100</lastBuildDate>
     
-        <atom:link href="http://npillmayer.github.io/UAX/tags/bidi/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="http://npillmayer.github.io/UAX/tags/typesetting/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -20,15 +20,6 @@
       <description>The other day I had reason to think about what actually comprises a typesetting stack. Typesetting allows the documents you compiled to be read on a output medium. For this post I&amp;rsquo;ll focus on screen-output.
 Other have tried to give a systematic overview of what typesetting is. Nevertheless, I&amp;rsquo;ll jot down my own attempt, focussing on UAX, i.e. the Unicode recommendations and algorithms for various aspects of text segmentation.
 A Walk through the Layout Process It&amp;rsquo;s clear that the rules of various Unicode annexes play an important role during typsetting.</description>
-    </item>
-    
-    <item>
-      <title>⋮Bidi:⋮ ⋮What⋮ ⋮You⋮ ⋮See⋮ ⋮isn&#39;t⋮ ⋮What⋮ ⋮You⋮ ⋮Get⋮</title>
-      <link>http://npillmayer.github.io/UAX/2021/bidi-console/</link>
-      <pubDate>Wed, 24 Feb 2021 10:00:00 +0100</pubDate>
-      
-      <guid>http://npillmayer.github.io/UAX/2021/bidi-console/</guid>
-      <description>I stumbled across the problem of bidirectional text in terminals while trying to test a variant of the Unicode Bidirectional Algorithm. The Unicode consortium publishes a set of bidi test-cases, which suffer from being somewhat “non-visual”. At the end of the day you want to deal with real sentences in real languages and scripts. Preparing that, you face a peculiar problem: how do you display your test output? After all, UAX#9 is about visual ordering of characters.</description>
     </item>
     
   </channel>

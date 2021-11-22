@@ -6,7 +6,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Norbert Pillmayer</copyright>
-    <lastBuildDate>Wed, 24 Feb 2021 10:00:00 +0100</lastBuildDate>
+    <lastBuildDate>Sat, 20 Nov 2021 20:18:00 +0100</lastBuildDate>
     
         <atom:link href="http://npillmayer.github.io/UAX/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,9 +14,36 @@
     <item>
       <title>Bidi</title>
       <link>http://npillmayer.github.io/UAX/tags/bidi/</link>
-      <pubDate>Wed, 24 Feb 2021 10:00:00 +0100</pubDate>
+      <pubDate>Sat, 20 Nov 2021 20:18:00 +0100</pubDate>
       
       <guid>http://npillmayer.github.io/UAX/tags/bidi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Paragraphs</title>
+      <link>http://npillmayer.github.io/UAX/tags/paragraphs/</link>
+      <pubDate>Sat, 20 Nov 2021 20:18:00 +0100</pubDate>
+      
+      <guid>http://npillmayer.github.io/UAX/tags/paragraphs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Segmentation</title>
+      <link>http://npillmayer.github.io/UAX/tags/segmentation/</link>
+      <pubDate>Sat, 20 Nov 2021 20:18:00 +0100</pubDate>
+      
+      <guid>http://npillmayer.github.io/UAX/tags/segmentation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Typesetting</title>
+      <link>http://npillmayer.github.io/UAX/tags/typesetting/</link>
+      <pubDate>Sat, 20 Nov 2021 20:18:00 +0100</pubDate>
+      
+      <guid>http://npillmayer.github.io/UAX/tags/typesetting/</guid>
       <description></description>
     </item>
     
@@ -35,15 +62,6 @@
       <pubDate>Sat, 16 Jan 2021 10:00:00 +0100</pubDate>
       
       <guid>http://npillmayer.github.io/UAX/tags/graphemes/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Paragraphs</title>
-      <link>http://npillmayer.github.io/UAX/tags/paragraphs/</link>
-      <pubDate>Sat, 16 Jan 2021 10:00:00 +0100</pubDate>
-      
-      <guid>http://npillmayer.github.io/UAX/tags/paragraphs/</guid>
       <description></description>
     </item>
     
@@ -71,15 +89,6 @@
       <pubDate>Sat, 16 Jan 2021 10:00:00 +0100</pubDate>
       
       <guid>http://npillmayer.github.io/UAX/tags/text/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Segmentation</title>
-      <link>http://npillmayer.github.io/UAX/tags/segmentation/</link>
-      <pubDate>Fri, 04 Dec 2020 11:54:16 +0100</pubDate>
-      
-      <guid>http://npillmayer.github.io/UAX/tags/segmentation/</guid>
       <description></description>
     </item>
     

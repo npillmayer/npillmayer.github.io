@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>⋮Seg⋮ment⋮ing⋮ ⋮Uni⋮code⋮  | ⋮What⋮ ⋮is⋮ ⋮a⋮ ⋮Type⋮set⋮ting⋮-⋮Stack⋮?</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
+    <link rel="stylesheet" href="http://npillmayer.github.io/UAX/css/blog.css" />
+    <style>
+	.shadowed {
+	  color: black;
+	  text-shadow: 0px 2px 4px black;
+	}
+  </style>
+</head>
+<body>
+
+    
+    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="http://npillmayer.github.io/UAX/">Home</a>
+        </div>
+    </nav>
+    
+
+    
+    <section class="hero is-info is-small">
+        <div class="hero-body" style="background-image: url(/UAX/img/bg-blog.jpg);">
+            <div class="container has-text-centered">
+                <br>
+				<img alt="UAX Logo" src="/UAX/img/UAX-Logo-shadow.svg" style="max-width:230px" />
+				<h1 class="title is-size-1 shadowed" style="color:white">
+		   
+                    
+                        ⋮What⋮ ⋮is⋮ ⋮a⋮ ⋮Type⋮set⋮ting⋮-⋮Stack⋮?
+                    
+                </h1>
+                
+            </div>
+        </div>
+    </section>
+
+
+<div class="container">
+    <div class="section">
+    
+
+<div class="columns">
+    <div class="column is-9">
+        <div class="tile is-child box">
+            <div class="content">
+                <p>The other day I had reason to think about what actually comprises a typesetting stack.
+Typesetting allows the documents you compiled to be read on a output medium.
+For this post I&rsquo;ll focus on screen-output.</p>
+<p><a href="https://raphlinus.github.io/text/2020/10/26/text-layout.html">Other have tried</a> to
+give a systematic overview of what typesetting is. Nevertheless, I&rsquo;ll jot down my own attempt,
+focussing on UAX, i.e.
+the Unicode recommendations and algorithms for various aspects of text segmentation.</p>
+<h2 id="a-walk-through-the-layout-process">A Walk through the Layout Process</h2>
+<p>It&rsquo;s clear that the rules of various Unicode annexes play an important role during typsetting.
+But how and at what stages do they fit in?</p>
+<p>Let&rsquo;s first sketch out a high-level overview of the typesetting flow.
+As we&rsquo;re mainly interested in UAX rules, and the domain of UAX is a paragraph,
+we focus on layout of a single paragraph. We start with text input. It is common practice
+to use UPPERCASE letters to denote right-to-left context, e.g. Hebrew or Arabic writing.</p>
+<figure><img src="/UAX/img/t-stack-1.png"
+         alt="Styling text" width="400px"/><figcaption>
+            <h4>Authoring</h4>
+        </figcaption>
+</figure>
+
+<p><em>Authoring</em> creates text and inserts markup to style the text: some words or sentences may be
+marked as &lsquo;<strong>bold</strong>&rsquo; or &lsquo;<em>italics</em>,&rsquo; or fragments of text may get colored. Some authoring systems
+allow styling to be done in WYSIWYG-mode with out-of-band markup (MS-Word), other use in-band markup
+(HTML, Markdown).  Whatever the system, the styling information has to be attached as attributes
+onto the raw text.</p>
+<p>Now the layer of <em>Lettering</em> starts. This marks the transition from attributed runs of text to
+sequences of glyphs. First the attributed text is analyzed: directional runs, language and script.
+This is where UAX comes into play.</p>
+<figure><img src="/UAX/img/t-stack-2.png"
+         alt="Moving from text to glyphs" width="410px"/><figcaption>
+            <h4>Lettering</h4>
+        </figcaption>
+</figure>
+
+<p>The <strong>UAX#9 bidi algorithm</strong> determines the directionality for bidirectional Unicode text. It obtains
+the correct display ordering from the logical ordering of characters.
+The algorithm is not perfect for every script and language, but a useful starting point, and authors
+may support the algorithm by inserting markers called &lsquo;<em>explicit directional isolates</em>.&rsquo;</p>
+<p>Overlaying style information and bidi information results in splitting the text into <em>items</em>,
+i.e. sequences of characters with equal attributes. These attributes can now be mapped to fonts,
+resulting in character runs each having a font selected for them. This font is able to express the
+visual attributes of the run. The glyph metric information of a font is taken by a <strong>shaper</strong>
+to assemble glyph sequences, where all the rules for selecting glyphs and their positioning relative
+to each other are considered. Often this selection and positioning process is script- and
+language-dependent, including the directional context.</p>
+<p>At the Lettering stage, glyph outlines are still irrelevant. We are purely concerned with the <strong>metrics</strong>
+of a glyph. This continues into the <em>Line Breaking</em> layer, where the layout engine tries to fit sequences
+of glyphs into a paragraph box.</p>
+<figure><img src="/UAX/img/t-stack-3.png"
+         alt="Breaking a paragraph into lines" width="410px"/><figcaption>
+            <h4>Line Breaking</h4>
+        </figcaption>
+</figure>
+
+<p>Line-breaking may become very complex if unusual typography is involved (mathematical formulae,
+chemical symbols, IP-adresses, etc.), but let&rsquo;s ignore this for now. Also, let&rsquo;s ignore the possibility
+of non-rectengular paragraph frames.</p>
+<p>Older typesetting systems (e.g. TeX) treat whitespace special by substituting the whitespace-glyph by
+a flexible unit of space. This approach works for Western scripts, but for international text there are
+cases where this will fail. In those cases the space may be required for shaping. In terms of Unicode,
+<strong>UAX#14</strong> (line wrap) and <strong>UAX#29</strong> (entities of text) and <strong>UAX#51</strong> (emojis) are good candidates
+to support splitting the glyph-sequence into segments.</p>
+<p>UAX rules operate on characters, requiring the typesetter to maintain a correlation between the raw text
+and the glyph-sequences produced by the shaper.  Shapers like
+<a href="https://harfbuzz.github.io/what-does-harfbuzz-do.html">Harfbuzz</a>
+support this by providing <em>cluster</em> links. In fact, there are several szenarios during line-breaking
+where the shaper will have to be consulted again. This may even become a major performance concern
+for some applications, e.g. GUIs.</p>
+<h2 id="interaction-of-components-for-line-breaking">Interaction of Components for Line-Breaking</h2>
+<p>If you&rsquo;re still with me at this point you are probably prepared to dive even deeper. Let&rsquo;s first
+consider the easier case: treating whitespace special, like TeX and many other layout engines do.
+My view is that this is a reasonable &ldquo;fast path,&rdquo; working in many scenarios for many scripts, and
+that typesetters in general should cover this approach.</p>
+<p>Not all whitespace is created equal, and <strong>UAX#29</strong> (section &ldquo;Word boundaries&rdquo;) should help
+segmenting on spaces. The UAX#29 standard comments:</p>
+<blockquote>
+<p>Word boundaries are related to line boundaries, but are distinct: there are some word boundaries
+that are not line boundaries, and vice versa. A line boundary is usually a word boundary, but
+there are exceptions […]</p>
+</blockquote>
+<p>Note that breaking on whitespace works for many right-to-left contexts as well. How the spaces at
+the boundaries between LTR and RTL are treated is defined in <strong>UAX#9</strong>, and the typesetter has to
+respect the <em>re-ordered resolved levels</em> of the bidi algorithm.</p>
+<h4 id="strategies-for-line-breaking">Strategies for Line-Breaking</h4>
+<p>The big advantage of the breaking-on-whitespace approach is, that the shaper can be called for
+segments of text (&ldquo;words&rdquo;) one after another, and shaped segments are independent of each other as
+far as the shaper is concerned. Harfbuzz will even help typesetters by returning a &ldquo;unsafe-to-break&rdquo;
+marker, where <em>unsafe</em> means: needs re-shaping in case of breaking here.</p>
+<p>Different strategies exist for detecting feasible break-points, one of them being the &lsquo;naive&rsquo;
+algorithm of breaking as soon as the next segment does not fit a line (&ldquo;first fit&rdquo; algorithm).
+Smarter algorithms optimize less short-sighted by finding a global optimum of some loss-function
+over the whole paragraph
+(e.g., <a href="http://www.eprg.org/G53DOC/pdfs/knuth-plass-breaking.pdf">Knuth &amp; Plass</a>
+or Android&rsquo;s
+<a href="https://android.googlesource.com/platform/frameworks/minikin/+/master/libs/minikin/OptimalLineBreaker.cpp">Minikin</a>).
+K&amp;P finds and juggles more feasible break-points, possibly requiring more shaper-calls. However,
+caching shaper results will almost certainly be part of any layout engine, and the general case
+of line-breaking discussed below puts an even heavier load on the shaper-interaction.
+(Images below taken from Bram Stein&rsquo;s
+<a href="https://github.com/bramstein/typeset">typeset</a>
+project page.)</p>
+<figure><img src="/UAX/img/K&#43;P-comparison.png"
+         alt="Images of Browser versus K&amp;P paragraphs" width="500px"/><figcaption>
+            <h4>Browser vs K&amp;P Line-Breaking</h4>
+        </figcaption>
+</figure>
+
+<p>Scripts like
+<a href="https://unicode-org.github.io/icu/userguide/boundaryanalysis/#dictionary-based-breakiterator">Thai</a>
+do not usually break on whitespace, but rather within words between syllables.
+Recognizing syllables is a task neither the shaper nor a Unicode Annex will help us with.
+But there are other cases, too, where calling the shaper with fragments of text and then
+re-assembling the shaped fragments with separating whitespace is not a valid option. For the
+general case <em>incrementally growing prefixes</em> of lines have to be subjected to the shaper. These
+calls necessarily include fragments of a line already shaped in the previous call, possibly
+resulting in a lot of redundancy. K&amp;P would need even (logarithmically) more shaping calls.
+In terms of Unicode rules, <strong>UAX#14</strong> (line wrap) will support the typesetter in the general case.</p>
+<h4 id="hyphenation">Hyphenation</h4>
+<p>For some languages (like German), hyphenation is a must for good typographic results. Finding
+hyphenation opportunities may be done by
+<a href="https://www.tug.org/docs/liang/liang-thesis.pdf">Liang&rsquo;s algorithm</a>
+or by dictionary, but independent of the method used, a larger number of feasible break-points for
+line-breaking will be found than without hyphenation. However, having to insert a hyphen will
+require to <strong>re-consult the shaper</strong> for (at least) the broken word, this time calling it for each
+half of the broken word.</p>
+<figure><img src="/UAX/img/hyphenation.png"
+         alt="Comparing hyphenation-break with break on space" width="400px"/><figcaption>
+            <h4>Hyphenating la-zy</h4>
+        </figcaption>
+</figure>
+
+<p>Let&rsquo;s consider the case from above, but this time our typesetter will decide to break the line
+by hyphenating the word &ldquo;lazy.&rdquo; Prefix &ldquo;la-&rdquo; will be shaped and measured. If it fits on the line,
+breaking at the hyphen may be regarding feasible by the line-breaker (possibly depending on
+other visual constraints). As hyphenation slows down line-breaking, some typesetters first try
+laying out a paragraph without considering hyphenation, and if this cannot pass a certain
+qualitiy criteria, run a second pass with hyphens enabled.</p>
+<h4 id="re-assembling-fragments-to-lines">Re-assembling Fragments to Lines</h4>
+<p>After the typsetter has decided on the final break-points, the fragments found during line-breaking
+have to be re-assembled to produce a box for each line. If the layout requires justifying the
+paragraph left and right, lines not containing enough material to naturally fill the line will
+have to be expanded in some way. For Western languages, whitespace is the obvious candidate for
+expansion, but other options exist as well.</p>
+<p>Of special interest is Arabic script, where it&rsquo;s rather uncommon to strech whitespace. Rather a
+feature called &ldquo;<strong>kashida</strong>&rdquo; is applied (image taken from this
+<a href="https://tex.stackexchange.com/questions/532336/the-command-kashidaxbfixon-does-not-work-properly-in-xepersian">stackexchange discussion</a>).</p>
+<figure><img src="/UAX/img/kashida.png"
+         alt="Comparing line-breaks with versus without kahida" width="230px"/><figcaption>
+            <h4>Kashida</h4>
+        </figcaption>
+</figure>
+
+<p>With Kashida, letter connectors are elongated to fill excessive space.
+It has to be supported by the font in use, which must contain glyphs to do the stretching, and
+the shaper has to support it as well. In general, every line will have to be re-inspected by the shaper.
+For mixed LTR and RTL text, the typesetter has to decide on where the stretching goes.</p>
+<h2 id="show-me-the-final-output">Show me the final Output!</h2>
+<p>We covered a lot of ground, but even so had to disregard a lot of problems present in real-world
+typesetting: user-provided markup hints for formatting, vertical typesetting, ruby characters, mathematics,
+glyph alternatives in OpenType fonts, etc. But this has been a long read already, so we better
+stop and take a break.</p>
+<p>I <em>know</em> you&rsquo;re curious of how this all will end up as
+a fully typeset paragraph on a screen. However, this will be illustrated in a follow-up post,
+where we dive into the challenges of rasterization.</p>
+<p>Happy typesetting!</p>
+
+            </div>
+        </div>
+    </div>
+    <div class="column is-3">
+        <div class="card">
+    <div class="card-content">
+        <h1 class="title is-5">Tags</h1>
+        <div class="tags">
+        
+            <span class="tag"><a href="http://npillmayer.github.io/UAX/tags/bidi">bidi</a></span>
+        
+            <span class="tag"><a href="http://npillmayer.github.io/UAX/tags/graphemes">graphemes</a></span>
+        
+            <span class="tag"><a href="http://npillmayer.github.io/UAX/tags/paragraphs">paragraphs</a></span>
+        
+            <span class="tag"><a href="http://npillmayer.github.io/UAX/tags/segmentation">segmentation</a></span>
+        
+            <span class="tag"><a href="http://npillmayer.github.io/UAX/tags/strings">strings</a></span>
+        
+            <span class="tag"><a href="http://npillmayer.github.io/UAX/tags/styles">styles</a></span>
+        
+            <span class="tag"><a href="http://npillmayer.github.io/UAX/tags/terminal">terminal</a></span>
+        
+            <span class="tag"><a href="http://npillmayer.github.io/UAX/tags/text">text</a></span>
+        
+            <span class="tag"><a href="http://npillmayer.github.io/UAX/tags/typesetting">typesetting</a></span>
+        
+            <span class="tag"><a href="http://npillmayer.github.io/UAX/tags/unicode">unicode</a></span>
+        
+        </div>          
+    </div>
+</div><br>
+        <div class="card">
+    <div class="card-content">
+        <h1 class="title is-5">Recent posts</h1>
+        
+            <h1><a href="/UAX/2021/typesetting-stack/">
+								What is a Typesetting-Stack?</a></p>
+            <time class="has-text-grey-light is-size-7">20 November 2021</time>
+        
+            <h1><a href="/UAX/2021/bidi-console/">
+								Bidi: What You See isn&#39;t What You Get</a></p>
+            <time class="has-text-grey-light is-size-7">24 February 2021</time>
+        
+            <h1><a href="/UAX/2021/text-vs-strings/">
+								Text vs Strings</a></p>
+            <time class="has-text-grey-light is-size-7">16 January 2021</time>
+        
+            <h1><a href="/UAX/2020/problem-statement/">
+								The Perils of Segmenting Text</a></p>
+            <time class="has-text-grey-light is-size-7">4 December 2020</time>
+        
+    </div>
+</div>
+    
+<br>
+                
+  
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h1 class="title is-5">Related posts</h1>
+      
+      
+            <h1><a href="http://npillmayer.github.io/UAX/2021/text-vs-strings/">⋮Text⋮ ⋮vs⋮ ⋮Strings⋮</a></h1>
+            <time class="has-text-grey-light is-size-7">16 January 2021</time>
+      
+            <h1><a href="http://npillmayer.github.io/UAX/2020/problem-statement/">⋮The⋮ ⋮Per⋮ils⋮ ⋮of⋮ ⋮Seg⋮ment⋮ing⋮ ⋮Text⋮</a></h1>
+            <time class="has-text-grey-light is-size-7">4 December 2020</time>
+      
+    </div>
+</div>
+
+    
+<br>
+        <div class="card">
+    <div class="card-content">
+        <h1 class="title is-5">Archives</h1>
+        
+            <a href="http://npillmayer.github.io/UAX/archives/2021">2021</a> (3)<br>
+        
+            <a href="http://npillmayer.github.io/UAX/archives/2020">2020</a> (1)<br>
+        
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+    </div>
+</div>
+
+<footer class="footer has-background-grey-darker has-text-white">
+    <div class="content has-text-centered">
+        <p>
+            <span class="icon is-large"><a href="https://github.com/npillmayer" class="mysocial" rel="me"><i class="fab fa-github fa-3x"></i></a></span>
+            <br>
+            &copy; Norbert Pillmayer 
+            – <a class="mysocial" href="https://github.com/npillmayer">About</a>
+        </p>
+			<p style="font-size:0.8rem">
+			Header image by <a href="https://freeimages.com/photographer/herrberg-37522" class="mysocial">Rainer Berg</a>/<a href="https://freeimages.com/" class="mysocial">FreeImages</a>
+			 – Website theme by <a href="https://jeffprod.com" class="mysocial">JeffProd.com</a>
+        </p>
+    </div>
+</footer>
+
+<script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
+</body>
+</html>
