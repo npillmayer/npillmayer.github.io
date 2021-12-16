@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Themes&#39; Docs on TySE – Typesetting with Fun</title>
-    <link>http://npillmayer.github.io/TySE/docs/</link>
+    <link>https://npillmayer.github.io/TySE/docs/</link>
     <description>Recent content in Themes&#39; Docs on TySE – Typesetting with Fun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>Norbert Pillmayer</copyright><atom:link href="http://npillmayer.github.io/TySE/docs/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Norbert Pillmayer</copyright><atom:link href="https://npillmayer.github.io/TySE/docs/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
