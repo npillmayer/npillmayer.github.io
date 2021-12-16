@@ -6,10 +6,6 @@
     <description>Recent content in Categories on A Parsing Toolbox in Go</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>Norbert Pillmayer</copyright>
-    
-	<atom:link href="http://npillmayer.github.io/GoRGO/categories/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <copyright>Norbert Pillmayer</copyright><atom:link href="http://npillmayer.github.io/GoRGO/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

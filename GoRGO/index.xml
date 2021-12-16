@@ -29,15 +29,15 @@ some interesting language features in MetaPost—and we are not disappointed!&lt
 specifiy a point position, but let the computer figure out its location. Let&amp;rsquo;s take a look at an example:&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;http://npillmayer.github.io/GoRGO/GoRGO/img/MP-Example.png&#34; alt=&#34;Star drawn by MetaPost&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Don&amp;rsquo;t worry if this looks a bit like your last mathematics exam. The unique part are the lines like
-&lt;code&gt;A&#39;=whatever[A,C];&lt;/code&gt;. This is MetaPost&amp;rsquo;s way of requesting a point &lt;em&gt;A&lt;/em&gt;&amp;rsquo; to lie &lt;em&gt;somewhere&lt;/em&gt; on the
-line between points &lt;em&gt;A&lt;/em&gt; and &lt;em&gt;C&lt;/em&gt;. Given that &lt;em&gt;A&lt;/em&gt;&amp;rsquo; should lie on [&lt;em&gt;A&lt;/em&gt;,&lt;em&gt;C&lt;/em&gt; ] as well as on [&lt;em&gt;B&lt;/em&gt;,&lt;em&gt;D&lt;/em&gt; ], MetaPost
+&lt;code&gt;A&#39;=whatever[A,C];&lt;/code&gt;. This is MetaPost&amp;rsquo;s way of requesting a point &lt;em&gt;A&lt;/em&gt;&#39; to lie &lt;em&gt;somewhere&lt;/em&gt; on the
+line between points &lt;em&gt;A&lt;/em&gt; and &lt;em&gt;C&lt;/em&gt;. Given that &lt;em&gt;A&lt;/em&gt;&#39; should lie on [&lt;em&gt;A&lt;/em&gt;,&lt;em&gt;C&lt;/em&gt; ] as well as on [&lt;em&gt;B&lt;/em&gt;,&lt;em&gt;D&lt;/em&gt; ], MetaPost
 will find the intersection point by solving a set of linear equations. That&amp;rsquo;s a pretty cool feature!
 However, that&amp;rsquo;s not what I want to talk about in this post.&lt;/p&gt;
 &lt;h2 id=&#34;variables-its-complicated&#34;&gt;Variables: It&amp;rsquo;s complicated…&lt;/h2&gt;
 &lt;p&gt;The MetaPost language is designed to be somewhat reminiscent of mathematical writing. This is especially
 noticeable with its conventions for variable names. You already caught a glimpse of that with those
 primed point variables (&lt;em&gt;A&lt;/em&gt;&#39;), but that&amp;rsquo;s not the end of it. MetaPost will happily digest
-identifiers like \(z&amp;rsquo;_r\) (denoted as &lt;code&gt;z&#39;.r&lt;/code&gt;) and \(x_1\) (&lt;code&gt;x1&lt;/code&gt;). Add to this the ability to handle
+identifiers like \(z&#39;_r\) (denoted as &lt;code&gt;z&#39;.r&lt;/code&gt;) and \(x_1\) (&lt;code&gt;x1&lt;/code&gt;). Add to this the ability to handle
 fractions as numeric input, you are free to instruct MetaPost to calculate&lt;/p&gt;
 &lt;p&gt;$$-{1\over3}x_1$$&lt;/p&gt;
 &lt;p&gt;by typing &lt;code&gt;-1/3x1&lt;/code&gt;. That might not appeal to everyone, but it sure is easy to type and MetaPost
@@ -53,8 +53,8 @@ your parser to accept it, someone types in &lt;code&gt;y = 7 - - 1 / 3 x [ n - 1
 &lt;pre&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; n = 2    # pre-set subscript variable n
 &amp;gt;&amp;gt;&amp;gt; y = 7 - - 1 / 3 x [ n - 1 ]
   File &amp;quot;&amp;lt;stdin&amp;gt;&amp;quot;, line 1
-    y = 7 - - 1 / 3 x [ n - 1 ]
-                    ^
+	y = 7 - - 1 / 3 x [ n - 1 ]
+					^
 SyntaxError: invalid syntax
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;We expected that, didn&amp;rsquo;t we? The error doesn&amp;rsquo;t result from the fact that &lt;em&gt;x&lt;/em&gt; is an unknown quantity;
@@ -165,7 +165,7 @@ quick for small languages and we can afford to go through this step once per pro
 &lt;h2 id=&#34;ambiguous-grammars&#34;&gt;Ambiguous Grammars&lt;/h2&gt;
 &lt;p&gt;Conventional parser generator do not handle ambiguous grammars well. Especially for ad-hoc DSLs, however,
 grammar ambiguity is quite common. Parser which can handle these kinds of grammars have been known for
-some time, but rarely gained popularity (&lt;em&gt;bison&lt;/em&gt;&amp;lsquo;s GLR-feature is an exception to this rule and &lt;em&gt;ANTLR&lt;/em&gt; mitigates many
+some time, but rarely gained popularity (&lt;em&gt;bison&lt;/em&gt;&amp;rsquo;s GLR-feature is an exception to this rule and &lt;em&gt;ANTLR&lt;/em&gt; mitigates many
 of these problems, too). GoRGO implementes two flavors of bottom-up parsers which are able to cope with
 ambiguty: Earley parsing and GLR-parsing.&lt;/p&gt;
 &lt;p&gt;During tests for various DSL tasks I came to love Earley-parsing. Sketching out a grammar, attaching it into
