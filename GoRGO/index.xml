@@ -1,24 +1,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>A Parsing Toolbox in Go</title>
-    <link>http://npillmayer.github.io/GoRGO/</link>
+    <link>https://npillmayer.github.io/GoRGO/</link>
     <description>Recent content on A Parsing Toolbox in Go</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Norbert Pillmayer</copyright>
     <lastBuildDate>Thu, 10 Dec 2020 14:33:27 +0100</lastBuildDate>
     
-        <atom:link href="http://npillmayer.github.io/GoRGO/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://npillmayer.github.io/GoRGO/index.xml" rel="self" type="application/rss+xml" />
     
     
     
         <item>
         <title>Parsing MetaPost</title>
-        <link>http://npillmayer.github.io/GoRGO/posts/parsing-metafont/</link>
+        <link>https://npillmayer.github.io/GoRGO/posts/parsing-metafont/</link>
         <pubDate>Thu, 10 Dec 2020 14:33:27 +0100</pubDate>
         
-        <guid>http://npillmayer.github.io/GoRGO/posts/parsing-metafont/</guid>
-        <description>A Parsing Toolbox in Go http://npillmayer.github.io/GoRGO/posts/parsing-metafont/ -&lt;p&gt;These days I spend some evenings programming a variant of
+        <guid>https://npillmayer.github.io/GoRGO/posts/parsing-metafont/</guid>
+        <description>A Parsing Toolbox in Go https://npillmayer.github.io/GoRGO/posts/parsing-metafont/ -&lt;p&gt;These days I spend some evenings programming a variant of
 &lt;a href=&#34;https://www.texfaq.org/FAQ-MP&#34;&gt;MetaPost&lt;/a&gt;,
 a DSL for diagrams and illustrations. MetaPost inherits much of its syntax from
 &lt;a href=&#34;https://www.texfaq.org/FAQ-MF&#34;&gt;MetaFont&lt;/a&gt;,
@@ -27,7 +27,7 @@ some interesting language features in MetaPost—and we are not disappointed!&lt
 &lt;h2 id=&#34;what-metapost-does&#34;&gt;What MetaPost does&lt;/h2&gt;
 &lt;p&gt;MetaPost&amp;rsquo;s unique selling point is its ability to solve linear equations. In some situations, you&amp;rsquo;d rather not
 specifiy a point position, but let the computer figure out its location. Let&amp;rsquo;s take a look at an example:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://npillmayer.github.io/GoRGO/GoRGO/img/MP-Example.png&#34; alt=&#34;Star drawn by MetaPost&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://npillmayer.github.io/GoRGO/GoRGO/img/MP-Example.png&#34; alt=&#34;Star drawn by MetaPost&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Don&amp;rsquo;t worry if this looks a bit like your last mathematics exam. The unique part are the lines like
 &lt;code&gt;A&#39;=whatever[A,C];&lt;/code&gt;. This is MetaPost&amp;rsquo;s way of requesting a point &lt;em&gt;A&lt;/em&gt;&#39; to lie &lt;em&gt;somewhere&lt;/em&gt; on the
 line between points &lt;em&gt;A&lt;/em&gt; and &lt;em&gt;C&lt;/em&gt;. Given that &lt;em&gt;A&lt;/em&gt;&#39; should lie on [&lt;em&gt;A&lt;/em&gt;,&lt;em&gt;C&lt;/em&gt; ] as well as on [&lt;em&gt;B&lt;/em&gt;,&lt;em&gt;D&lt;/em&gt; ], MetaPost
@@ -104,18 +104,18 @@ scanner hack and actually resulted in an easier to read version.&lt;/p&gt;
    | &lt;strong&gt;Signed&lt;/strong&gt; ⟨&lt;em&gt;variable&lt;/em&gt; ⟩&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;(&amp;lsquo;Signed&amp;rsquo; is a number or fraction with an optional unary sign).&lt;/p&gt;
-&lt;p&gt;Up to now it works just fine. Let&amp;rsquo;s see what other curious language features await.&lt;/p&gt;- http://npillmayer.github.io/GoRGO/posts/parsing-metafont/ - Norbert Pillmayer</description>
+&lt;p&gt;Up to now it works just fine. Let&amp;rsquo;s see what other curious language features await.&lt;/p&gt;- https://npillmayer.github.io/GoRGO/posts/parsing-metafont/ - Norbert Pillmayer</description>
         </item>
     
     
     
         <item>
         <title>Why GoRGO?</title>
-        <link>http://npillmayer.github.io/GoRGO/posts/why-gorgo/</link>
+        <link>https://npillmayer.github.io/GoRGO/posts/why-gorgo/</link>
         <pubDate>Thu, 03 Dec 2020 13:54:30 +0100</pubDate>
         
-        <guid>http://npillmayer.github.io/GoRGO/posts/why-gorgo/</guid>
-        <description>A Parsing Toolbox in Go http://npillmayer.github.io/GoRGO/posts/why-gorgo/ -&lt;p&gt;Every software developer I know hates repetitive tasks. What&amp;rsquo;s the point of being a programmer if
+        <guid>https://npillmayer.github.io/GoRGO/posts/why-gorgo/</guid>
+        <description>A Parsing Toolbox in Go https://npillmayer.github.io/GoRGO/posts/why-gorgo/ -&lt;p&gt;Every software developer I know hates repetitive tasks. What&amp;rsquo;s the point of being a programmer if
 you can&amp;rsquo;t delegate your chores to a machine? And as a backend developer you are most likely open to
 the idea to employ some kind of domain specific language (DSL).
 That&amp;rsquo;s where a compiler generator may come into play. There is no shortage of them, ranging from good
@@ -173,7 +173,7 @@ an Earley parser and feeding it some sample input, all with a couple lines of co
 is a satisfying experience. In theory Earley parsing can
 severly degrade in performance, but I have yet to come across such a case in practice.
 I will talk more on Earley-parsing in a different post.&lt;/p&gt;
-&lt;p&gt;GoRGO is an ongoing experiment. Stay tuned for some real-world application stories.&lt;/p&gt;- http://npillmayer.github.io/GoRGO/posts/why-gorgo/ - Norbert Pillmayer</description>
+&lt;p&gt;GoRGO is an ongoing experiment. Stay tuned for some real-world application stories.&lt;/p&gt;- https://npillmayer.github.io/GoRGO/posts/why-gorgo/ - Norbert Pillmayer</description>
         </item>
     
     

@@ -2,45 +2,45 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on A Parsing Toolbox in Go</title>
-    <link>http://npillmayer.github.io/GoRGO/tags/</link>
+    <link>https://npillmayer.github.io/GoRGO/tags/</link>
     <description>Recent content in Tags on A Parsing Toolbox in Go</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Norbert Pillmayer</copyright>
-    <lastBuildDate>Thu, 10 Dec 2020 14:33:27 +0100</lastBuildDate><atom:link href="http://npillmayer.github.io/GoRGO/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 10 Dec 2020 14:33:27 +0100</lastBuildDate><atom:link href="https://npillmayer.github.io/GoRGO/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Earley</title>
-      <link>http://npillmayer.github.io/GoRGO/tags/earley/</link>
+      <link>https://npillmayer.github.io/GoRGO/tags/earley/</link>
       <pubDate>Thu, 10 Dec 2020 14:33:27 +0100</pubDate>
       
-      <guid>http://npillmayer.github.io/GoRGO/tags/earley/</guid>
+      <guid>https://npillmayer.github.io/GoRGO/tags/earley/</guid>
       <description></description>
     </item>
     
     <item>
       <title>MetaPost</title>
-      <link>http://npillmayer.github.io/GoRGO/tags/metapost/</link>
+      <link>https://npillmayer.github.io/GoRGO/tags/metapost/</link>
       <pubDate>Thu, 10 Dec 2020 14:33:27 +0100</pubDate>
       
-      <guid>http://npillmayer.github.io/GoRGO/tags/metapost/</guid>
+      <guid>https://npillmayer.github.io/GoRGO/tags/metapost/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Dinosaur</title>
-      <link>http://npillmayer.github.io/GoRGO/tags/dinosaur/</link>
+      <link>https://npillmayer.github.io/GoRGO/tags/dinosaur/</link>
       <pubDate>Thu, 03 Dec 2020 13:54:30 +0100</pubDate>
       
-      <guid>http://npillmayer.github.io/GoRGO/tags/dinosaur/</guid>
+      <guid>https://npillmayer.github.io/GoRGO/tags/dinosaur/</guid>
       <description></description>
     </item>
     
     <item>
       <title>LR-Parsing</title>
-      <link>http://npillmayer.github.io/GoRGO/tags/lr-parsing/</link>
+      <link>https://npillmayer.github.io/GoRGO/tags/lr-parsing/</link>
       <pubDate>Thu, 03 Dec 2020 13:54:30 +0100</pubDate>
       
-      <guid>http://npillmayer.github.io/GoRGO/tags/lr-parsing/</guid>
+      <guid>https://npillmayer.github.io/GoRGO/tags/lr-parsing/</guid>
       <description></description>
     </item>
     

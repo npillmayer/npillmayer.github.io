@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on A Parsing Toolbox in Go</title>
-    <link>http://npillmayer.github.io/GoRGO/posts/</link>
+    <link>https://npillmayer.github.io/GoRGO/posts/</link>
     <description>Recent content in Posts on A Parsing Toolbox in Go</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Norbert Pillmayer</copyright>
-    <lastBuildDate>Thu, 10 Dec 2020 14:33:27 +0100</lastBuildDate><atom:link href="http://npillmayer.github.io/GoRGO/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 10 Dec 2020 14:33:27 +0100</lastBuildDate><atom:link href="https://npillmayer.github.io/GoRGO/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Parsing MetaPost</title>
-      <link>http://npillmayer.github.io/GoRGO/posts/parsing-metafont/</link>
+      <link>https://npillmayer.github.io/GoRGO/posts/parsing-metafont/</link>
       <pubDate>Thu, 10 Dec 2020 14:33:27 +0100</pubDate>
       
-      <guid>http://npillmayer.github.io/GoRGO/posts/parsing-metafont/</guid>
+      <guid>https://npillmayer.github.io/GoRGO/posts/parsing-metafont/</guid>
       <description>&lt;p&gt;These days I spend some evenings programming a variant of
 &lt;a href=&#34;https://www.texfaq.org/FAQ-MP&#34;&gt;MetaPost&lt;/a&gt;,
 a DSL for diagrams and illustrations. MetaPost inherits much of its syntax from
@@ -24,10 +24,10 @@ some interesting language features in MetaPost—and we are not disappointed!&lt
     
     <item>
       <title>Why GoRGO?</title>
-      <link>http://npillmayer.github.io/GoRGO/posts/why-gorgo/</link>
+      <link>https://npillmayer.github.io/GoRGO/posts/why-gorgo/</link>
       <pubDate>Thu, 03 Dec 2020 13:54:30 +0100</pubDate>
       
-      <guid>http://npillmayer.github.io/GoRGO/posts/why-gorgo/</guid>
+      <guid>https://npillmayer.github.io/GoRGO/posts/why-gorgo/</guid>
       <description>&lt;p&gt;Every software developer I know hates repetitive tasks. What&amp;rsquo;s the point of being a programmer if
 you can&amp;rsquo;t delegate your chores to a machine? And as a backend developer you are most likely open to
 the idea to employ some kind of domain specific language (DSL).
