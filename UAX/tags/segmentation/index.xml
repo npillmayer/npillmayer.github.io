@@ -1,22 +1,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Segmentation on ⋮Seg⋮ment⋮ing⋮ ⋮Uni⋮code⋮</title>
-    <link>http://npillmayer.github.io/UAX/tags/segmentation/</link>
+    <link>https://npillmayer.github.io/UAX/tags/segmentation/</link>
     <description>Recent content in Segmentation on ⋮Seg⋮ment⋮ing⋮ ⋮Uni⋮code⋮</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Norbert Pillmayer</copyright>
     <lastBuildDate>Sat, 20 Nov 2021 20:18:00 +0100</lastBuildDate>
     
-        <atom:link href="http://npillmayer.github.io/UAX/tags/segmentation/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://npillmayer.github.io/UAX/tags/segmentation/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>⋮What⋮ ⋮is⋮ ⋮a⋮ ⋮Type⋮set⋮ting⋮-⋮Stack⋮?</title>
-      <link>http://npillmayer.github.io/UAX/2021/typesetting-stack/</link>
+      <link>https://npillmayer.github.io/UAX/2021/typesetting-stack/</link>
       <pubDate>Sat, 20 Nov 2021 20:18:00 +0100</pubDate>
       
-      <guid>http://npillmayer.github.io/UAX/2021/typesetting-stack/</guid>
+      <guid>https://npillmayer.github.io/UAX/2021/typesetting-stack/</guid>
       <description>The other day I had reason to think about what actually comprises a typesetting stack. Typesetting allows the documents you compiled to be read on a output medium. For this post I&amp;rsquo;ll focus on screen-output.
 Other have tried to give a systematic overview of what typesetting is. Nevertheless, I&amp;rsquo;ll jot down my own attempt, focussing on UAX, i.e. the Unicode recommendations and algorithms for various aspects of text segmentation.
 A Walk through the Layout Process It&amp;rsquo;s clear that the rules of various Unicode annexes play an important role during typsetting.</description>
@@ -24,10 +24,10 @@ A Walk through the Layout Process It&amp;rsquo;s clear that the rules of various
     
     <item>
       <title>⋮The⋮ ⋮Per⋮ils⋮ ⋮of⋮ ⋮Seg⋮ment⋮ing⋮ ⋮Text⋮</title>
-      <link>http://npillmayer.github.io/UAX/2020/problem-statement/</link>
+      <link>https://npillmayer.github.io/UAX/2020/problem-statement/</link>
       <pubDate>Fri, 04 Dec 2020 11:54:16 +0100</pubDate>
       
-      <guid>http://npillmayer.github.io/UAX/2020/problem-statement/</guid>
+      <guid>https://npillmayer.github.io/UAX/2020/problem-statement/</guid>
       <description>Breaking Unicode Text into Segments Text processing applications need to segment text into pieces. Segments may be
  words, sentences, paragraphs  and so on. For western languages this is not too hard of a problem, but it may become an involved endeavor if you consider Arabic or Asian languages. From a typographic viewpoint some of these languages present serious challenges for correct segmenting. The Unicode consortium publishes recommendations and algorithms for various aspects of text segmentation in their Unicode Annexes (UAX).</description>
     </item>

@@ -1,103 +1,103 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on ⋮Seg⋮ment⋮ing⋮ ⋮Uni⋮code⋮</title>
-    <link>http://npillmayer.github.io/UAX/tags/</link>
+    <link>https://npillmayer.github.io/UAX/tags/</link>
     <description>Recent content in Tags on ⋮Seg⋮ment⋮ing⋮ ⋮Uni⋮code⋮</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Norbert Pillmayer</copyright>
     <lastBuildDate>Sat, 20 Nov 2021 20:18:00 +0100</lastBuildDate>
     
-        <atom:link href="http://npillmayer.github.io/UAX/tags/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://npillmayer.github.io/UAX/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Bidi</title>
-      <link>http://npillmayer.github.io/UAX/tags/bidi/</link>
+      <link>https://npillmayer.github.io/UAX/tags/bidi/</link>
       <pubDate>Sat, 20 Nov 2021 20:18:00 +0100</pubDate>
       
-      <guid>http://npillmayer.github.io/UAX/tags/bidi/</guid>
+      <guid>https://npillmayer.github.io/UAX/tags/bidi/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Paragraphs</title>
-      <link>http://npillmayer.github.io/UAX/tags/paragraphs/</link>
+      <link>https://npillmayer.github.io/UAX/tags/paragraphs/</link>
       <pubDate>Sat, 20 Nov 2021 20:18:00 +0100</pubDate>
       
-      <guid>http://npillmayer.github.io/UAX/tags/paragraphs/</guid>
+      <guid>https://npillmayer.github.io/UAX/tags/paragraphs/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Segmentation</title>
-      <link>http://npillmayer.github.io/UAX/tags/segmentation/</link>
+      <link>https://npillmayer.github.io/UAX/tags/segmentation/</link>
       <pubDate>Sat, 20 Nov 2021 20:18:00 +0100</pubDate>
       
-      <guid>http://npillmayer.github.io/UAX/tags/segmentation/</guid>
+      <guid>https://npillmayer.github.io/UAX/tags/segmentation/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Typesetting</title>
-      <link>http://npillmayer.github.io/UAX/tags/typesetting/</link>
+      <link>https://npillmayer.github.io/UAX/tags/typesetting/</link>
       <pubDate>Sat, 20 Nov 2021 20:18:00 +0100</pubDate>
       
-      <guid>http://npillmayer.github.io/UAX/tags/typesetting/</guid>
+      <guid>https://npillmayer.github.io/UAX/tags/typesetting/</guid>
       <description></description>
     </item>
     
     <item>
       <title>terminal</title>
-      <link>http://npillmayer.github.io/UAX/tags/terminal/</link>
+      <link>https://npillmayer.github.io/UAX/tags/terminal/</link>
       <pubDate>Wed, 24 Feb 2021 10:00:00 +0100</pubDate>
       
-      <guid>http://npillmayer.github.io/UAX/tags/terminal/</guid>
+      <guid>https://npillmayer.github.io/UAX/tags/terminal/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Graphemes</title>
-      <link>http://npillmayer.github.io/UAX/tags/graphemes/</link>
+      <link>https://npillmayer.github.io/UAX/tags/graphemes/</link>
       <pubDate>Sat, 16 Jan 2021 10:00:00 +0100</pubDate>
       
-      <guid>http://npillmayer.github.io/UAX/tags/graphemes/</guid>
+      <guid>https://npillmayer.github.io/UAX/tags/graphemes/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Strings</title>
-      <link>http://npillmayer.github.io/UAX/tags/strings/</link>
+      <link>https://npillmayer.github.io/UAX/tags/strings/</link>
       <pubDate>Sat, 16 Jan 2021 10:00:00 +0100</pubDate>
       
-      <guid>http://npillmayer.github.io/UAX/tags/strings/</guid>
+      <guid>https://npillmayer.github.io/UAX/tags/strings/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Styles</title>
-      <link>http://npillmayer.github.io/UAX/tags/styles/</link>
+      <link>https://npillmayer.github.io/UAX/tags/styles/</link>
       <pubDate>Sat, 16 Jan 2021 10:00:00 +0100</pubDate>
       
-      <guid>http://npillmayer.github.io/UAX/tags/styles/</guid>
+      <guid>https://npillmayer.github.io/UAX/tags/styles/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Text</title>
-      <link>http://npillmayer.github.io/UAX/tags/text/</link>
+      <link>https://npillmayer.github.io/UAX/tags/text/</link>
       <pubDate>Sat, 16 Jan 2021 10:00:00 +0100</pubDate>
       
-      <guid>http://npillmayer.github.io/UAX/tags/text/</guid>
+      <guid>https://npillmayer.github.io/UAX/tags/text/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Unicode</title>
-      <link>http://npillmayer.github.io/UAX/tags/unicode/</link>
+      <link>https://npillmayer.github.io/UAX/tags/unicode/</link>
       <pubDate>Fri, 04 Dec 2020 11:54:16 +0100</pubDate>
       
-      <guid>http://npillmayer.github.io/UAX/tags/unicode/</guid>
+      <guid>https://npillmayer.github.io/UAX/tags/unicode/</guid>
       <description></description>
     </item>
     
