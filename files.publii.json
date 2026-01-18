@@ -1,0 +1,707 @@
+[
+    {
+        "path": "404.html",
+        "type": "file",
+        "md5": "68e0f3e64170372731c23441a29e90e4"
+    },
+    {
+        "path": "assets",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "assets/css",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/assets/css/editor.css",
+        "type": "file",
+        "md5": "e5909a88ba1158a79ba2dbf82d6b2d86"
+    },
+    {
+        "path": "/assets/css/main.css",
+        "type": "file",
+        "md5": "d32767aa42e3067e1e32b4d5fddfa75e"
+    },
+    {
+        "path": "/assets/css/style.css",
+        "type": "file",
+        "md5": "96b5f3ed26de54ba4369c37700844088"
+    },
+    {
+        "path": "assets/dynamic",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "assets/dynamic/fonts",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "assets/dynamic/fonts/aleo",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/assets/dynamic/fonts/aleo/aleo.woff2",
+        "type": "file",
+        "md5": "d972168af4846da95cd20803fd9e9b8b"
+    },
+    {
+        "path": "assets/js",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/assets/js/scripts.js",
+        "type": "file",
+        "md5": "bbe9995f7e2156956f75b2b1201a8dc8"
+    },
+    {
+        "path": "/assets/js/scripts.min.js",
+        "type": "file",
+        "md5": "b2d91bcadbf5db401b76eb5bb3092eb7"
+    },
+    {
+        "path": "/assets/js/svg-fix.js",
+        "type": "file",
+        "md5": "7c0d2bb7276904b382e80bf2d85e8a96"
+    },
+    {
+        "path": "/assets/js/svg-map.js",
+        "type": "file",
+        "md5": "edadc70a4de28c12ca24735b42f0f99d"
+    },
+    {
+        "path": "assets/svg",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/assets/svg/svg-map.svg",
+        "type": "file",
+        "md5": "92c2948f54b3fbcc72bd7c6755b6efea"
+    },
+    {
+        "path": "authors",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "authors/norbert-pillmayer",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/authors/norbert-pillmayer/index.html",
+        "type": "file",
+        "md5": "9353ee87914689cfe1f789e975bfbeaf"
+    },
+    {
+        "path": "feed.json",
+        "type": "file",
+        "md5": "c4945571780b9157362e753281f4246e"
+    },
+    {
+        "path": "feed.xml",
+        "type": "file",
+        "md5": "6148c0eecb5a058358524024aa32322a"
+    },
+    {
+        "path": "index.html",
+        "type": "file",
+        "md5": "6d4bc20bca6fd876951ba0a1b4c6d73f"
+    },
+    {
+        "path": "media",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "media/files",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/media/files/github-logo.png",
+        "type": "file",
+        "md5": "a622cd2901efbf920994c6996d49e983"
+    },
+    {
+        "path": "/media/files/hero-parsers.png",
+        "type": "file",
+        "md5": "2b01c633117569048780cb312dd14f3c"
+    },
+    {
+        "path": "/media/files/hero-typography-light.png",
+        "type": "file",
+        "md5": "2655cfff1fd57661fb7b0db9f47dbeeb"
+    },
+    {
+        "path": "/media/files/hero-typography.png",
+        "type": "file",
+        "md5": "72dae6c7ff0ffbab257f35aa629aa187"
+    },
+    {
+        "path": "media/plugins",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "media/plugins/featherIcons",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/media/plugins/featherIcons/feather-sprite.svg",
+        "type": "file",
+        "md5": "09960c3de0fb9233eaac720d45ab4bc5"
+    },
+    {
+        "path": "media/posts",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "media/posts/1",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/media/posts/1/GoRGO-Logo-small.png",
+        "type": "file",
+        "md5": "0fcde6460b017a1e1372c72a1fbd789a"
+    },
+    {
+        "path": "media/posts/1/responsive",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/media/posts/1/responsive/GoRGO-Logo-small-md.png",
+        "type": "file",
+        "md5": "f0197838418b69575878c1ca3e03d283"
+    },
+    {
+        "path": "/media/posts/1/responsive/GoRGO-Logo-small-sm.png",
+        "type": "file",
+        "md5": "c52a8183149dd58a33f27da196cc3ae3"
+    },
+    {
+        "path": "/media/posts/1/responsive/GoRGO-Logo-small-xl.png",
+        "type": "file",
+        "md5": "f0197838418b69575878c1ca3e03d283"
+    },
+    {
+        "path": "/media/posts/1/responsive/GoRGO-Logo-small-xs.png",
+        "type": "file",
+        "md5": "185718ca050d94a69cb77e29e37857ce"
+    },
+    {
+        "path": "media/posts/2",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/media/posts/2/TySE-Logo-black.svg",
+        "type": "file",
+        "md5": "2c1e699db4201a2d4c3ca817b3ee7d8d"
+    },
+    {
+        "path": "/media/posts/2/UAX-Logo.svg",
+        "type": "file",
+        "md5": "528d85b248970eee6ce1d16cd2dd3d8f"
+    },
+    {
+        "path": "/media/posts/2/hero-typography-light.png",
+        "type": "file",
+        "md5": "2655cfff1fd57661fb7b0db9f47dbeeb"
+    },
+    {
+        "path": "/media/posts/2/opentype-Logo-small.png",
+        "type": "file",
+        "md5": "7a337c70ec1aaff98368e1a5a2e71bc3"
+    },
+    {
+        "path": "media/posts/2/responsive",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/media/posts/2/responsive/hero-typography-light-md.png",
+        "type": "file",
+        "md5": "70586fdc76fe2afee5d1b3fcaa015177"
+    },
+    {
+        "path": "/media/posts/2/responsive/hero-typography-light-sm.png",
+        "type": "file",
+        "md5": "ce7f8ee6b6c24e49904c6277a88af0c7"
+    },
+    {
+        "path": "/media/posts/2/responsive/hero-typography-light-xl.png",
+        "type": "file",
+        "md5": "39c123c4718b09f614aee97b80dd97d3"
+    },
+    {
+        "path": "/media/posts/2/responsive/hero-typography-light-xs.png",
+        "type": "file",
+        "md5": "cb1fcdc915e0e187a7f988867c6f5f47"
+    },
+    {
+        "path": "/media/posts/2/responsive/opentype-Logo-small-md.png",
+        "type": "file",
+        "md5": "5ec2e106bd0226e097d478c7a13d6bec"
+    },
+    {
+        "path": "/media/posts/2/responsive/opentype-Logo-small-sm.png",
+        "type": "file",
+        "md5": "5ec2e106bd0226e097d478c7a13d6bec"
+    },
+    {
+        "path": "/media/posts/2/responsive/opentype-Logo-small-xl.png",
+        "type": "file",
+        "md5": "5ec2e106bd0226e097d478c7a13d6bec"
+    },
+    {
+        "path": "/media/posts/2/responsive/opentype-Logo-small-xs.png",
+        "type": "file",
+        "md5": "5ec2e106bd0226e097d478c7a13d6bec"
+    },
+    {
+        "path": "media/posts/3",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/media/posts/3/GoRGO-Logo-Text.png",
+        "type": "file",
+        "md5": "31a30fc57c4668427ccab8359ced3302"
+    },
+    {
+        "path": "/media/posts/3/hero-parsers.png",
+        "type": "file",
+        "md5": "2b01c633117569048780cb312dd14f3c"
+    },
+    {
+        "path": "/media/posts/3/pmmp.png",
+        "type": "file",
+        "md5": "2024572328ffbd90a487fe952077cdf5"
+    },
+    {
+        "path": "media/posts/3/responsive",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/media/posts/3/responsive/GoRGO-Logo-Text-md.png",
+        "type": "file",
+        "md5": "5a17b7ffff9fbb61c6f0881a3490f59c"
+    },
+    {
+        "path": "/media/posts/3/responsive/GoRGO-Logo-Text-sm.png",
+        "type": "file",
+        "md5": "23d9bb69993536af645177f001c48373"
+    },
+    {
+        "path": "/media/posts/3/responsive/GoRGO-Logo-Text-xl.png",
+        "type": "file",
+        "md5": "5a17b7ffff9fbb61c6f0881a3490f59c"
+    },
+    {
+        "path": "/media/posts/3/responsive/GoRGO-Logo-Text-xs.png",
+        "type": "file",
+        "md5": "4f3c22b9f273c35ec1db0373a990e279"
+    },
+    {
+        "path": "/media/posts/3/responsive/hero-parsers-md.png",
+        "type": "file",
+        "md5": "58ec7aab0c46f97e3bd9e7fcdff6c16c"
+    },
+    {
+        "path": "/media/posts/3/responsive/hero-parsers-sm.png",
+        "type": "file",
+        "md5": "738f95be097818cf6fc8419470c937cd"
+    },
+    {
+        "path": "/media/posts/3/responsive/hero-parsers-xl.png",
+        "type": "file",
+        "md5": "c22e9d6b856a1e6877f29f4fe22acb4d"
+    },
+    {
+        "path": "/media/posts/3/responsive/hero-parsers-xs.png",
+        "type": "file",
+        "md5": "98d0ace02db926c0d29356adb00f64f1"
+    },
+    {
+        "path": "/media/posts/3/responsive/pmmp-md.png",
+        "type": "file",
+        "md5": "ba6942beaf65f16e5e3b4d10ce01ac38"
+    },
+    {
+        "path": "/media/posts/3/responsive/pmmp-sm.png",
+        "type": "file",
+        "md5": "ba6942beaf65f16e5e3b4d10ce01ac38"
+    },
+    {
+        "path": "/media/posts/3/responsive/pmmp-xl.png",
+        "type": "file",
+        "md5": "ba6942beaf65f16e5e3b4d10ce01ac38"
+    },
+    {
+        "path": "/media/posts/3/responsive/pmmp-xs.png",
+        "type": "file",
+        "md5": "ba6942beaf65f16e5e3b4d10ce01ac38"
+    },
+    {
+        "path": "media/posts/4",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/media/posts/4/MP-Example.png",
+        "type": "file",
+        "md5": "d714648fe1c8a97cb813db7f8ec7ebf6"
+    },
+    {
+        "path": "/media/posts/4/pmmp-framed-2.png",
+        "type": "file",
+        "md5": "3dd349d46a8c0084c0ff081059e9e268"
+    },
+    {
+        "path": "media/posts/4/responsive",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/media/posts/4/responsive/MP-Example-md.png",
+        "type": "file",
+        "md5": "c35910d029b94bd7c10e688f9f1de5f2"
+    },
+    {
+        "path": "/media/posts/4/responsive/MP-Example-sm.png",
+        "type": "file",
+        "md5": "3fa550ef8caacb589af17d8b1c8f7d2a"
+    },
+    {
+        "path": "/media/posts/4/responsive/MP-Example-xl.png",
+        "type": "file",
+        "md5": "ce34b99d5f3a1781de55724c12af3fc0"
+    },
+    {
+        "path": "/media/posts/4/responsive/MP-Example-xs.png",
+        "type": "file",
+        "md5": "4228e55fe175881178107751373a22e8"
+    },
+    {
+        "path": "/media/posts/4/responsive/pmmp-framed-2-md.png",
+        "type": "file",
+        "md5": "dc755aab68c5a272bdfaa1ba162f8560"
+    },
+    {
+        "path": "/media/posts/4/responsive/pmmp-framed-2-sm.png",
+        "type": "file",
+        "md5": "dc755aab68c5a272bdfaa1ba162f8560"
+    },
+    {
+        "path": "/media/posts/4/responsive/pmmp-framed-2-xl.png",
+        "type": "file",
+        "md5": "dc755aab68c5a272bdfaa1ba162f8560"
+    },
+    {
+        "path": "/media/posts/4/responsive/pmmp-framed-2-xs.png",
+        "type": "file",
+        "md5": "dc755aab68c5a272bdfaa1ba162f8560"
+    },
+    {
+        "path": "media/posts/5",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/media/posts/5/UAX-Logo-framed-2.png",
+        "type": "file",
+        "md5": "84584089b31bbc730736a974ac71b3d0"
+    },
+    {
+        "path": "media/posts/5/responsive",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/media/posts/5/responsive/UAX-Logo-framed-2-md.png",
+        "type": "file",
+        "md5": "0dcc99be6beea11123390132ca3d03ac"
+    },
+    {
+        "path": "/media/posts/5/responsive/UAX-Logo-framed-2-sm.png",
+        "type": "file",
+        "md5": "6feb59c5e818582f69a740b3e9986ffd"
+    },
+    {
+        "path": "/media/posts/5/responsive/UAX-Logo-framed-2-xl.png",
+        "type": "file",
+        "md5": "0dcc99be6beea11123390132ca3d03ac"
+    },
+    {
+        "path": "/media/posts/5/responsive/UAX-Logo-framed-2-xs.png",
+        "type": "file",
+        "md5": "bcb8899319986b65752b95c725a56592"
+    },
+    {
+        "path": "media/posts/6",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/media/posts/6/Unicode-Bidi2.png",
+        "type": "file",
+        "md5": "3c1deb2c9320f3bbef2d1c8da1d951de"
+    },
+    {
+        "path": "media/posts/6/responsive",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/media/posts/6/responsive/Unicode-Bidi2-md.png",
+        "type": "file",
+        "md5": "44f7d840fcbbc07537f06e51417f546b"
+    },
+    {
+        "path": "/media/posts/6/responsive/Unicode-Bidi2-sm.png",
+        "type": "file",
+        "md5": "d9eb222bf0b130688abd4d6873396808"
+    },
+    {
+        "path": "/media/posts/6/responsive/Unicode-Bidi2-xl.png",
+        "type": "file",
+        "md5": "7e9099b16f33e16413ea85ae32c66887"
+    },
+    {
+        "path": "/media/posts/6/responsive/Unicode-Bidi2-xs.png",
+        "type": "file",
+        "md5": "af4efe7f37b214c90e64b8a4896d0564"
+    },
+    {
+        "path": "/media/posts/6/responsive/vte-wikipedia-2-md.png",
+        "type": "file",
+        "md5": "c76b137b7413372a034ece76f646a474"
+    },
+    {
+        "path": "/media/posts/6/responsive/vte-wikipedia-2-sm.png",
+        "type": "file",
+        "md5": "e1649c94e11fc0285dc4d00121e31a23"
+    },
+    {
+        "path": "/media/posts/6/responsive/vte-wikipedia-2-xl.png",
+        "type": "file",
+        "md5": "5ea905c1bf67f549263864a9922a543f"
+    },
+    {
+        "path": "/media/posts/6/responsive/vte-wikipedia-2-xs.png",
+        "type": "file",
+        "md5": "88c6a6386f884dcd24098a309fa8996b"
+    },
+    {
+        "path": "/media/posts/6/responsive/vte-wikipedia-md.png",
+        "type": "file",
+        "md5": "c76b137b7413372a034ece76f646a474"
+    },
+    {
+        "path": "/media/posts/6/responsive/vte-wikipedia-sm.png",
+        "type": "file",
+        "md5": "e1649c94e11fc0285dc4d00121e31a23"
+    },
+    {
+        "path": "/media/posts/6/responsive/vte-wikipedia-xl.png",
+        "type": "file",
+        "md5": "5ea905c1bf67f549263864a9922a543f"
+    },
+    {
+        "path": "/media/posts/6/responsive/vte-wikipedia-xs.png",
+        "type": "file",
+        "md5": "88c6a6386f884dcd24098a309fa8996b"
+    },
+    {
+        "path": "/media/posts/6/vte-wikipedia-2.png",
+        "type": "file",
+        "md5": "d1a6162c43ee13170946eb3b31e997a5"
+    },
+    {
+        "path": "/media/posts/6/vte-wikipedia.png",
+        "type": "file",
+        "md5": "d1a6162c43ee13170946eb3b31e997a5"
+    },
+    {
+        "path": "media/website",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/media/website/avatar.png",
+        "type": "file",
+        "md5": "e31249c06dbc673e78297482550c422e"
+    },
+    {
+        "path": "media/website/responsive",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/media/website/responsive/avatar-md.png",
+        "type": "file",
+        "md5": "2ac2615dff63fb8a546b02598f90b1c6"
+    },
+    {
+        "path": "/media/website/responsive/avatar-sm.png",
+        "type": "file",
+        "md5": "2ac2615dff63fb8a546b02598f90b1c6"
+    },
+    {
+        "path": "/media/website/responsive/avatar-xl.png",
+        "type": "file",
+        "md5": "2ac2615dff63fb8a546b02598f90b1c6"
+    },
+    {
+        "path": "/media/website/responsive/avatar-xs.png",
+        "type": "file",
+        "md5": "2ac2615dff63fb8a546b02598f90b1c6"
+    },
+    {
+        "path": "parsers-landing",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/parsers-landing/index.html",
+        "type": "file",
+        "md5": "679e7a4a834d5508bd9d12268d136c29"
+    },
+    {
+        "path": "posts",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "posts/bidi-what-you-see-isnt-what-you-get",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/posts/bidi-what-you-see-isnt-what-you-get/index.html",
+        "type": "file",
+        "md5": "d1422142699ef0d9d9ec45874a37f933"
+    },
+    {
+        "path": "/posts/index.html",
+        "type": "file",
+        "md5": "43fda189c1643e6bc66b1e5fa9547619"
+    },
+    {
+        "path": "posts/parsing-metapost",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/posts/parsing-metapost/index.html",
+        "type": "file",
+        "md5": "f8cab3a76507ae6f0c4e6d2f32dfeb48"
+    },
+    {
+        "path": "posts/the-perils-of-segmenting-text",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/posts/the-perils-of-segmenting-text/index.html",
+        "type": "file",
+        "md5": "21c42131131a8bfba4200af570fdd6e4"
+    },
+    {
+        "path": "posts/why-gorgo",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/posts/why-gorgo/index.html",
+        "type": "file",
+        "md5": "a53be0fd9c69dee7368cce665b974f1c"
+    },
+    {
+        "path": "robots.txt",
+        "type": "file",
+        "md5": "b0a2658fa67b33bf524c4beb2bb409db"
+    },
+    {
+        "path": "sitemap.xml",
+        "type": "file",
+        "md5": "f68b3dc148e7cdf5611bbea45bd8706a"
+    },
+    {
+        "path": "sitemap.xsl",
+        "type": "file",
+        "md5": "51a7bcec43fa1ef0366100d5c2edbe75"
+    },
+    {
+        "path": "tags",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "tags/graphics",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/tags/graphics/index.html",
+        "type": "file",
+        "md5": "ca117d79c79b76bde83a78189a2b35ec"
+    },
+    {
+        "path": "/tags/index.html",
+        "type": "file",
+        "md5": "489e2006a74a98ba0b3807e7916457d4"
+    },
+    {
+        "path": "tags/parsing",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/tags/parsing/index.html",
+        "type": "file",
+        "md5": "146ccd36977fc8760c0bee780a68c0f6"
+    },
+    {
+        "path": "tags/typography",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/tags/typography/index.html",
+        "type": "file",
+        "md5": "4eff35e1db9ea32cb04100d3acdacc32"
+    },
+    {
+        "path": "tags/unicode",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/tags/unicode/index.html",
+        "type": "file",
+        "md5": "081906e50bb52af0c8d545c88aa8dc60"
+    },
+    {
+        "path": "typography-landing",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/typography-landing/index.html",
+        "type": "file",
+        "md5": "ebc9b640d93b45cd286426dfe4b2aa11"
+    }
+]

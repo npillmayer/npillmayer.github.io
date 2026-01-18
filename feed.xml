@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+    <title>github.io</title>
+    <link href="https://npillmayer.github.io/feed.xml" rel="self" />
+    <link href="https://npillmayer.github.io" />
+    <updated>2026-01-18T16:28:17+01:00</updated>
+    <author>
+        <name>Norbert Pillmayer</name>
+    </author>
+    <id>https://npillmayer.github.io</id>
+
+    <entry>
+        <title>Bidi – What You See isn&#x27;t What You Get</title>
+        <author>
+            <name>Norbert Pillmayer</name>
+        </author>
+        <link href="https://npillmayer.github.io/posts/bidi-what-you-see-isnt-what-you-get/"/>
+        <id>https://npillmayer.github.io/posts/bidi-what-you-see-isnt-what-you-get/</id>
+        <media:content url="https://npillmayer.github.io/media/posts/6/Unicode-Bidi2.png" medium="image" />
+            <category term="Unicode"/>
+            <category term="Typography"/>
+
+        <updated>2021-02-24T15:31:00+01:00</updated>
+            <summary type="html">
+                <![CDATA[
+                        <img src="https://npillmayer.github.io/media/posts/6/Unicode-Bidi2.png" alt="" />
+                    I stumbled across the problem of bidirectional text in terminals while trying to test a variant of the Unicode Bidirectional Algorithm. The Unicode consortium publishes a set of bidi&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                    <p><img src="https://npillmayer.github.io/media/posts/6/Unicode-Bidi2.png" class="type:primaryImage" alt="" /></p>
+                
+  <p>
+    I stumbled across the problem of bidirectional text in terminals while trying to test a variant of the <a href="https://www.unicode.org/reports/tr9/" target="_blank" rel="nofollow noopener">Unicode Bidirectional Algorithm</a>. The Unicode consortium publishes a set of bidi test-cases, which suffer from being somewhat “non-visual”. At the end of the day you want to deal with real sentences in real languages and scripts. Preparing that, you face a peculiar problem: how do you display your test output? After all, UAX#9 is about visual ordering of characters. So we just print it to the terminal, do we? But things get confused quickly.
+  </p>
+
+    <h2 id="how-hard-can-it-be">
+      How Hard can It Be?
+    </h2>
+
+  <p>
+    Sure, terminal applications have to manage some of the messy parts of type, just as browsers do: They need fonts with glyphs for almost any foreseeable script, but restricted to monospace. Text shaping is hard, but probably less so for monospaced fonts. And at least there are no difficulties with sophisticated line breaking, complicated layout with different font sizes, graphics, etc. And bidirectional text should be a solved problem. Or is it?
+  </p>
+
+  <p>
+    Turns out for terminal emulators this is an <a href="https://terminal-wg.pages.freedesktop.org/bidi/bidi-intro/why-terminals-are-special.html" target="_blank" rel="nofollow noopener">especially tricky</a> topic!
+  </p>
+
+    <h2 id="a-conspiracy-to-not-let-you-bidi">
+      A Conspiracy to Not Let You Bidi
+    </h2>
+
+  <p>
+    I started my tests from the <a href="https://github.com/kovidgoyal/kitty" title="kitty terminal project" target="_blank" rel="nofollow noopener">kitty</a> terminal I use on MacOS. Let’s go small first, with just a single phrase in Hebrew:
+  </p>
+
+    <figure class="illustration400 post__image post__image--center">
+      <img loading="lazy" src="https://npillmayer.github.io/media/posts/6/vte-wikipedia.png" height="630" width="1238" alt="Welcome to Wikipedia (Hebrew)"  sizes="(min-width: 760px) 660px, calc(93.18vw - 30px)" srcset="https://npillmayer.github.io/media/posts/6/responsive/vte-wikipedia-xs.png 320w ,https://npillmayer.github.io/media/posts/6/responsive/vte-wikipedia-sm.png 480w ,https://npillmayer.github.io/media/posts/6/responsive/vte-wikipedia-md.png 768w ,https://npillmayer.github.io/media/posts/6/responsive/vte-wikipedia-xl.png 1024w">
+      
+    </figure>
+
+  <p>
+    This is the output of the original string, prior to any reordering logic from my test. I’ve not been surprised by the output of MacOS Terminal: obviously it recognizes Hebrew script as right-to-left (RTL) and the errorneous positioning of the ‘!’ is a result of me not specifying overall RTL context. But what about kitty? Perhaps I did get the logical (memory) representation of the phrase wrong, so let’s check by opening it in vim. Surprise: It looks different, depending on the terminal vim runs in. Strange…!
+  </p>
+
+  <p>
+    When working on bidirectional text there is a requirement for text-editors to help developers enter the logical (memory) order of characters, instead of the visual order. Unfortunately only Emacs has an option to turn off interpreting bidi (these days I program in Go on VSCode, and I’m <a href="https://github.com/microsoft/vscode/issues/83365" target="_blank" rel="nofollow noopener">not alone in my struggles</a>). But shouldn’t an editor like vim, running in a terminal’s raw mode, operate independent of what the terminal emulator considers clever behaviour for bidi? Obviously no.
+  </p>
+
+    <h2 id="the-brave-gnome">
+      The Brave Gnome
+    </h2>
+
+  <p>
+    Diving deeper, I read up on <a href="https://ecma-international.org/publications-and-standards/technical-reports/ecma-tr-53/" target="_blank" rel="nofollow noopener">attempts to standardize bidi handling</a>, including in terminal emulators. After all, the majority of the world’s population use non-Latin scripts, many of them with non-LTR writing direction. But obviously, as of today the behavious of Mac OS Terminal is the best the industry could come up with. And for good reasons: A terminal is not primarily concerned with paragraphs of text, but rather with (from a typesetting perspective) funny combinations of characters, where application of Unicode recommendations simply falls flat.
+  </p>
+
+  <p>
+    A smart guy named Egmont Koblinger, contributor to a lot of stuff around Linux terminals (joe  editor, mc  file manager, etc.), came up with a proposal for an <a href="https://terminal-wg.pages.freedesktop.org/bidi/" target="_blank" rel="nofollow noopener">updated standard</a> for bidi handling in terminals. It recommends letting applications decide whether they want implicit or explicit bidi handling, the former more or less meaning the Unicode Bidi Algorithm applied by the terminal. When writing tests for bidi yourself, you most certainly prefer explicit mode, i.e., short-curcuiting the terminal’s cleverness.
+  </p>
+
+  <p>
+    What’s best: these ideas have already been implemented in <a href="https://wiki.gnome.org/Apps(2f)Terminal(2f)VTE.html" target="_blank" rel="nofollow noopener">VTE</a>, which underlies the Gnome Terminal window. I installed VTE3 on my Mac, included some lines of code in my test to force VTE in explicit mode, and it gave me this:
+  </p>
+
+    <figure class="illustration400 post__image post__image--center">
+      <img loading="lazy" src="https://npillmayer.github.io/media/posts/6/vte-wikipedia-2.png" height="630" width="1238" alt="Hebrew on VTE"  sizes="(min-width: 760px) 660px, calc(93.18vw - 30px)" srcset="https://npillmayer.github.io/media/posts/6/responsive/vte-wikipedia-2-xs.png 320w ,https://npillmayer.github.io/media/posts/6/responsive/vte-wikipedia-2-sm.png 480w ,https://npillmayer.github.io/media/posts/6/responsive/vte-wikipedia-2-md.png 768w ,https://npillmayer.github.io/media/posts/6/responsive/vte-wikipedia-2-xl.png 1024w">
+      
+    </figure>
+
+  <p>
+    Now this made me happy 😄! VTE shows me the real thing, the characters in logical (memory) order. While this is of no use to an end-user of terminals, I consider it very valuable for application developers, at least those who have to work on the fine points of international text handling. (VTE even has you covered if your intuition about logical order is from right to left.)
+  </p>
+
+    <h2 id="wrap-up">
+      Wrap Up
+    </h2>
+
+  <p>
+    Terminals, text-editors, IDEs and web browsers all conspire to make it hard to develop and test algorithms for handling of international text. But a brave Gnome offers the best of two worlds: a level-headed implicit mode for day-to-day usage, and an explicit mode for bidi-nerds. Thank you!
+  </p>
+
+  <p>
+    I will try to wrap my learnings into a <a href="https://github.com/npillmayer/cords/tree/main/styled/formatter" target="_blank" rel="nofollow noopener">Go package</a>, but at the same time I am aware that this is a tiny niche in a programming universe dominated by web applications, where the browser is expected to do all the heavy lifting. But that’s a different story.
+  </p>
+            ]]>
+        </content>
+    </entry>
+    <entry>
+        <title>⋮The⋮ ⋮Per⋮ils⋮ ⋮of⋮ ⋮Seg⋮ment⋮ing⋮ ⋮Text⋮ </title>
+        <author>
+            <name>Norbert Pillmayer</name>
+        </author>
+        <link href="https://npillmayer.github.io/posts/the-perils-of-segmenting-text/"/>
+        <id>https://npillmayer.github.io/posts/the-perils-of-segmenting-text/</id>
+        <media:content url="https://npillmayer.github.io/media/posts/5/UAX-Logo-framed-2.png" medium="image" />
+            <category term="Unicode"/>
+            <category term="Typography"/>
+
+        <updated>2021-01-18T14:10:00+01:00</updated>
+            <summary type="html">
+                <![CDATA[
+                        <img src="https://npillmayer.github.io/media/posts/5/UAX-Logo-framed-2.png" alt="" />
+                    Text processing applications need to segment text into pieces. Segments may be word, sentences, paragraphs and so on. For western languages this is not too hard of a problem,&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                    <p><img src="https://npillmayer.github.io/media/posts/5/UAX-Logo-framed-2.png" class="type:primaryImage" alt="" /></p>
+                
+  <p>
+    Text processing applications need to segment text into pieces. Segments may be word, sentences, paragraphs and so on. For western languages this is not too hard of a problem, but it may become an involved endeavor if you consider Arabic or Asian languages. From a typographic viewpoint some of these languages present serious challenges for correct segmenting. The Unicode consortium publishes recommendations and algorithms for various aspects of text segmentation in their Unicode Annexes (UAX).
+  </p>
+
+    <h2 id="text-segmentation-in-golang">
+      Text Segmentation in Go(lang)
+    </h2>
+
+  <p>
+    There exist a number of Unicode standards describing best practices for text segmentation. Unfortunately, implementations in Go are sparse. Marcel van Lohuizen from the Go Core Team seems to be working on text segmenting, but with low priority. In the long run, it will be best to wait for the standard library to include functions for text segmentation. However, for now I will implement my own.
+  </p>
+
+    <h2 id="tradeoffs">
+      Tradeoffs
+    </h2>
+
+  <p>
+    Handling character data is often part of the inner loop of applications, requiring fast implementations. The flip side are tiring implementations, with lots and lots of boring code. This is something I learned from working on text processing: I am even more susceptible to boredom than I suspected. In the Unicode committee world there are lots of brave people involved who spend a lot of energy on getting the details right. Progress in international language processing wouldn’t be possible without them–my thanks to every single one of them.
+  </p>
+
+  <p>
+    I need a different approach, however. If your concern is all about efficiency and performance, you will probably shy away from U⋮A⋮X. I try to find a balance between performance and readability. Unicode algorithms are often stated as formal rules. Implementations in the wild usually follow these descriptions in a procedural manner, resulting in hard-to-read code for travelling back and forth in byte buffers. I won’t do that. Instead I prefer to design a programming environment which allows me to <em>put in the problem description</em> (i.e., the UAX-rules) and get a working algorithm out. Oftentimes that’s tougher and more time-consuming than a straightforward implementation–but hey!, Open Source development is about fun.
+  </p>
+            ]]>
+        </content>
+    </entry>
+    <entry>
+        <title>Why GoRGO?</title>
+        <author>
+            <name>Norbert Pillmayer</name>
+        </author>
+        <link href="https://npillmayer.github.io/posts/why-gorgo/"/>
+        <id>https://npillmayer.github.io/posts/why-gorgo/</id>
+        <media:content url="https://npillmayer.github.io/media/posts/1/GoRGO-Logo-small.png" medium="image" />
+            <category term="Parsing"/>
+
+        <updated>2021-01-02T20:28:00+01:00</updated>
+            <summary type="html">
+                <![CDATA[
+                        <img src="https://npillmayer.github.io/media/posts/1/GoRGO-Logo-small.png" alt="GoRGO Logo" />
+                    Every software developer hates repetitive tasks. What’s the point of being a programmer if you can’t delegate your chores to a machine? And as a backend developer you are&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                    <p><img src="https://npillmayer.github.io/media/posts/1/GoRGO-Logo-small.png" class="type:primaryImage" alt="GoRGO Logo" /></p>
+                
+  <p>
+    Every software developer hates repetitive tasks. What’s the point of being a programmer if you can’t delegate your chores to a machine? And as a backend developer you are most likely open to the idea to employ some kind of domain specific language (DSL). That’s where a compiler generator may come into play. There is no shortage of them, ranging from good old <em>bison</em> to <em>ANTLR</em> and various Go variants like <em>gocc</em>. Why develop another one? Because GoRGO is a little different.
+  </p>
+
+    <h3 id="what-is-it-about">
+      What is it about?
+    </h3>
+
+  <p>
+    I have used many of the aforementioned tools extensively in my life, plus a handful of situations where I’ve written recursive descent parsers by hand. All these tools have their value and I appreciate the availability of compiler-compilers with a lot of horse power. But on the other hand, sometimes I want something more compact, a smart and lightweight tool to generate an interpreter for a custom language. And I want it in native Go, as this is what I currently use for Open Source. That’s what GoRGO strives to be.
+  </p>
+
+    <h3 id="the-name">
+      The Name
+    </h3>
+
+  <p>
+    The “RGO” in GoRGO stands for <strong>R</strong>ight-derivated <strong>G</strong>rammar <strong>O</strong>perations, which may sound all gibberish to you (and I wouldn’t blame you). But there’s a hint in this name: we will focus on LR-parsing, i.e., we will construct bottom-up parsers which produce right-derivations. That’s exactly what <em>yacc</em> et al do (unlike <em>ANTLR</em>, which produces LL-parsers), so no surprise there—or is it? In fact it should be, as DSL parsers these days are implemented with PEGs most of the time. But PEGs (parser expression grammars) are top-down, so why opt for bottom-up parsing?
+  </p>
+<div><div class="sidebox"><h5>Gorgosaurus</h5><p>Gorgo⋅saurus (<em>fierce lizard </em>) was not quite as big or famous as Tyrannosaurus Rex, but dangerous nevertheless. It lived some 75 million years ago in Northern America, <strong>eating anything</strong> it came across. We will meet its cousin T-Rex again when we'll talk about TeREx, a term rewriter.&nbsp;</p></aside></div>
+
+  <p>
+    PEG parsers have a number of disadvantages for the careless user—which includes myself. Although I love their simplicity, they lack a certain foolproofness which I expect for ad-hoc DSLs. Most ad-hoc grammars people write contain <em>ambiguous rules</em>, and PEGs hide ambiguity rather than resolving it. On the other hand, we do not want programmers to have to fix shift|reduce-conflicts and the like. The tool should just eat my grammar! Therefore we revert to LR-parsers, acknowledging the fact that we have to convince the parser to not be so tough on its users.
+  </p>
+
+    <h3 id="no-code-generation">
+      No Code Generation
+    </h3>
+
+  <p>
+    Parser generators (compiler compilers) usually generate source code. That’s often a good idea, as many of these tools can handle a multitude of host-languages. Moreover, Go has a mechanism for preprocessing and code-generation (<code>go-generate</code>) which is well suited for parser generators. However, for small DSLs I prefer to skip a code-generation step and rather create the parser in place and immediately run it.
+  </p>
+
+  <p>
+    Digesting the grammar is always the first step. This results in a bunch of <em>LR parse tables</em>. Instead of saving these tables as source code into a file, we keep them in memory and provide them to a parser. Table generation is quick for small languages and we usually can afford to go through this step once per program execution.
+  </p>
+
+    <h3 id="ambiguous-grammars">
+      Ambiguous Grammars
+    </h3>
+
+  <p>
+    Conventional parser generator do not handle ambiguous grammars well. Especially for ad-hoc DSLs, however, grammar ambiguity is quite common. Parser which can handle these kinds of grammars have been known for some time, but rarely gained popularity (<em>bison’s</em> GLR-feature is an exception to this rule and <em>ANTLR</em> mitigates many of these problems, too). GoRGO implementes two flavors of bottom-up parsers which are able to cope with ambiguty: Earley parsing and GLR-parsing.
+  </p>
+
+  <p>
+    During tests for various DSL tasks I came to love Earley-parsing. Sketching out a grammar, attaching it into an Earley parser and feeding it some sample input, all with a couple lines of code, is a satisfying experience. In theory Earley parsing can severly degrade in performance, but I have yet to come across such a case in practice. I will talk more on Earley-parsing in a different post.
+  </p>
+
+  <p>
+    GoRGO is an ongoing experiment. Stay tuned for some real-world application stories.
+  </p>
+            ]]>
+        </content>
+    </entry>
+    <entry>
+        <title>Parsing MetaPost</title>
+        <author>
+            <name>Norbert Pillmayer</name>
+        </author>
+        <link href="https://npillmayer.github.io/posts/parsing-metapost/"/>
+        <id>https://npillmayer.github.io/posts/parsing-metapost/</id>
+        <media:content url="https://npillmayer.github.io/media/posts/4/pmmp-framed-2.png" medium="image" />
+            <category term="Parsing"/>
+            <category term="Graphics"/>
+
+        <updated>2020-12-10T11:40:00+01:00</updated>
+            <summary type="html">
+                <![CDATA[
+                        <img src="https://npillmayer.github.io/media/posts/4/pmmp-framed-2.png" alt="" />
+                    These days I spend some evenings programming a variant of MetaPost, a DSL for diagrams and illustrations. MetaPost inherits much of its syntax from MetaFont, which has been designed&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                    <p><img src="https://npillmayer.github.io/media/posts/4/pmmp-framed-2.png" class="type:primaryImage" alt="" /></p>
+                <p>These days I spend some evenings programming a variant of <a target="_blank" rel="nofollow noopener noreferrer">MetaPost</a>, a DSL for diagrams and illustrations. MetaPost inherits much of its syntax from <a href="https://www.texfaq.org/FAQ-MF" target="_blank" rel="nofollow noopener noreferrer">MetaFont</a>, which has been designed by D. E. Knuth. Mr Knuth is the “father of LR-parsing,” so one would expect some interesting language features in MetaPost—and we are not disappointed!</p>
+<h2>What MetaPost does</h2>
+<p>MetaPost’s unique selling point is its ability to solve linear equations. In some situations, you’d rather not specifiy a point position, but let the computer figure out its location. Let’s take a look at an example:</p>
+<figure class="post__image post__image--center"><img loading="lazy"  src="https://npillmayer.github.io/media/posts/4/MP-Example.png" alt="MetaPost code example" width="1722" height="920" sizes="(min-width: 760px) 660px, calc(93.18vw - 30px)" srcset="https://npillmayer.github.io/media/posts/4/responsive/MP-Example-xs.png 320w ,https://npillmayer.github.io/media/posts/4/responsive/MP-Example-sm.png 480w ,https://npillmayer.github.io/media/posts/4/responsive/MP-Example-md.png 768w ,https://npillmayer.github.io/media/posts/4/responsive/MP-Example-xl.png 1024w"></figure>
+<p>Don’t worry if this looks a bit like your last mathematics exam. The unique part are the lines like <code>A'=whatever[A,C];</code>. This is MetaPost’s way of requesting a point <em>A</em>' to lie <em>somewhere</em> on the line between points <em>A</em> and <em>C</em>. Given that <em>A</em>' should lie on [<em>A</em>,<em>C</em> ] as well as on [<em>B</em>,<em>D</em> ], MetaPost will find the intersection point by solving a set of linear equations. That’s a pretty cool feature! However, we will talk about MetaPost's features in another post.</p>
+<h2 id="variables-its-complicated">Variables: It’s complicated…</h2>
+<p>The MetaPost language is designed to be somewhat reminiscent of mathematical writing. This is especially noticeable with its conventions for variable names. You already caught a glimpse of that with those primed point variables (<em>A</em>'), but that’s not the end of it. MetaPost will happily digest identifiers like <span class="katex"><span class="katex-mathml">zr′</span><span class="katex-html" aria-hidden="true"><span class="base"><span class="mord"><span class="mord mathnormal">z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"><span class=""><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">r</span></span></span><span class=""><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">′</span></span></span></span><span class="vlist-s">​</span></span></span></span></span></span></span></span> (denoted as <code>z'.r</code>) and <span class="katex"><span class="katex-mathml">x1</span><span class="katex-html" aria-hidden="true"><span class="base"><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"><span class=""><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span></span></span></span></span></span></span> (<code>x1</code>). Add to this the ability to handle fractions as numeric input, you are free to instruct MetaPost to calculate</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml">−13x1</span><span class="katex-html" aria-hidden="true"><span class="base"><span class="mord">−</span><span class="mord"><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"><span class="">3</span><span class="">1</span></span><span class="vlist-s">​</span></span></span></span></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"><span class=""><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span></span></span></span></span></span></span></span></p>
+<p>by typing <code>-1/3x1</code>. That might not appeal to everyone, but it sure is easy to type and MetaPost will usually understand what you had in mind.</p>
+<p>Those variable names look innocent enough, but from a parser’s point they carry slightly different semantics than with other programming languages. Let’s consider the input <code>7 - -a1r</code>. By now you propably could guess that this means “<span class="katex"><span class="katex-mathml">7−−a1r</span><span class="katex-html" aria-hidden="true"><span class="base"><span class="mord">7</span><span class="mbin">−</span></span><span class="base"><span class="mord">−</span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"><span class=""><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1<span class="mord mathnormal mtight">r</span></span></span></span></span><span class="vlist-s">​</span></span></span></span></span></span></span></span>.” Setting aside that you should enclose the second term in parenthesis anyway, put yourself in the shoes of the parser: it will see a sequence of tokens like <code>7 - - a 1 r</code>. And just when you successfully taught your parser to accept it, someone types in <code>y = 7 - - 1 / 3 x [ n - 1 ]</code>, intending to express the equation</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml">y=7−−13xn−1</span><span class="katex-html" aria-hidden="true"><span class="base"><span class="mord mathnormal">y</span><span class="mrel">=</span></span><span class="base"><span class="mord">7</span><span class="mbin">−</span></span><span class="base"><span class="mord">−</span><span class="mord"><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"><span class="">3</span><span class="">1</span></span><span class="vlist-s">​</span></span></span></span></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"><span class=""><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mbin mtight">−</span>1</span></span></span></span><span class="vlist-s">​</span></span></span></span></span></span></span></span></span></p>
+<p>Let’s try with Python:</p>
+<pre><code>&gt;&gt;&gt; n = 2    # pre-set subscript variable n
+<br> &gt;&gt;&gt; y = 7 - - 1 / 3 x [ n - 1 ]
+  File "&lt;stdin&gt;", line 1
+	y = 7 - - 1 / 3 x [ n - 1 ]
+					^
+SyntaxError: invalid syntax
+</code></pre>
+<p>We expected that, didn’t we? The error doesn’t result from the fact that <em>x</em> is an unknown quantity; it’s just that Python cannot handle the syntax: it misses a ‘<span style="color: #e67e23;"><strong>*</strong></span>’ before the <em>x</em>. Now let’s have MetaPost a go:</p>
+<pre><code>This is MetaPost, version 1.999
+**\relax
+*n:=2;  % pre-set subscript variable n
+*y = 7 - - 1 / 3 x [ n - 1 ];
+*show y;
+&gt;&gt; 0.33333x1+7
+</code></pre>
+<p>The last line is MetaPost’s way of telling us that variable <em>y</em> is dependent on <span class="katex"><span class="katex-mathml">x1</span><span class="katex-html" aria-hidden="true"><span class="base"><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"><span class=""><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span></span></span></span></span></span></span>, which is of unknown value yet. It is worth noting that <code>[n-1]</code> is not your usual array indexing, but rather the “generation” of a mathematical subscript. Just for fun, create an irrational subscript:</p>
+<p> </p>
+            ]]>
+        </content>
+    </entry>
+</feed>

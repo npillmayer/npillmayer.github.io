@@ -1,9 +1,0 @@
-@font-face {
-  font-family: 'TySE-Logo';
-  src: url("https://npillmayer.github.io/TySE/fonts/TySELogo-Regular.otf") format("opentype");
-}
-
-.tyse {
-  font-family: 'TySE-Logo';
-  /* color: red; background-color: blue; */
-}
