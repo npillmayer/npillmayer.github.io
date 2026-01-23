@@ -2,7 +2,7 @@
     {
         "path": "404.html",
         "type": "file",
-        "md5": "68e0f3e64170372731c23441a29e90e4"
+        "md5": "fe7c1c012d7a53ba4496507fcb278ab4"
     },
     {
         "path": "assets",
@@ -97,22 +97,22 @@
     {
         "path": "/authors/norbert-pillmayer/index.html",
         "type": "file",
-        "md5": "9353ee87914689cfe1f789e975bfbeaf"
+        "md5": "569730ea8aa1f5db22a5720328b579da"
     },
     {
         "path": "feed.json",
         "type": "file",
-        "md5": "c4945571780b9157362e753281f4246e"
+        "md5": "f65df2acbf97daf78f6e21bf729cdcdb"
     },
     {
         "path": "feed.xml",
         "type": "file",
-        "md5": "6148c0eecb5a058358524024aa32322a"
+        "md5": "33d1b9a1b90203e298d869d96a99cc28"
     },
     {
         "path": "index.html",
         "type": "file",
-        "md5": "6d4bc20bca6fd876951ba0a1b4c6d73f"
+        "md5": "35a44306792d16e5c8ca7803c2a5ff8f"
     },
     {
         "path": "media",
@@ -577,7 +577,7 @@
     {
         "path": "/parsers-landing/index.html",
         "type": "file",
-        "md5": "679e7a4a834d5508bd9d12268d136c29"
+        "md5": "9600d89f66cd28bfd4b0349bb4f99cef"
     },
     {
         "path": "posts",
@@ -592,12 +592,12 @@
     {
         "path": "/posts/bidi-what-you-see-isnt-what-you-get/index.html",
         "type": "file",
-        "md5": "d1422142699ef0d9d9ec45874a37f933"
+        "md5": "9f32811df1fbe07b626d2ff5155fd262"
     },
     {
         "path": "/posts/index.html",
         "type": "file",
-        "md5": "43fda189c1643e6bc66b1e5fa9547619"
+        "md5": "a20fa725ad7cf7a3f12fa7e516a69952"
     },
     {
         "path": "posts/parsing-metapost",
@@ -607,7 +607,7 @@
     {
         "path": "/posts/parsing-metapost/index.html",
         "type": "file",
-        "md5": "f8cab3a76507ae6f0c4e6d2f32dfeb48"
+        "md5": "6d3278ab2b184053125e6aa17e14720e"
     },
     {
         "path": "posts/the-perils-of-segmenting-text",
@@ -617,7 +617,7 @@
     {
         "path": "/posts/the-perils-of-segmenting-text/index.html",
         "type": "file",
-        "md5": "21c42131131a8bfba4200af570fdd6e4"
+        "md5": "f159ecacab42ed5c4e541c416bcf38cc"
     },
     {
         "path": "posts/why-gorgo",
@@ -627,7 +627,7 @@
     {
         "path": "/posts/why-gorgo/index.html",
         "type": "file",
-        "md5": "a53be0fd9c69dee7368cce665b974f1c"
+        "md5": "fb5ac8880597e2ef4da9967d68e6ab40"
     },
     {
         "path": "robots.txt",
@@ -637,7 +637,7 @@
     {
         "path": "sitemap.xml",
         "type": "file",
-        "md5": "f68b3dc148e7cdf5611bbea45bd8706a"
+        "md5": "338e9c53e82c1d56cb1b2faa43c0ae56"
     },
     {
         "path": "sitemap.xsl",
@@ -657,12 +657,12 @@
     {
         "path": "/tags/graphics/index.html",
         "type": "file",
-        "md5": "ca117d79c79b76bde83a78189a2b35ec"
+        "md5": "03abfb7e942889d0806c320a7f088ad3"
     },
     {
         "path": "/tags/index.html",
         "type": "file",
-        "md5": "489e2006a74a98ba0b3807e7916457d4"
+        "md5": "eaeded05be76e80b520bf964807ace83"
     },
     {
         "path": "tags/parsing",
@@ -672,7 +672,7 @@
     {
         "path": "/tags/parsing/index.html",
         "type": "file",
-        "md5": "146ccd36977fc8760c0bee780a68c0f6"
+        "md5": "a93c32023d5622bb1b048b19ced4b1de"
     },
     {
         "path": "tags/typography",
@@ -682,7 +682,7 @@
     {
         "path": "/tags/typography/index.html",
         "type": "file",
-        "md5": "4eff35e1db9ea32cb04100d3acdacc32"
+        "md5": "edcf862a69993bab51c54e749b844c70"
     },
     {
         "path": "tags/unicode",
@@ -692,7 +692,7 @@
     {
         "path": "/tags/unicode/index.html",
         "type": "file",
-        "md5": "081906e50bb52af0c8d545c88aa8dc60"
+        "md5": "04c1d1c748055e2b8ce95bb69d406923"
     },
     {
         "path": "typography-landing",
@@ -702,6 +702,6 @@
     {
         "path": "/typography-landing/index.html",
         "type": "file",
-        "md5": "ebc9b640d93b45cd286426dfe4b2aa11"
+        "md5": "91aa75a72627dc11184d2f9b7ca72a8b"
     }
 ]
